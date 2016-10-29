@@ -24,7 +24,7 @@ namespace ShoppingCart
         public string username { get; set; }
         public string NAME { get; set; }
         public Nullable<int> age { get; set; }
-        public string address { get; set; }
+        public string user_address { get; set; }
         public Nullable<int> phonenumber { get; set; }
         public Nullable<int> roleid { get; set; }
     

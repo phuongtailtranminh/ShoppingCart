@@ -20,10 +20,11 @@ CREATE TABLE [user]
      username    NVARCHAR(255) NOT NULL, 
      NAME        NVARCHAR(255), 
      age         INT, 
-     address     NVARCHAR(255), 
+     user_address     NVARCHAR(255), 
      phonenumber INT, 
      roleid      INT, 
-     FOREIGN KEY (roleid) REFERENCES role(id) 
+     FOREIGN KEY (roleid) REFERENCES role(id)
+	 ON DELETE CASCADE
   ); 
 
 go 
