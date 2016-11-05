@@ -35,8 +35,14 @@
                                 title: 'Username',
                                 width: '5%'
                             },
-                            NAME: {
+                            name: {
                                 title: 'Name',
+                            },
+                            password:{
+                                title: 'Password',
+                                type: 'password',
+                                list: false
+                
                             },
                             user_address: {
                                 title: 'Address',
@@ -47,6 +53,18 @@
                             phonenumber: {
                                 title: 'Phone Number',
                             },
+                            roleName: {
+                                title: 'Role Name',
+                                edit: false
+                            },
+                            roleid: {
+                                title: "Role Name",
+                                options: {
+                                    '2': 'Admin',
+                                    '1': 'User',
+                                },
+                                list: false
+                            }
                         }
                     });
 

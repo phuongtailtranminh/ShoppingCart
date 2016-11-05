@@ -17,15 +17,7 @@ namespace ShoppingCart
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public product()
         {
-            this.orders = new HashSet<order>();
-            this.chips = new HashSet<chip>();
-            this.cpus = new HashSet<cpu>();
-            this.harddrives = new HashSet<harddrive>();
-            this.mainboards = new HashSet<mainboard>();
-            this.monitors = new HashSet<monitor>();
-            this.powers = new HashSet<power>();
-            this.rams = new HashSet<ram>();
-            this.vgas = new HashSet<vga>();
+            this.orderproducts = new HashSet<orderproduct>();
         }
     
         public int id { get; set; }
@@ -33,24 +25,18 @@ namespace ShoppingCart
         public Nullable<int> quantity { get; set; }
         public string imageurl { get; set; }
         public string description { get; set; }
+        public string chip { get; set; }
+        public string ram { get; set; }
+        public string monitor { get; set; }
+        public string harddrive { get; set; }
+        public string power { get; set; }
+        public string mainboard { get; set; }
+        public string vga { get; set; }
+        public string cpu { get; set; }
+        public Nullable<int> brandid { get; set; }
     
+        public virtual brand brand { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<order> orders { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<chip> chips { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<cpu> cpus { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<harddrive> harddrives { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<mainboard> mainboards { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<monitor> monitors { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<power> powers { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ram> rams { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<vga> vgas { get; set; }
+        public virtual ICollection<orderproduct> orderproducts { get; set; }
     }
 }

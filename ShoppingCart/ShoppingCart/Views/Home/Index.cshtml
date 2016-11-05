@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -10,7 +9,7 @@
 <div id="hero" class="home-page-slider4">
     <div id="owl-main" class="owl-carousel silder4 owl-inner-nav owl-ui-sm">
 
-        <div class="item" style="background-image: url(assets/images/sliders/2.jpg);">
+        <div class="item" style="background-image: url(img2/slidermacbook.jpg);">
             <div class="container-fluid">
                 <div class="caption vertical-center text-left">
                     <div class="big-text fadeInDown-1">
@@ -34,7 +33,7 @@
         </div>
         <!-- /.item -->
 
-        <div class="item" style="background-image: url(assets/images/sliders/2.jpg);">
+        <div class="item" style="background-image: url(img2/macbook.jpg);">
             <div class="container-fluid">
                 <div class="caption vertical-center text-left">
                     <div class="big-text fadeInDown-1">
@@ -58,7 +57,7 @@
         </div>
         <!-- /.item -->
 
-        <div class="item" style="background-image: url(assets/images/sliders/2.jpg);">
+        <div class="item" style="background-image: url(img2/slidermacbook.jpg);">
             <div class="container-fluid">
                 <div class="caption vertical-center text-left">
                     <div class="big-text fadeInDown-1">
@@ -82,7 +81,7 @@
         </div>
         <!-- /.item -->
 
-        <div class="item" style="background-image: url(assets/images/sliders/2.jpg);">
+        <div class="item" style="background-image: url(img2/macbook23.jpg);">
             <div class="container-fluid">
                 <div class="caption vertical-center text-left">
                     <div class="big-text fadeInDown-1">
@@ -132,7 +131,7 @@
             <div class="col-md-4">
                 <div class="wide-banner cnt-strip">
                     <div class="image">
-                        <img class="img-responsive" data-echo="assets/images/banners/8.jpg" src="assets/images/blank.gif" alt="">
+                        <img class="img-responsive" data-echo="img2/iphone6.jpg" src="assets/images/blank.gif" alt="">
                     </div>
                     <div class="strip">
                         <div class="strip-inner">
@@ -149,7 +148,7 @@
             <div class="col-md-4">
                 <div class="wide-banner cnt-strip">
                     <div class="image">
-                        <img class="img-responsive" data-echo="assets/images/banners/9.jpg" src="assets/images/blank.gif" alt="">
+                        <img class="img-responsive" data-echo="img2/shopman.jpg" src="assets/images/blank.gif" alt="">
                     </div>
                     <div class="strip">
                         <div class="strip-inner text-center">
@@ -165,7 +164,7 @@
             <div class="col-md-4">
                 <div class="wide-banner cnt-strip">
                     <div class="image">
-                        <img class="img-responsive" data-echo="assets/images/banners/10.jpg" src="assets/images/blank.gif" alt="">
+                        <img class="img-responsive" data-echo="img2/sale.jpg" src="assets/images/blank.gif" alt="">
                     </div>
                     <div class="strip">
                         <div class="strip-inner text-center">
@@ -186,7 +185,7 @@
     <!-- /.wide-banners -->
     <!-- ============================================== WIDE PRODUCTS : END ============================================== -->
     <!-- ============================================== SCROLL TABS ============================================== -->
-    <div id="product-tabs-slider" class="scroll-tabs outer-top-vs wow fadeInUp">
+    <div id="product-tabs-slider" class="scroll-tabs outer-top-vs wow fadeInUp" >
         <div class="more-info-tab clearfix ">
             <h3 class="new-product-title pull-left">New Products</h3>
             <ul class="nav nav-tabs nav-tab-line pull-right" id="new-products-1">
@@ -198,18 +197,19 @@
             <!-- /.nav-tabs -->
         </div>
 
-        <div class="tab-content outer-top-xs">
-            <div class="tab-pane in active" id="all">
-                <div class="product-slider">
-                    <div class="owl-carousel home-owl-carousel custom-carousel owl-theme" data-item="5">
-
-                        <div class="item item-carousel">
+        <div class="tab-content outer-top-xs" >
+            <div class="tab-pane in active" id="all" >
+                <div class="product-slider" >
+                    <div class="owl-carousel home-owl-carousel custom-carousel owl-theme" data-item="5" >
+                         @foreach (var item in Model )
+                        {
+                        <div class="item item-carousel" >
                             <div class="products">
 
                                 <div class="product">
                                     <div class="product-image">
                                         <div class="image">
-                                            <a href="detail.html"><img src="assets/images/blank.gif" data-echo="assets/images/products/h2-6.jpg" alt=""></a>
+                                            <a href="/ShowDetailsProduct/Index/@item.id"><img src="img2/macbook2.jpg"   data-echo="img2/macbook2.jpg" alt=""></a>
                                         </div>
                                         <!-- /.image -->
 
@@ -219,9 +219,9 @@
 
 
                                     <div class="product-info text-left">
-                                        <h3 class="name"><a href="detail.html">Apple Iphone 5s 32GB</a></h3>
+                                        <h3 class="name"><a href="@Url.Action("Index","ShowDetailsProduct")">@item.NAME</a></h3>
                                         <div class="rating rateit-small"></div>
-                                        <div class="description"></div>
+                                        <div class="description">@item.brand.name</div>
 
                                         <div class="product-price">
                                             <span class="price">
@@ -268,420 +268,24 @@
                             <!-- /.products -->
                         </div>
                         <!-- /.item -->
-
-                        <div class="item item-carousel">
-                            <div class="products">
-
-                                <div class="product">
-                                    <div class="product-image">
-                                        <div class="image">
-                                            <a href="detail.html"><img src="assets/images/blank.gif" data-echo="assets/images/products/h2-4.jpg" alt=""></a>
-                                        </div>
-                                        <!-- /.image -->
-
-                                        <div class="tag hot"><span>hot</span></div>
-                                    </div>
-                                    <!-- /.product-image -->
-
-
-                                    <div class="product-info text-left">
-                                        <h3 class="name"><a href="detail.html">Apple Iphone 5s 32GB</a></h3>
-                                        <div class="rating rateit-small"></div>
-                                        <div class="description"></div>
-
-                                        <div class="product-price">
-                                            <span class="price">
-                                                $650.99
-                                            </span>
-                                            <span class="price-before-discount">$ 800</span>
-
-                                        </div>
-                                        <!-- /.product-price -->
-
-                                    </div>
-                                    <!-- /.product-info -->
-                                    <div class="cart clearfix animate-effect">
-                                        <div class="action">
-                                            <ul class="list-unstyled">
-                                                <li class="add-cart-button btn-group">
-                                                    <button class="btn btn-primary icon" data-toggle="dropdown" type="button">
-                                                        <i class="fa fa-shopping-cart"></i>
-                                                    </button>
-                                                    <button class="btn btn-primary" type="button">Add to cart</button>
-
-                                                </li>
-
-                                                <li class="lnk wishlist">
-                                                    <a class="add-to-cart" href="detail.html" title="Wishlist">
-                                                        <i class="icon fa fa-heart"></i>
-                                                    </a>
-                                                </li>
-
-                                                <li class="lnk">
-                                                    <a class="add-to-cart" href="detail.html" title="Compare">
-                                                        <i class="fa fa-retweet"></i>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <!-- /.action -->
-                                    </div>
-                                    <!-- /.cart -->
-                                </div>
-                                <!-- /.product -->
-
-                            </div>
-                            <!-- /.products -->
-                        </div>
-                        <!-- /.item -->
-
-                        <div class="item item-carousel">
-                            <div class="products">
-
-                                <div class="product">
-                                    <div class="product-image">
-                                        <div class="image">
-                                            <a href="detail.html"><img src="assets/images/blank.gif" data-echo="assets/images/products/h2-3.jpg" alt=""></a>
-                                        </div>
-                                        <!-- /.image -->
-
-                                        <div class="tag sale"><span>sale</span></div>
-                                    </div>
-                                    <!-- /.product-image -->
-
-
-                                    <div class="product-info text-left">
-                                        <h3 class="name"><a href="detail.html">Samsung Galaxy S4</a></h3>
-                                        <div class="rating rateit-small"></div>
-                                        <div class="description"></div>
-
-                                        <div class="product-price">
-                                            <span class="price">
-                                                $650.99
-                                            </span>
-                                            <span class="price-before-discount">$ 800</span>
-
-                                        </div>
-                                        <!-- /.product-price -->
-
-                                    </div>
-                                    <!-- /.product-info -->
-                                    <div class="cart clearfix animate-effect">
-                                        <div class="action">
-                                            <ul class="list-unstyled">
-                                                <li class="add-cart-button btn-group">
-                                                    <button class="btn btn-primary icon" data-toggle="dropdown" type="button">
-                                                        <i class="fa fa-shopping-cart"></i>
-                                                    </button>
-                                                    <button class="btn btn-primary" type="button">Add to cart</button>
-
-                                                </li>
-
-                                                <li class="lnk wishlist">
-                                                    <a class="add-to-cart" href="detail.html" title="Wishlist">
-                                                        <i class="icon fa fa-heart"></i>
-                                                    </a>
-                                                </li>
-
-                                                <li class="lnk">
-                                                    <a class="add-to-cart" href="detail.html" title="Compare">
-                                                        <i class="fa fa-retweet"></i>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <!-- /.action -->
-                                    </div>
-                                    <!-- /.cart -->
-                                </div>
-                                <!-- /.product -->
-
-                            </div>
-                            <!-- /.products -->
-                        </div>
-                        <!-- /.item -->
-
-                        <div class="item item-carousel">
-                            <div class="products">
-
-                                <div class="product">
-                                    <div class="product-image">
-                                        <div class="image">
-                                            <a href="detail.html"><img src="assets/images/blank.gif" data-echo="assets/images/products/h2-5.jpg" alt=""></a>
-                                        </div>
-                                        <!-- /.image -->
-
-                                        <div class="tag sale"><span>sale</span></div>
-                                    </div>
-                                    <!-- /.product-image -->
-
-
-                                    <div class="product-info text-left">
-                                        <h3 class="name"><a href="detail.html">Sony Ericson Vaga</a></h3>
-                                        <div class="rating rateit-small"></div>
-                                        <div class="description"></div>
-
-                                        <div class="product-price">
-                                            <span class="price">
-                                                $650.99
-                                            </span>
-                                            <span class="price-before-discount">$ 800</span>
-
-                                        </div>
-                                        <!-- /.product-price -->
-
-                                    </div>
-                                    <!-- /.product-info -->
-                                    <div class="cart clearfix animate-effect">
-                                        <div class="action">
-                                            <ul class="list-unstyled">
-                                                <li class="add-cart-button btn-group">
-                                                    <button class="btn btn-primary icon" data-toggle="dropdown" type="button">
-                                                        <i class="fa fa-shopping-cart"></i>
-                                                    </button>
-                                                    <button class="btn btn-primary" type="button">Add to cart</button>
-
-                                                </li>
-
-                                                <li class="lnk wishlist">
-                                                    <a class="add-to-cart" href="detail.html" title="Wishlist">
-                                                        <i class="icon fa fa-heart"></i>
-                                                    </a>
-                                                </li>
-
-                                                <li class="lnk">
-                                                    <a class="add-to-cart" href="detail.html" title="Compare">
-                                                        <i class="fa fa-retweet"></i>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <!-- /.action -->
-                                    </div>
-                                    <!-- /.cart -->
-                                </div>
-                                <!-- /.product -->
-
-                            </div>
-                            <!-- /.products -->
-                        </div>
-                        <!-- /.item -->
-
-                        <div class="item item-carousel">
-                            <div class="products">
-
-                                <div class="product">
-                                    <div class="product-image">
-                                        <div class="image">
-                                            <a href="detail.html"><img src="assets/images/blank.gif" data-echo="assets/images/products/h2-6.jpg" alt=""></a>
-                                        </div>
-                                        <!-- /.image -->
-
-                                        <div class="tag new"><span>new</span></div>
-                                    </div>
-                                    <!-- /.product-image -->
-
-
-                                    <div class="product-info text-left">
-                                        <h3 class="name"><a href="detail.html">Apple Iphone 5s 32GB</a></h3>
-                                        <div class="rating rateit-small"></div>
-                                        <div class="description"></div>
-
-                                        <div class="product-price">
-                                            <span class="price">
-                                                $650.99
-                                            </span>
-                                            <span class="price-before-discount">$ 800</span>
-
-                                        </div>
-                                        <!-- /.product-price -->
-
-                                    </div>
-                                    <!-- /.product-info -->
-                                    <div class="cart clearfix animate-effect">
-                                        <div class="action">
-                                            <ul class="list-unstyled">
-                                                <li class="add-cart-button btn-group">
-                                                    <button class="btn btn-primary icon" data-toggle="dropdown" type="button">
-                                                        <i class="fa fa-shopping-cart"></i>
-                                                    </button>
-                                                    <button class="btn btn-primary" type="button">Add to cart</button>
-
-                                                </li>
-
-                                                <li class="lnk wishlist">
-                                                    <a class="add-to-cart" href="detail.html" title="Wishlist">
-                                                        <i class="icon fa fa-heart"></i>
-                                                    </a>
-                                                </li>
-
-                                                <li class="lnk">
-                                                    <a class="add-to-cart" href="detail.html" title="Compare">
-                                                        <i class="fa fa-retweet"></i>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <!-- /.action -->
-                                    </div>
-                                    <!-- /.cart -->
-                                </div>
-                                <!-- /.product -->
-
-                            </div>
-                            <!-- /.products -->
-                        </div>
-                        <!-- /.item -->
-
-                        <div class="item item-carousel">
-                            <div class="products">
-
-                                <div class="product">
-                                    <div class="product-image">
-                                        <div class="image">
-                                            <a href="detail.html"><img src="assets/images/blank.gif" data-echo="assets/images/products/h2-1.jpg" alt=""></a>
-                                        </div>
-                                        <!-- /.image -->
-
-                                        <div class="tag hot"><span>hot</span></div>
-                                    </div>
-                                    <!-- /.product-image -->
-
-
-                                    <div class="product-info text-left">
-                                        <h3 class="name"><a href="detail.html">Sony Ericson Vaga</a></h3>
-                                        <div class="rating rateit-small"></div>
-                                        <div class="description"></div>
-
-                                        <div class="product-price">
-                                            <span class="price">
-                                                $650.99
-                                            </span>
-                                            <span class="price-before-discount">$ 800</span>
-
-                                        </div>
-                                        <!-- /.product-price -->
-
-                                    </div>
-                                    <!-- /.product-info -->
-                                    <div class="cart clearfix animate-effect">
-                                        <div class="action">
-                                            <ul class="list-unstyled">
-                                                <li class="add-cart-button btn-group">
-                                                    <button class="btn btn-primary icon" data-toggle="dropdown" type="button">
-                                                        <i class="fa fa-shopping-cart"></i>
-                                                    </button>
-                                                    <button class="btn btn-primary" type="button">Add to cart</button>
-
-                                                </li>
-
-                                                <li class="lnk wishlist">
-                                                    <a class="add-to-cart" href="detail.html" title="Wishlist">
-                                                        <i class="icon fa fa-heart"></i>
-                                                    </a>
-                                                </li>
-
-                                                <li class="lnk">
-                                                    <a class="add-to-cart" href="detail.html" title="Compare">
-                                                        <i class="fa fa-retweet"></i>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <!-- /.action -->
-                                    </div>
-                                    <!-- /.cart -->
-                                </div>
-                                <!-- /.product -->
-
-                            </div>
-                            <!-- /.products -->
-                        </div>
-                        <!-- /.item -->
-
-                        <div class="item item-carousel">
-                            <div class="products">
-
-                                <div class="product">
-                                    <div class="product-image">
-                                        <div class="image">
-                                            <a href="detail.html"><img src="assets/images/blank.gif" data-echo="assets/images/products/h2-2.jpg" alt=""></a>
-                                        </div>
-                                        <!-- /.image -->
-
-                                        <div class="tag new"><span>new</span></div>
-                                    </div>
-                                    <!-- /.product-image -->
-
-
-                                    <div class="product-info text-left">
-                                        <h3 class="name"><a href="detail.html">Samsung Galaxy S4</a></h3>
-                                        <div class="rating rateit-small"></div>
-                                        <div class="description"></div>
-
-                                        <div class="product-price">
-                                            <span class="price">
-                                                $650.99
-                                            </span>
-                                            <span class="price-before-discount">$ 800</span>
-
-                                        </div>
-                                        <!-- /.product-price -->
-
-                                    </div>
-                                    <!-- /.product-info -->
-                                    <div class="cart clearfix animate-effect">
-                                        <div class="action">
-                                            <ul class="list-unstyled">
-                                                <li class="add-cart-button btn-group">
-                                                    <button class="btn btn-primary icon" data-toggle="dropdown" type="button">
-                                                        <i class="fa fa-shopping-cart"></i>
-                                                    </button>
-                                                    <button class="btn btn-primary" type="button">Add to cart</button>
-
-                                                </li>
-
-                                                <li class="lnk wishlist">
-                                                    <a class="add-to-cart" href="detail.html" title="Wishlist">
-                                                        <i class="icon fa fa-heart"></i>
-                                                    </a>
-                                                </li>
-
-                                                <li class="lnk">
-                                                    <a class="add-to-cart" href="detail.html" title="Compare">
-                                                        <i class="fa fa-retweet"></i>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <!-- /.action -->
-                                    </div>
-                                    <!-- /.cart -->
-                                </div>
-                                <!-- /.product -->
-
-                            </div>
-                            <!-- /.products -->
-                        </div>
-                        <!-- /.item -->
+                        }
                     </div>
                     <!-- /.home-owl-carousel -->
                 </div>
                 <!-- /.product-slider -->
             </div>
             <!-- /.tab-pane -->
-
             <div class="tab-pane" id="smartphone">
                 <div class="product-slider">
                     <div class="owl-carousel home-owl-carousel custom-carousel owl-theme" data-item="5">
-
+                      
                         <div class="item item-carousel">
                             <div class="products">
 
                                 <div class="product">
                                     <div class="product-image">
                                         <div class="image">
-                                            <a href="detail.html"><img src="assets/images/blank.gif" data-echo="assets/images/products/h2-2.jpg" alt=""></a>
+                                            <a href="detail.html"><img src="img2/macbook2.jpg" data-echo="img2/macbook2.jpg" alt=""></a>
                                         </div>
                                         <!-- /.image -->
 
@@ -691,9 +295,9 @@
 
 
                                     <div class="product-info text-left">
-                                        <h3 class="name"><a href="detail.html">Samsung Galaxy S4</a></h3>
+                                        <h3 class="name"><a href="detail.html">MacBook pro</a></h3>
                                         <div class="rating rateit-small"></div>
-                                        <div class="description"></div>
+                                        <div class="description">Apple</div>
 
                                         <div class="product-price">
                                             <span class="price">
@@ -740,14 +344,13 @@
                             <!-- /.products -->
                         </div>
                         <!-- /.item -->
-
                         <div class="item item-carousel">
                             <div class="products">
 
                                 <div class="product">
                                     <div class="product-image">
                                         <div class="image">
-                                            <a href="detail.html"><img src="assets/images/blank.gif" data-echo="assets/images/products/h2-6.jpg" alt=""></a>
+                                            <a href="detail.html"><img src="img2/macbook2.jpg" data-echo="img2/macbook2.jpg" alt=""></a>
                                         </div>
                                         <!-- /.image -->
 
@@ -757,9 +360,9 @@
 
 
                                     <div class="product-info text-left">
-                                        <h3 class="name"><a href="detail.html">Apple Iphone 5s 32GB</a></h3>
+                                        <h3 class="name"><a href="detail.html">MacBook pro</a></h3>
                                         <div class="rating rateit-small"></div>
-                                        <div class="description"></div>
+                                        <div class="description">Apple</div>
 
                                         <div class="product-price">
                                             <span class="price">
@@ -806,146 +409,13 @@
                             <!-- /.products -->
                         </div>
                         <!-- /.item -->
-
                         <div class="item item-carousel">
                             <div class="products">
 
                                 <div class="product">
                                     <div class="product-image">
                                         <div class="image">
-                                            <a href="detail.html"><img src="assets/images/blank.gif" data-echo="assets/images/products/h2-1.jpg" alt=""></a>
-                                        </div>
-                                        <!-- /.image -->
-
-                                        <div class="tag hot"><span>hot</span></div>
-                                    </div>
-                                    <!-- /.product-image -->
-
-
-                                    <div class="product-info text-left">
-                                        <h3 class="name"><a href="detail.html">Sony Ericson Vaga</a></h3>
-                                        <div class="rating rateit-small"></div>
-                                        <div class="description"></div>
-
-                                        <div class="product-price">
-                                            <span class="price">
-                                                $650.99
-                                            </span>
-                                            <span class="price-before-discount">$ 800</span>
-
-                                        </div>
-                                        <!-- /.product-price -->
-
-                                    </div>
-                                    <!-- /.product-info -->
-                                    <div class="cart clearfix animate-effect">
-                                        <div class="action">
-                                            <ul class="list-unstyled">
-                                                <li class="add-cart-button btn-group">
-                                                    <button class="btn btn-primary icon" data-toggle="dropdown" type="button">
-                                                        <i class="fa fa-shopping-cart"></i>
-                                                    </button>
-                                                    <button class="btn btn-primary" type="button">Add to cart</button>
-
-                                                </li>
-
-                                                <li class="lnk wishlist">
-                                                    <a class="add-to-cart" href="detail.html" title="Wishlist">
-                                                        <i class="icon fa fa-heart"></i>
-                                                    </a>
-                                                </li>
-
-                                                <li class="lnk">
-                                                    <a class="add-to-cart" href="detail.html" title="Compare">
-                                                        <i class="fa fa-retweet"></i>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <!-- /.action -->
-                                    </div>
-                                    <!-- /.cart -->
-                                </div>
-                                <!-- /.product -->
-
-                            </div>
-                            <!-- /.products -->
-                        </div>
-                        <!-- /.item -->
-
-                        <div class="item item-carousel">
-                            <div class="products">
-
-                                <div class="product">
-                                    <div class="product-image">
-                                        <div class="image">
-                                            <a href="detail.html"><img src="assets/images/blank.gif" data-echo="assets/images/products/h2-4.jpg" alt=""></a>
-                                        </div>
-                                        <!-- /.image -->
-
-                                        <div class="tag hot"><span>hot</span></div>
-                                    </div>
-                                    <!-- /.product-image -->
-
-
-                                    <div class="product-info text-left">
-                                        <h3 class="name"><a href="detail.html">Apple Iphone 5s 32GB</a></h3>
-                                        <div class="rating rateit-small"></div>
-                                        <div class="description"></div>
-
-                                        <div class="product-price">
-                                            <span class="price">
-                                                $650.99
-                                            </span>
-                                            <span class="price-before-discount">$ 800</span>
-
-                                        </div>
-                                        <!-- /.product-price -->
-
-                                    </div>
-                                    <!-- /.product-info -->
-                                    <div class="cart clearfix animate-effect">
-                                        <div class="action">
-                                            <ul class="list-unstyled">
-                                                <li class="add-cart-button btn-group">
-                                                    <button class="btn btn-primary icon" data-toggle="dropdown" type="button">
-                                                        <i class="fa fa-shopping-cart"></i>
-                                                    </button>
-                                                    <button class="btn btn-primary" type="button">Add to cart</button>
-
-                                                </li>
-
-                                                <li class="lnk wishlist">
-                                                    <a class="add-to-cart" href="detail.html" title="Wishlist">
-                                                        <i class="icon fa fa-heart"></i>
-                                                    </a>
-                                                </li>
-
-                                                <li class="lnk">
-                                                    <a class="add-to-cart" href="detail.html" title="Compare">
-                                                        <i class="fa fa-retweet"></i>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <!-- /.action -->
-                                    </div>
-                                    <!-- /.cart -->
-                                </div>
-                                <!-- /.product -->
-
-                            </div>
-                            <!-- /.products -->
-                        </div>
-                        <!-- /.item -->
-
-                        <div class="item item-carousel">
-                            <div class="products">
-
-                                <div class="product">
-                                    <div class="product-image">
-                                        <div class="image">
-                                            <a href="detail.html"><img src="assets/images/blank.gif" data-echo="assets/images/products/h2-6.jpg" alt=""></a>
+                                            <a href="detail.html"><img src="img2/macbook2.jpg" data-echo="img2/macbook2.jpg" alt=""></a>
                                         </div>
                                         <!-- /.image -->
 
@@ -955,9 +425,9 @@
 
 
                                     <div class="product-info text-left">
-                                        <h3 class="name"><a href="detail.html">Apple Iphone 5s 32GB</a></h3>
+                                        <h3 class="name"><a href="detail.html">MacBook pro</a></h3>
                                         <div class="rating rateit-small"></div>
-                                        <div class="description"></div>
+                                        <div class="description">Apple</div>
 
                                         <div class="product-price">
                                             <span class="price">
@@ -1004,26 +474,25 @@
                             <!-- /.products -->
                         </div>
                         <!-- /.item -->
-
                         <div class="item item-carousel">
                             <div class="products">
 
                                 <div class="product">
                                     <div class="product-image">
                                         <div class="image">
-                                            <a href="detail.html"><img src="assets/images/blank.gif" data-echo="assets/images/products/h2-3.jpg" alt=""></a>
+                                            <a href="detail.html"><img src="img2/macbook2.jpg" data-echo="img2/macbook2.jpg" alt=""></a>
                                         </div>
                                         <!-- /.image -->
 
-                                        <div class="tag sale"><span>sale</span></div>
+                                        <div class="tag new"><span>new</span></div>
                                     </div>
                                     <!-- /.product-image -->
 
 
                                     <div class="product-info text-left">
-                                        <h3 class="name"><a href="detail.html">Samsung Galaxy S4</a></h3>
+                                        <h3 class="name"><a href="detail.html">MacBook pro</a></h3>
                                         <div class="rating rateit-small"></div>
-                                        <div class="description"></div>
+                                        <div class="description">Apple</div>
 
                                         <div class="product-price">
                                             <span class="price">
@@ -1070,26 +539,25 @@
                             <!-- /.products -->
                         </div>
                         <!-- /.item -->
-
                         <div class="item item-carousel">
                             <div class="products">
 
                                 <div class="product">
                                     <div class="product-image">
                                         <div class="image">
-                                            <a href="detail.html"><img src="assets/images/blank.gif" data-echo="assets/images/products/h2-5.jpg" alt=""></a>
+                                            <a href="detail.html"><img src="img2/macbook2.jpg" data-echo="img2/macbook2.jpg" alt=""></a>
                                         </div>
                                         <!-- /.image -->
 
-                                        <div class="tag sale"><span>sale</span></div>
+                                        <div class="tag new"><span>new</span></div>
                                     </div>
                                     <!-- /.product-image -->
 
 
                                     <div class="product-info text-left">
-                                        <h3 class="name"><a href="detail.html">Sony Ericson Vaga</a></h3>
+                                        <h3 class="name"><a href="detail.html">MacBook pro</a></h3>
                                         <div class="rating rateit-small"></div>
-                                        <div class="description"></div>
+                                        <div class="description">Apple</div>
 
                                         <div class="product-price">
                                             <span class="price">
@@ -1136,6 +604,137 @@
                             <!-- /.products -->
                         </div>
                         <!-- /.item -->
+                        <div class="item item-carousel">
+                            <div class="products">
+
+                                <div class="product">
+                                    <div class="product-image">
+                                        <div class="image">
+                                            <a href="detail.html"><img src="img2/macbook2.jpg" data-echo="img2/macbook2.jpg" alt=""></a>
+                                        </div>
+                                        <!-- /.image -->
+
+                                        <div class="tag new"><span>new</span></div>
+                                    </div>
+                                    <!-- /.product-image -->
+
+
+                                    <div class="product-info text-left">
+                                        <h3 class="name"><a href="detail.html">MacBook pro</a></h3>
+                                        <div class="rating rateit-small"></div>
+                                        <div class="description">Apple</div>
+
+                                        <div class="product-price">
+                                            <span class="price">
+                                                $650.99
+                                            </span>
+                                            <span class="price-before-discount">$ 800</span>
+
+                                        </div>
+                                        <!-- /.product-price -->
+
+                                    </div>
+                                    <!-- /.product-info -->
+                                    <div class="cart clearfix animate-effect">
+                                        <div class="action">
+                                            <ul class="list-unstyled">
+                                                <li class="add-cart-button btn-group">
+                                                    <button class="btn btn-primary icon" data-toggle="dropdown" type="button">
+                                                        <i class="fa fa-shopping-cart"></i>
+                                                    </button>
+                                                    <button class="btn btn-primary" type="button">Add to cart</button>
+
+                                                </li>
+
+                                                <li class="lnk wishlist">
+                                                    <a class="add-to-cart" href="detail.html" title="Wishlist">
+                                                        <i class="icon fa fa-heart"></i>
+                                                    </a>
+                                                </li>
+
+                                                <li class="lnk">
+                                                    <a class="add-to-cart" href="detail.html" title="Compare">
+                                                        <i class="fa fa-retweet"></i>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <!-- /.action -->
+                                    </div>
+                                    <!-- /.cart -->
+                                </div>
+                                <!-- /.product -->
+
+                            </div>
+                            <!-- /.products -->
+                        </div>
+                        <!-- /.item -->
+                        <div class="item item-carousel">
+                            <div class="products">
+
+                                <div class="product">
+                                    <div class="product-image">
+                                        <div class="image">
+                                            <a href="detail.html"><img src="img2/macbook2.jpg" data-echo="img2/macbook2.jpg" alt=""></a>
+                                        </div>
+                                        <!-- /.image -->
+
+                                        <div class="tag new"><span>new</span></div>
+                                    </div>
+                                    <!-- /.product-image -->
+
+
+                                    <div class="product-info text-left">
+                                        <h3 class="name"><a href="detail.html">MacBook pro</a></h3>
+                                        <div class="rating rateit-small"></div>
+                                        <div class="description">Apple</div>
+
+                                        <div class="product-price">
+                                            <span class="price">
+                                                $650.99
+                                            </span>
+                                            <span class="price-before-discount">$ 800</span>
+
+                                        </div>
+                                        <!-- /.product-price -->
+
+                                    </div>
+                                    <!-- /.product-info -->
+                                    <div class="cart clearfix animate-effect">
+                                        <div class="action">
+                                            <ul class="list-unstyled">
+                                                <li class="add-cart-button btn-group">
+                                                    <button class="btn btn-primary icon" data-toggle="dropdown" type="button">
+                                                        <i class="fa fa-shopping-cart"></i>
+                                                    </button>
+                                                    <button class="btn btn-primary" type="button">Add to cart</button>
+
+                                                </li>
+
+                                                <li class="lnk wishlist">
+                                                    <a class="add-to-cart" href="detail.html" title="Wishlist">
+                                                        <i class="icon fa fa-heart"></i>
+                                                    </a>
+                                                </li>
+
+                                                <li class="lnk">
+                                                    <a class="add-to-cart" href="detail.html" title="Compare">
+                                                        <i class="fa fa-retweet"></i>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <!-- /.action -->
+                                    </div>
+                                    <!-- /.cart -->
+                                </div>
+                                <!-- /.product -->
+
+                            </div>
+                            <!-- /.products -->
+                        </div>
+                        <!-- /.item -->
+
                     </div>
                     <!-- /.home-owl-carousel -->
                 </div>
@@ -1153,7 +752,7 @@
                                 <div class="product">
                                     <div class="product-image">
                                         <div class="image">
-                                            <a href="detail.html"><img src="assets/images/blank.gif" data-echo="assets/images/products/h2-6.jpg" alt=""></a>
+                                            <a href="detail.html"><img src="img2/macbook2.jpg" data-echo="img2/macbook2.jpg" alt=""></a>
                                         </div>
                                         <!-- /.image -->
 
@@ -1163,9 +762,9 @@
 
 
                                     <div class="product-info text-left">
-                                        <h3 class="name"><a href="detail.html">Apple Iphone 5s 32GB</a></h3>
+                                        <h3 class="name"><a href="detail.html">MacBook pro</a></h3>
                                         <div class="rating rateit-small"></div>
-                                        <div class="description"></div>
+                                        <div class="description">Apple</div>
 
                                         <div class="product-price">
                                             <span class="price">
@@ -1203,403 +802,7 @@
                                             </ul>
                                         </div>
                                         <!-- /.action -->
-                                    </div>
-                                    <!-- /.cart -->
-                                </div>
-                                <!-- /.product -->
-
-                            </div>
-                            <!-- /.products -->
-                        </div>
-                        <!-- /.item -->
-
-                        <div class="item item-carousel">
-                            <div class="products">
-
-                                <div class="product">
-                                    <div class="product-image">
-                                        <div class="image">
-                                            <a href="detail.html"><img src="assets/images/blank.gif" data-echo="assets/images/products/h2-3.jpg" alt=""></a>
-                                        </div>
-                                        <!-- /.image -->
-
-                                        <div class="tag sale"><span>sale</span></div>
-                                    </div>
-                                    <!-- /.product-image -->
-
-
-                                    <div class="product-info text-left">
-                                        <h3 class="name"><a href="detail.html">Samsung Galaxy S4</a></h3>
-                                        <div class="rating rateit-small"></div>
-                                        <div class="description"></div>
-
-                                        <div class="product-price">
-                                            <span class="price">
-                                                $650.99
-                                            </span>
-                                            <span class="price-before-discount">$ 800</span>
-
-                                        </div>
-                                        <!-- /.product-price -->
-
-                                    </div>
-                                    <!-- /.product-info -->
-                                    <div class="cart clearfix animate-effect">
-                                        <div class="action">
-                                            <ul class="list-unstyled">
-                                                <li class="add-cart-button btn-group">
-                                                    <button class="btn btn-primary icon" data-toggle="dropdown" type="button">
-                                                        <i class="fa fa-shopping-cart"></i>
-                                                    </button>
-                                                    <button class="btn btn-primary" type="button">Add to cart</button>
-
-                                                </li>
-
-                                                <li class="lnk wishlist">
-                                                    <a class="add-to-cart" href="detail.html" title="Wishlist">
-                                                        <i class="icon fa fa-heart"></i>
-                                                    </a>
-                                                </li>
-
-                                                <li class="lnk">
-                                                    <a class="add-to-cart" href="detail.html" title="Compare">
-                                                        <i class="fa fa-retweet"></i>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <!-- /.action -->
-                                    </div>
-                                    <!-- /.cart -->
-                                </div>
-                                <!-- /.product -->
-
-                            </div>
-                            <!-- /.products -->
-                        </div>
-                        <!-- /.item -->
-
-                        <div class="item item-carousel">
-                            <div class="products">
-
-                                <div class="product">
-                                    <div class="product-image">
-                                        <div class="image">
-                                            <a href="detail.html"><img src="assets/images/blank.gif" data-echo="assets/images/products/h2-6.jpg" alt=""></a>
-                                        </div>
-                                        <!-- /.image -->
-
-                                        <div class="tag new"><span>new</span></div>
-                                    </div>
-                                    <!-- /.product-image -->
-
-
-                                    <div class="product-info text-left">
-                                        <h3 class="name"><a href="detail.html">Apple Iphone 5s 32GB</a></h3>
-                                        <div class="rating rateit-small"></div>
-                                        <div class="description"></div>
-
-                                        <div class="product-price">
-                                            <span class="price">
-                                                $650.99
-                                            </span>
-                                            <span class="price-before-discount">$ 800</span>
-
-                                        </div>
-                                        <!-- /.product-price -->
-
-                                    </div>
-                                    <!-- /.product-info -->
-                                    <div class="cart clearfix animate-effect">
-                                        <div class="action">
-                                            <ul class="list-unstyled">
-                                                <li class="add-cart-button btn-group">
-                                                    <button class="btn btn-primary icon" data-toggle="dropdown" type="button">
-                                                        <i class="fa fa-shopping-cart"></i>
-                                                    </button>
-                                                    <button class="btn btn-primary" type="button">Add to cart</button>
-
-                                                </li>
-
-                                                <li class="lnk wishlist">
-                                                    <a class="add-to-cart" href="detail.html" title="Wishlist">
-                                                        <i class="icon fa fa-heart"></i>
-                                                    </a>
-                                                </li>
-
-                                                <li class="lnk">
-                                                    <a class="add-to-cart" href="detail.html" title="Compare">
-                                                        <i class="fa fa-retweet"></i>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <!-- /.action -->
-                                    </div>
-                                    <!-- /.cart -->
-                                </div>
-                                <!-- /.product -->
-
-                            </div>
-                            <!-- /.products -->
-                        </div>
-                        <!-- /.item -->
-
-                        <div class="item item-carousel">
-                            <div class="products">
-
-                                <div class="product">
-                                    <div class="product-image">
-                                        <div class="image">
-                                            <a href="detail.html"><img src="assets/images/blank.gif" data-echo="assets/images/products/h2-5.jpg" alt=""></a>
-                                        </div>
-                                        <!-- /.image -->
-
-                                        <div class="tag sale"><span>sale</span></div>
-                                    </div>
-                                    <!-- /.product-image -->
-
-
-                                    <div class="product-info text-left">
-                                        <h3 class="name"><a href="detail.html">Sony Ericson Vaga</a></h3>
-                                        <div class="rating rateit-small"></div>
-                                        <div class="description"></div>
-
-                                        <div class="product-price">
-                                            <span class="price">
-                                                $650.99
-                                            </span>
-                                            <span class="price-before-discount">$ 800</span>
-
-                                        </div>
-                                        <!-- /.product-price -->
-
-                                    </div>
-                                    <!-- /.product-info -->
-                                    <div class="cart clearfix animate-effect">
-                                        <div class="action">
-                                            <ul class="list-unstyled">
-                                                <li class="add-cart-button btn-group">
-                                                    <button class="btn btn-primary icon" data-toggle="dropdown" type="button">
-                                                        <i class="fa fa-shopping-cart"></i>
-                                                    </button>
-                                                    <button class="btn btn-primary" type="button">Add to cart</button>
-
-                                                </li>
-
-                                                <li class="lnk wishlist">
-                                                    <a class="add-to-cart" href="detail.html" title="Wishlist">
-                                                        <i class="icon fa fa-heart"></i>
-                                                    </a>
-                                                </li>
-
-                                                <li class="lnk">
-                                                    <a class="add-to-cart" href="detail.html" title="Compare">
-                                                        <i class="fa fa-retweet"></i>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <!-- /.action -->
-                                    </div>
-                                    <!-- /.cart -->
-                                </div>
-                                <!-- /.product -->
-
-                            </div>
-                            <!-- /.products -->
-                        </div>
-                        <!-- /.item -->
-
-                        <div class="item item-carousel">
-                            <div class="products">
-
-                                <div class="product">
-                                    <div class="product-image">
-                                        <div class="image">
-                                            <a href="detail.html"><img src="assets/images/blank.gif" data-echo="assets/images/products/h2-2.jpg" alt=""></a>
-                                        </div>
-                                        <!-- /.image -->
-
-                                        <div class="tag new"><span>new</span></div>
-                                    </div>
-                                    <!-- /.product-image -->
-
-
-                                    <div class="product-info text-left">
-                                        <h3 class="name"><a href="detail.html">Samsung Galaxy S4</a></h3>
-                                        <div class="rating rateit-small"></div>
-                                        <div class="description"></div>
-
-                                        <div class="product-price">
-                                            <span class="price">
-                                                $650.99
-                                            </span>
-                                            <span class="price-before-discount">$ 800</span>
-
-                                        </div>
-                                        <!-- /.product-price -->
-
-                                    </div>
-                                    <!-- /.product-info -->
-                                    <div class="cart clearfix animate-effect">
-                                        <div class="action">
-                                            <ul class="list-unstyled">
-                                                <li class="add-cart-button btn-group">
-                                                    <button class="btn btn-primary icon" data-toggle="dropdown" type="button">
-                                                        <i class="fa fa-shopping-cart"></i>
-                                                    </button>
-                                                    <button class="btn btn-primary" type="button">Add to cart</button>
-
-                                                </li>
-
-                                                <li class="lnk wishlist">
-                                                    <a class="add-to-cart" href="detail.html" title="Wishlist">
-                                                        <i class="icon fa fa-heart"></i>
-                                                    </a>
-                                                </li>
-
-                                                <li class="lnk">
-                                                    <a class="add-to-cart" href="detail.html" title="Compare">
-                                                        <i class="fa fa-retweet"></i>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <!-- /.action -->
-                                    </div>
-                                    <!-- /.cart -->
-                                </div>
-                                <!-- /.product -->
-
-                            </div>
-                            <!-- /.products -->
-                        </div>
-                        <!-- /.item -->
-
-                        <div class="item item-carousel">
-                            <div class="products">
-
-                                <div class="product">
-                                    <div class="product-image">
-                                        <div class="image">
-                                            <a href="detail.html"><img src="assets/images/blank.gif" data-echo="assets/images/products/h2-4.jpg" alt=""></a>
-                                        </div>
-                                        <!-- /.image -->
-
-                                        <div class="tag hot"><span>hot</span></div>
-                                    </div>
-                                    <!-- /.product-image -->
-
-
-                                    <div class="product-info text-left">
-                                        <h3 class="name"><a href="detail.html">Apple Iphone 5s 32GB</a></h3>
-                                        <div class="rating rateit-small"></div>
-                                        <div class="description"></div>
-
-                                        <div class="product-price">
-                                            <span class="price">
-                                                $650.99
-                                            </span>
-                                            <span class="price-before-discount">$ 800</span>
-
-                                        </div>
-                                        <!-- /.product-price -->
-
-                                    </div>
-                                    <!-- /.product-info -->
-                                    <div class="cart clearfix animate-effect">
-                                        <div class="action">
-                                            <ul class="list-unstyled">
-                                                <li class="add-cart-button btn-group">
-                                                    <button class="btn btn-primary icon" data-toggle="dropdown" type="button">
-                                                        <i class="fa fa-shopping-cart"></i>
-                                                    </button>
-                                                    <button class="btn btn-primary" type="button">Add to cart</button>
-
-                                                </li>
-
-                                                <li class="lnk wishlist">
-                                                    <a class="add-to-cart" href="detail.html" title="Wishlist">
-                                                        <i class="icon fa fa-heart"></i>
-                                                    </a>
-                                                </li>
-
-                                                <li class="lnk">
-                                                    <a class="add-to-cart" href="detail.html" title="Compare">
-                                                        <i class="fa fa-retweet"></i>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <!-- /.action -->
-                                    </div>
-                                    <!-- /.cart -->
-                                </div>
-                                <!-- /.product -->
-
-                            </div>
-                            <!-- /.products -->
-                        </div>
-                        <!-- /.item -->
-
-                        <div class="item item-carousel">
-                            <div class="products">
-
-                                <div class="product">
-                                    <div class="product-image">
-                                        <div class="image">
-                                            <a href="detail.html"><img src="assets/images/blank.gif" data-echo="assets/images/products/h2-1.jpg" alt=""></a>
-                                        </div>
-                                        <!-- /.image -->
-
-                                        <div class="tag hot"><span>hot</span></div>
-                                    </div>
-                                    <!-- /.product-image -->
-
-
-                                    <div class="product-info text-left">
-                                        <h3 class="name"><a href="detail.html">Sony Ericson Vaga</a></h3>
-                                        <div class="rating rateit-small"></div>
-                                        <div class="description"></div>
-
-                                        <div class="product-price">
-                                            <span class="price">
-                                                $650.99
-                                            </span>
-                                            <span class="price-before-discount">$ 800</span>
-
-                                        </div>
-                                        <!-- /.product-price -->
-
-                                    </div>
-                                    <!-- /.product-info -->
-                                    <div class="cart clearfix animate-effect">
-                                        <div class="action">
-                                            <ul class="list-unstyled">
-                                                <li class="add-cart-button btn-group">
-                                                    <button class="btn btn-primary icon" data-toggle="dropdown" type="button">
-                                                        <i class="fa fa-shopping-cart"></i>
-                                                    </button>
-                                                    <button class="btn btn-primary" type="button">Add to cart</button>
-
-                                                </li>
-
-                                                <li class="lnk wishlist">
-                                                    <a class="add-to-cart" href="detail.html" title="Wishlist">
-                                                        <i class="icon fa fa-heart"></i>
-                                                    </a>
-                                                </li>
-
-                                                <li class="lnk">
-                                                    <a class="add-to-cart" href="detail.html" title="Compare">
-                                                        <i class="fa fa-retweet"></i>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <!-- /.action -->
-                                    </div>
+                                    </div>                                    
                                     <!-- /.cart -->
                                 </div>
                                 <!-- /.product -->
@@ -1625,7 +828,7 @@
                                 <div class="product">
                                     <div class="product-image">
                                         <div class="image">
-                                            <a href="detail.html"><img src="assets/images/blank.gif" data-echo="assets/images/products/h2-6.jpg" alt=""></a>
+                                            <a href="detail.html"><img src="img2/macbook2.jpg" data-echo="img2/macbook2.jpg" alt=""></a>
                                         </div>
                                         <!-- /.image -->
 
@@ -1635,9 +838,9 @@
 
 
                                     <div class="product-info text-left">
-                                        <h3 class="name"><a href="detail.html">Apple Iphone 5s 32GB</a></h3>
+                                        <h3 class="name"><a href="detail.html">MacBook pro</a></h3>
                                         <div class="rating rateit-small"></div>
-                                        <div class="description"></div>
+                                        <div class="description">Apple</div>
 
                                         <div class="product-price">
                                             <span class="price">
@@ -1683,403 +886,6 @@
                             </div>
                             <!-- /.products -->
                         </div>
-                        <!-- /.item -->
-
-                        <div class="item item-carousel">
-                            <div class="products">
-
-                                <div class="product">
-                                    <div class="product-image">
-                                        <div class="image">
-                                            <a href="detail.html"><img src="assets/images/blank.gif" data-echo="assets/images/products/h2-3.jpg" alt=""></a>
-                                        </div>
-                                        <!-- /.image -->
-
-                                        <div class="tag sale"><span>sale</span></div>
-                                    </div>
-                                    <!-- /.product-image -->
-
-
-                                    <div class="product-info text-left">
-                                        <h3 class="name"><a href="detail.html">Samsung Galaxy S4</a></h3>
-                                        <div class="rating rateit-small"></div>
-                                        <div class="description"></div>
-
-                                        <div class="product-price">
-                                            <span class="price">
-                                                $650.99
-                                            </span>
-                                            <span class="price-before-discount">$ 800</span>
-
-                                        </div>
-                                        <!-- /.product-price -->
-
-                                    </div>
-                                    <!-- /.product-info -->
-                                    <div class="cart clearfix animate-effect">
-                                        <div class="action">
-                                            <ul class="list-unstyled">
-                                                <li class="add-cart-button btn-group">
-                                                    <button class="btn btn-primary icon" data-toggle="dropdown" type="button">
-                                                        <i class="fa fa-shopping-cart"></i>
-                                                    </button>
-                                                    <button class="btn btn-primary" type="button">Add to cart</button>
-
-                                                </li>
-
-                                                <li class="lnk wishlist">
-                                                    <a class="add-to-cart" href="detail.html" title="Wishlist">
-                                                        <i class="icon fa fa-heart"></i>
-                                                    </a>
-                                                </li>
-
-                                                <li class="lnk">
-                                                    <a class="add-to-cart" href="detail.html" title="Compare">
-                                                        <i class="fa fa-retweet"></i>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <!-- /.action -->
-                                    </div>
-                                    <!-- /.cart -->
-                                </div>
-                                <!-- /.product -->
-
-                            </div>
-                            <!-- /.products -->
-                        </div>
-                        <!-- /.item -->
-
-                        <div class="item item-carousel">
-                            <div class="products">
-
-                                <div class="product">
-                                    <div class="product-image">
-                                        <div class="image">
-                                            <a href="detail.html"><img src="assets/images/blank.gif" data-echo="assets/images/products/h2-4.jpg" alt=""></a>
-                                        </div>
-                                        <!-- /.image -->
-
-                                        <div class="tag hot"><span>hot</span></div>
-                                    </div>
-                                    <!-- /.product-image -->
-
-
-                                    <div class="product-info text-left">
-                                        <h3 class="name"><a href="detail.html">Apple Iphone 5s 32GB</a></h3>
-                                        <div class="rating rateit-small"></div>
-                                        <div class="description"></div>
-
-                                        <div class="product-price">
-                                            <span class="price">
-                                                $650.99
-                                            </span>
-                                            <span class="price-before-discount">$ 800</span>
-
-                                        </div>
-                                        <!-- /.product-price -->
-
-                                    </div>
-                                    <!-- /.product-info -->
-                                    <div class="cart clearfix animate-effect">
-                                        <div class="action">
-                                            <ul class="list-unstyled">
-                                                <li class="add-cart-button btn-group">
-                                                    <button class="btn btn-primary icon" data-toggle="dropdown" type="button">
-                                                        <i class="fa fa-shopping-cart"></i>
-                                                    </button>
-                                                    <button class="btn btn-primary" type="button">Add to cart</button>
-
-                                                </li>
-
-                                                <li class="lnk wishlist">
-                                                    <a class="add-to-cart" href="detail.html" title="Wishlist">
-                                                        <i class="icon fa fa-heart"></i>
-                                                    </a>
-                                                </li>
-
-                                                <li class="lnk">
-                                                    <a class="add-to-cart" href="detail.html" title="Compare">
-                                                        <i class="fa fa-retweet"></i>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <!-- /.action -->
-                                    </div>
-                                    <!-- /.cart -->
-                                </div>
-                                <!-- /.product -->
-
-                            </div>
-                            <!-- /.products -->
-                        </div>
-                        <!-- /.item -->
-
-                        <div class="item item-carousel">
-                            <div class="products">
-
-                                <div class="product">
-                                    <div class="product-image">
-                                        <div class="image">
-                                            <a href="detail.html"><img src="assets/images/blank.gif" data-echo="assets/images/products/h2-6.jpg" alt=""></a>
-                                        </div>
-                                        <!-- /.image -->
-
-                                        <div class="tag new"><span>new</span></div>
-                                    </div>
-                                    <!-- /.product-image -->
-
-
-                                    <div class="product-info text-left">
-                                        <h3 class="name"><a href="detail.html">Apple Iphone 5s 32GB</a></h3>
-                                        <div class="rating rateit-small"></div>
-                                        <div class="description"></div>
-
-                                        <div class="product-price">
-                                            <span class="price">
-                                                $650.99
-                                            </span>
-                                            <span class="price-before-discount">$ 800</span>
-
-                                        </div>
-                                        <!-- /.product-price -->
-
-                                    </div>
-                                    <!-- /.product-info -->
-                                    <div class="cart clearfix animate-effect">
-                                        <div class="action">
-                                            <ul class="list-unstyled">
-                                                <li class="add-cart-button btn-group">
-                                                    <button class="btn btn-primary icon" data-toggle="dropdown" type="button">
-                                                        <i class="fa fa-shopping-cart"></i>
-                                                    </button>
-                                                    <button class="btn btn-primary" type="button">Add to cart</button>
-
-                                                </li>
-
-                                                <li class="lnk wishlist">
-                                                    <a class="add-to-cart" href="detail.html" title="Wishlist">
-                                                        <i class="icon fa fa-heart"></i>
-                                                    </a>
-                                                </li>
-
-                                                <li class="lnk">
-                                                    <a class="add-to-cart" href="detail.html" title="Compare">
-                                                        <i class="fa fa-retweet"></i>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <!-- /.action -->
-                                    </div>
-                                    <!-- /.cart -->
-                                </div>
-                                <!-- /.product -->
-
-                            </div>
-                            <!-- /.products -->
-                        </div>
-                        <!-- /.item -->
-
-                        <div class="item item-carousel">
-                            <div class="products">
-
-                                <div class="product">
-                                    <div class="product-image">
-                                        <div class="image">
-                                            <a href="detail.html"><img src="assets/images/blank.gif" data-echo="assets/images/products/h2-5.jpg" alt=""></a>
-                                        </div>
-                                        <!-- /.image -->
-
-                                        <div class="tag sale"><span>sale</span></div>
-                                    </div>
-                                    <!-- /.product-image -->
-
-
-                                    <div class="product-info text-left">
-                                        <h3 class="name"><a href="detail.html">Sony Ericson Vaga</a></h3>
-                                        <div class="rating rateit-small"></div>
-                                        <div class="description"></div>
-
-                                        <div class="product-price">
-                                            <span class="price">
-                                                $650.99
-                                            </span>
-                                            <span class="price-before-discount">$ 800</span>
-
-                                        </div>
-                                        <!-- /.product-price -->
-
-                                    </div>
-                                    <!-- /.product-info -->
-                                    <div class="cart clearfix animate-effect">
-                                        <div class="action">
-                                            <ul class="list-unstyled">
-                                                <li class="add-cart-button btn-group">
-                                                    <button class="btn btn-primary icon" data-toggle="dropdown" type="button">
-                                                        <i class="fa fa-shopping-cart"></i>
-                                                    </button>
-                                                    <button class="btn btn-primary" type="button">Add to cart</button>
-
-                                                </li>
-
-                                                <li class="lnk wishlist">
-                                                    <a class="add-to-cart" href="detail.html" title="Wishlist">
-                                                        <i class="icon fa fa-heart"></i>
-                                                    </a>
-                                                </li>
-
-                                                <li class="lnk">
-                                                    <a class="add-to-cart" href="detail.html" title="Compare">
-                                                        <i class="fa fa-retweet"></i>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <!-- /.action -->
-                                    </div>
-                                    <!-- /.cart -->
-                                </div>
-                                <!-- /.product -->
-
-                            </div>
-                            <!-- /.products -->
-                        </div>
-                        <!-- /.item -->
-
-                        <div class="item item-carousel">
-                            <div class="products">
-
-                                <div class="product">
-                                    <div class="product-image">
-                                        <div class="image">
-                                            <a href="detail.html"><img src="assets/images/blank.gif" data-echo="assets/images/products/h2-2.jpg" alt=""></a>
-                                        </div>
-                                        <!-- /.image -->
-
-                                        <div class="tag new"><span>new</span></div>
-                                    </div>
-                                    <!-- /.product-image -->
-
-
-                                    <div class="product-info text-left">
-                                        <h3 class="name"><a href="detail.html">Samsung Galaxy S4</a></h3>
-                                        <div class="rating rateit-small"></div>
-                                        <div class="description"></div>
-
-                                        <div class="product-price">
-                                            <span class="price">
-                                                $650.99
-                                            </span>
-                                            <span class="price-before-discount">$ 800</span>
-
-                                        </div>
-                                        <!-- /.product-price -->
-
-                                    </div>
-                                    <!-- /.product-info -->
-                                    <div class="cart clearfix animate-effect">
-                                        <div class="action">
-                                            <ul class="list-unstyled">
-                                                <li class="add-cart-button btn-group">
-                                                    <button class="btn btn-primary icon" data-toggle="dropdown" type="button">
-                                                        <i class="fa fa-shopping-cart"></i>
-                                                    </button>
-                                                    <button class="btn btn-primary" type="button">Add to cart</button>
-
-                                                </li>
-
-                                                <li class="lnk wishlist">
-                                                    <a class="add-to-cart" href="detail.html" title="Wishlist">
-                                                        <i class="icon fa fa-heart"></i>
-                                                    </a>
-                                                </li>
-
-                                                <li class="lnk">
-                                                    <a class="add-to-cart" href="detail.html" title="Compare">
-                                                        <i class="fa fa-retweet"></i>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <!-- /.action -->
-                                    </div>
-                                    <!-- /.cart -->
-                                </div>
-                                <!-- /.product -->
-
-                            </div>
-                            <!-- /.products -->
-                        </div>
-                        <!-- /.item -->
-
-                        <div class="item item-carousel">
-                            <div class="products">
-
-                                <div class="product">
-                                    <div class="product-image">
-                                        <div class="image">
-                                            <a href="detail.html"><img src="assets/images/blank.gif" data-echo="assets/images/products/h2-1.jpg" alt=""></a>
-                                        </div>
-                                        <!-- /.image -->
-
-                                        <div class="tag hot"><span>hot</span></div>
-                                    </div>
-                                    <!-- /.product-image -->
-
-
-                                    <div class="product-info text-left">
-                                        <h3 class="name"><a href="detail.html">Sony Ericson Vaga</a></h3>
-                                        <div class="rating rateit-small"></div>
-                                        <div class="description"></div>
-
-                                        <div class="product-price">
-                                            <span class="price">
-                                                $650.99
-                                            </span>
-                                            <span class="price-before-discount">$ 800</span>
-
-                                        </div>
-                                        <!-- /.product-price -->
-
-                                    </div>
-                                    <!-- /.product-info -->
-                                    <div class="cart clearfix animate-effect">
-                                        <div class="action">
-                                            <ul class="list-unstyled">
-                                                <li class="add-cart-button btn-group">
-                                                    <button class="btn btn-primary icon" data-toggle="dropdown" type="button">
-                                                        <i class="fa fa-shopping-cart"></i>
-                                                    </button>
-                                                    <button class="btn btn-primary" type="button">Add to cart</button>
-
-                                                </li>
-
-                                                <li class="lnk wishlist">
-                                                    <a class="add-to-cart" href="detail.html" title="Wishlist">
-                                                        <i class="icon fa fa-heart"></i>
-                                                    </a>
-                                                </li>
-
-                                                <li class="lnk">
-                                                    <a class="add-to-cart" href="detail.html" title="Compare">
-                                                        <i class="fa fa-retweet"></i>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <!-- /.action -->
-                                    </div>
-                                    <!-- /.cart -->
-                                </div>
-                                <!-- /.product -->
-
-                            </div>
-                            <!-- /.products -->
-                        </div>
-                        <!-- /.item -->
                     </div>
                     <!-- /.home-owl-carousel -->
                 </div>
@@ -2089,7 +895,7 @@
 
         </div>
         <!-- /.tab-content -->
-    </div>
+
     <!-- /.scroll-tabs -->
     <!-- ============================================== SCROLL TABS : END ============================================== -->
     <!-- ============================================== WIDE PRODUCTS ============================================== -->
@@ -2099,7 +905,7 @@
             <div class="col-md-8">
                 <div class="wide-banner cnt-strip">
                     <div class="image">
-                        <img class="img-responsive" data-echo="assets/images/banners/6.jpg" src="assets/images/blank.gif" alt="">
+                        <img class="img-responsive" data-echo="img2/instagram-ad-banner1-780x185.jpg" src="assets/images/blank.gif" alt="">
                     </div>
                     <div class="strip">
                         <div class="strip-inner text-right">
@@ -2116,7 +922,7 @@
             <div class="col-md-4">
                 <div class="wide-banner cnt-strip">
                     <div class="image">
-                        <img class="img-responsive" data-echo="assets/images/banners/7.jpg" src="assets/images/blank.gif" alt="">
+                        <img class="img-responsive" data-echo="img2/macbook-air-11-13-inch-models-370x185.jpg" src="assets/images/blank.gif" alt="">
                     </div>
                     <div class="strip">
                         <div class="strip-inner text-right">
@@ -2139,468 +945,74 @@
     <section class="section featured-product wow fadeInUp">
         <h3 class="section-title">Featured products</h3>
         <div class="owl-carousel home-owl-carousel custom-carousel owl-theme outer-top-xs" data-item="5">
+            @foreach (var item in Model)
+            {
+                <div class="item item-carousel">
+                    <div class="products">
 
-            <div class="item item-carousel">
-                <div class="products">
+                        <div class="product">
+                            <div class="product-image">
+                                <div class="image">
+                                    <a href="detail.html"><img src="img2/macbook2.jpg" data-echo="img2/macbook2.jpg" alt=""></a>
+                                </div>
+                                <!-- /.image -->
 
-                    <div class="product">
-                        <div class="product-image">
-                            <div class="image">
-                                <a href="detail.html"><img src="assets/images/blank.gif" data-echo="assets/images/products/h2-3.jpg" alt=""></a>
+                                <div class="tag new"><span>new</span></div>
                             </div>
-                            <!-- /.image -->
-
-                            <div class="tag sale"><span>sale</span></div>
-                        </div>
-                        <!-- /.product-image -->
+                            <!-- /.product-image -->
 
 
-                        <div class="product-info text-left">
-                            <h3 class="name"><a href="detail.html">Samsung Galaxy S4</a></h3>
-                            <div class="rating rateit-small"></div>
-                            <div class="description"></div>
+                            <div class="product-info text-left">
+                                <h3 class="name"><a href="@Url.Action("Index","ShowDetailsProduct")">@item.NAME</a></h3>
+                                <div class="rating rateit-small"></div>
+                                <div class="description">@item.brand.name</div>
 
-                            <div class="product-price">
-                                <span class="price">
-                                    $650.99
-                                </span>
-                                <span class="price-before-discount">$ 800</span>
+                                <div class="product-price">
+                                    <span class="price">
+                                        $650.99
+                                    </span>
+                                    <span class="price-before-discount">$ 800</span>
+
+                                </div>
+                                <!-- /.product-price -->
 
                             </div>
-                            <!-- /.product-price -->
+                            <!-- /.product-info -->
+                            <div class="cart clearfix animate-effect">
+                                <div class="action">
+                                    <ul class="list-unstyled">
+                                        <li class="add-cart-button btn-group">
+                                            <button class="btn btn-primary icon" data-toggle="dropdown" type="button">
+                                                <i class="fa fa-shopping-cart"></i>
+                                            </button>
+                                            <button class="btn btn-primary" type="button">Add to cart</button>
 
-                        </div>
-                        <!-- /.product-info -->
-                        <div class="cart clearfix animate-effect">
-                            <div class="action">
-                                <ul class="list-unstyled">
-                                    <li class="add-cart-button btn-group">
-                                        <button class="btn btn-primary icon" data-toggle="dropdown" type="button">
-                                            <i class="fa fa-shopping-cart"></i>
-                                        </button>
-                                        <button class="btn btn-primary" type="button">Add to cart</button>
+                                        </li>
 
-                                    </li>
+                                        <li class="lnk wishlist">
+                                            <a class="add-to-cart" href="detail.html" title="Wishlist">
+                                                <i class="icon fa fa-heart"></i>
+                                            </a>
+                                        </li>
 
-                                    <li class="lnk wishlist">
-                                        <a class="add-to-cart" href="detail.html" title="Wishlist">
-                                            <i class="icon fa fa-heart"></i>
-                                        </a>
-                                    </li>
-
-                                    <li class="lnk">
-                                        <a class="add-to-cart" href="detail.html" title="Compare">
-                                            <i class="fa fa-retweet"></i>
-                                        </a>
-                                    </li>
-                                </ul>
+                                        <li class="lnk">
+                                            <a class="add-to-cart" href="detail.html" title="Compare">
+                                                <i class="fa fa-retweet"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <!-- /.action -->
                             </div>
-                            <!-- /.action -->
+                            <!-- /.cart -->
                         </div>
-                        <!-- /.cart -->
+                        <!-- /.product -->
+
                     </div>
-                    <!-- /.product -->
-
+                    <!-- /.products -->
                 </div>
-                <!-- /.products -->
-            </div>
-            <!-- /.item -->
-
-            <div class="item item-carousel">
-                <div class="products">
-
-                    <div class="product">
-                        <div class="product-image">
-                            <div class="image">
-                                <a href="detail.html"><img src="assets/images/blank.gif" data-echo="assets/images/products/h2-5.jpg" alt=""></a>
-                            </div>
-                            <!-- /.image -->
-
-                            <div class="tag sale"><span>sale</span></div>
-                        </div>
-                        <!-- /.product-image -->
-
-
-                        <div class="product-info text-left">
-                            <h3 class="name"><a href="detail.html">Sony Ericson Vaga</a></h3>
-                            <div class="rating rateit-small"></div>
-                            <div class="description"></div>
-
-                            <div class="product-price">
-                                <span class="price">
-                                    $650.99
-                                </span>
-                                <span class="price-before-discount">$ 800</span>
-
-                            </div>
-                            <!-- /.product-price -->
-
-                        </div>
-                        <!-- /.product-info -->
-                        <div class="cart clearfix animate-effect">
-                            <div class="action">
-                                <ul class="list-unstyled">
-                                    <li class="add-cart-button btn-group">
-                                        <button class="btn btn-primary icon" data-toggle="dropdown" type="button">
-                                            <i class="fa fa-shopping-cart"></i>
-                                        </button>
-                                        <button class="btn btn-primary" type="button">Add to cart</button>
-
-                                    </li>
-
-                                    <li class="lnk wishlist">
-                                        <a class="add-to-cart" href="detail.html" title="Wishlist">
-                                            <i class="icon fa fa-heart"></i>
-                                        </a>
-                                    </li>
-
-                                    <li class="lnk">
-                                        <a class="add-to-cart" href="detail.html" title="Compare">
-                                            <i class="fa fa-retweet"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <!-- /.action -->
-                        </div>
-                        <!-- /.cart -->
-                    </div>
-                    <!-- /.product -->
-
-                </div>
-                <!-- /.products -->
-            </div>
-            <!-- /.item -->
-
-            <div class="item item-carousel">
-                <div class="products">
-
-                    <div class="product">
-                        <div class="product-image">
-                            <div class="image">
-                                <a href="detail.html"><img src="assets/images/blank.gif" data-echo="assets/images/products/h2-2.jpg" alt=""></a>
-                            </div>
-                            <!-- /.image -->
-
-                            <div class="tag new"><span>new</span></div>
-                        </div>
-                        <!-- /.product-image -->
-
-
-                        <div class="product-info text-left">
-                            <h3 class="name"><a href="detail.html">Samsung Galaxy S4</a></h3>
-                            <div class="rating rateit-small"></div>
-                            <div class="description"></div>
-
-                            <div class="product-price">
-                                <span class="price">
-                                    $650.99
-                                </span>
-                                <span class="price-before-discount">$ 800</span>
-
-                            </div>
-                            <!-- /.product-price -->
-
-                        </div>
-                        <!-- /.product-info -->
-                        <div class="cart clearfix animate-effect">
-                            <div class="action">
-                                <ul class="list-unstyled">
-                                    <li class="add-cart-button btn-group">
-                                        <button class="btn btn-primary icon" data-toggle="dropdown" type="button">
-                                            <i class="fa fa-shopping-cart"></i>
-                                        </button>
-                                        <button class="btn btn-primary" type="button">Add to cart</button>
-
-                                    </li>
-
-                                    <li class="lnk wishlist">
-                                        <a class="add-to-cart" href="detail.html" title="Wishlist">
-                                            <i class="icon fa fa-heart"></i>
-                                        </a>
-                                    </li>
-
-                                    <li class="lnk">
-                                        <a class="add-to-cart" href="detail.html" title="Compare">
-                                            <i class="fa fa-retweet"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <!-- /.action -->
-                        </div>
-                        <!-- /.cart -->
-                    </div>
-                    <!-- /.product -->
-
-                </div>
-                <!-- /.products -->
-            </div>
-            <!-- /.item -->
-
-            <div class="item item-carousel">
-                <div class="products">
-
-                    <div class="product">
-                        <div class="product-image">
-                            <div class="image">
-                                <a href="detail.html"><img src="assets/images/blank.gif" data-echo="assets/images/products/h2-4.jpg" alt=""></a>
-                            </div>
-                            <!-- /.image -->
-
-                            <div class="tag hot"><span>hot</span></div>
-                        </div>
-                        <!-- /.product-image -->
-
-
-                        <div class="product-info text-left">
-                            <h3 class="name"><a href="detail.html">Apple Iphone 5s 32GB</a></h3>
-                            <div class="rating rateit-small"></div>
-                            <div class="description"></div>
-
-                            <div class="product-price">
-                                <span class="price">
-                                    $650.99
-                                </span>
-                                <span class="price-before-discount">$ 800</span>
-
-                            </div>
-                            <!-- /.product-price -->
-
-                        </div>
-                        <!-- /.product-info -->
-                        <div class="cart clearfix animate-effect">
-                            <div class="action">
-                                <ul class="list-unstyled">
-                                    <li class="add-cart-button btn-group">
-                                        <button class="btn btn-primary icon" data-toggle="dropdown" type="button">
-                                            <i class="fa fa-shopping-cart"></i>
-                                        </button>
-                                        <button class="btn btn-primary" type="button">Add to cart</button>
-
-                                    </li>
-
-                                    <li class="lnk wishlist">
-                                        <a class="add-to-cart" href="detail.html" title="Wishlist">
-                                            <i class="icon fa fa-heart"></i>
-                                        </a>
-                                    </li>
-
-                                    <li class="lnk">
-                                        <a class="add-to-cart" href="detail.html" title="Compare">
-                                            <i class="fa fa-retweet"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <!-- /.action -->
-                        </div>
-                        <!-- /.cart -->
-                    </div>
-                    <!-- /.product -->
-
-                </div>
-                <!-- /.products -->
-            </div>
-            <!-- /.item -->
-
-            <div class="item item-carousel">
-                <div class="products">
-
-                    <div class="product">
-                        <div class="product-image">
-                            <div class="image">
-                                <a href="detail.html"><img src="assets/images/blank.gif" data-echo="assets/images/products/h2-6.jpg" alt=""></a>
-                            </div>
-                            <!-- /.image -->
-
-                            <div class="tag new"><span>new</span></div>
-                        </div>
-                        <!-- /.product-image -->
-
-
-                        <div class="product-info text-left">
-                            <h3 class="name"><a href="detail.html">Apple Iphone 5s 32GB</a></h3>
-                            <div class="rating rateit-small"></div>
-                            <div class="description"></div>
-
-                            <div class="product-price">
-                                <span class="price">
-                                    $650.99
-                                </span>
-                                <span class="price-before-discount">$ 800</span>
-
-                            </div>
-                            <!-- /.product-price -->
-
-                        </div>
-                        <!-- /.product-info -->
-                        <div class="cart clearfix animate-effect">
-                            <div class="action">
-                                <ul class="list-unstyled">
-                                    <li class="add-cart-button btn-group">
-                                        <button class="btn btn-primary icon" data-toggle="dropdown" type="button">
-                                            <i class="fa fa-shopping-cart"></i>
-                                        </button>
-                                        <button class="btn btn-primary" type="button">Add to cart</button>
-
-                                    </li>
-
-                                    <li class="lnk wishlist">
-                                        <a class="add-to-cart" href="detail.html" title="Wishlist">
-                                            <i class="icon fa fa-heart"></i>
-                                        </a>
-                                    </li>
-
-                                    <li class="lnk">
-                                        <a class="add-to-cart" href="detail.html" title="Compare">
-                                            <i class="fa fa-retweet"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <!-- /.action -->
-                        </div>
-                        <!-- /.cart -->
-                    </div>
-                    <!-- /.product -->
-
-                </div>
-                <!-- /.products -->
-            </div>
-            <!-- /.item -->
-
-            <div class="item item-carousel">
-                <div class="products">
-
-                    <div class="product">
-                        <div class="product-image">
-                            <div class="image">
-                                <a href="detail.html"><img src="assets/images/blank.gif" data-echo="assets/images/products/h2-6.jpg" alt=""></a>
-                            </div>
-                            <!-- /.image -->
-
-                            <div class="tag new"><span>new</span></div>
-                        </div>
-                        <!-- /.product-image -->
-
-
-                        <div class="product-info text-left">
-                            <h3 class="name"><a href="detail.html">Apple Iphone 5s 32GB</a></h3>
-                            <div class="rating rateit-small"></div>
-                            <div class="description"></div>
-
-                            <div class="product-price">
-                                <span class="price">
-                                    $650.99
-                                </span>
-                                <span class="price-before-discount">$ 800</span>
-
-                            </div>
-                            <!-- /.product-price -->
-
-                        </div>
-                        <!-- /.product-info -->
-                        <div class="cart clearfix animate-effect">
-                            <div class="action">
-                                <ul class="list-unstyled">
-                                    <li class="add-cart-button btn-group">
-                                        <button class="btn btn-primary icon" data-toggle="dropdown" type="button">
-                                            <i class="fa fa-shopping-cart"></i>
-                                        </button>
-                                        <button class="btn btn-primary" type="button">Add to cart</button>
-
-                                    </li>
-
-                                    <li class="lnk wishlist">
-                                        <a class="add-to-cart" href="detail.html" title="Wishlist">
-                                            <i class="icon fa fa-heart"></i>
-                                        </a>
-                                    </li>
-
-                                    <li class="lnk">
-                                        <a class="add-to-cart" href="detail.html" title="Compare">
-                                            <i class="fa fa-retweet"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <!-- /.action -->
-                        </div>
-                        <!-- /.cart -->
-                    </div>
-                    <!-- /.product -->
-
-                </div>
-                <!-- /.products -->
-            </div>
-            <!-- /.item -->
-
-            <div class="item item-carousel">
-                <div class="products">
-
-                    <div class="product">
-                        <div class="product-image">
-                            <div class="image">
-                                <a href="detail.html"><img src="assets/images/blank.gif" data-echo="assets/images/products/h2-1.jpg" alt=""></a>
-                            </div>
-                            <!-- /.image -->
-
-                            <div class="tag hot"><span>hot</span></div>
-                        </div>
-                        <!-- /.product-image -->
-
-
-                        <div class="product-info text-left">
-                            <h3 class="name"><a href="detail.html">Sony Ericson Vaga</a></h3>
-                            <div class="rating rateit-small"></div>
-                            <div class="description"></div>
-
-                            <div class="product-price">
-                                <span class="price">
-                                    $650.99
-                                </span>
-                                <span class="price-before-discount">$ 800</span>
-
-                            </div>
-                            <!-- /.product-price -->
-
-                        </div>
-                        <!-- /.product-info -->
-                        <div class="cart clearfix animate-effect">
-                            <div class="action">
-                                <ul class="list-unstyled">
-                                    <li class="add-cart-button btn-group">
-                                        <button class="btn btn-primary icon" data-toggle="dropdown" type="button">
-                                            <i class="fa fa-shopping-cart"></i>
-                                        </button>
-                                        <button class="btn btn-primary" type="button">Add to cart</button>
-
-                                    </li>
-
-                                    <li class="lnk wishlist">
-                                        <a class="add-to-cart" href="detail.html" title="Wishlist">
-                                            <i class="icon fa fa-heart"></i>
-                                        </a>
-                                    </li>
-
-                                    <li class="lnk">
-                                        <a class="add-to-cart" href="detail.html" title="Compare">
-                                            <i class="fa fa-retweet"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <!-- /.action -->
-                        </div>
-                        <!-- /.cart -->
-                    </div>
-                    <!-- /.product -->
-
-                </div>
-                <!-- /.products -->
-            </div>
-            <!-- /.item -->
+            }
+           
         </div>
         <!-- /.home-owl-carousel -->
     </section>
@@ -2613,7 +1025,7 @@
             <div class="col-md-12">
                 <div class="wide-banner cnt-strip">
                     <div class="image">
-                        <img data-echo="assets/images/banners/11.jpg" src="assets/images/blank.gif" alt="">
+                        <img data-echo="img2/ComisionContrabandoCIG-1170x185.jpg" src="assets/images/blank.gif" alt="">
                     </div>
                     <div class="strip">
                         <div class="strip-inner text-right">
@@ -2640,276 +1052,59 @@
     <section class="section seller-product wow fadeInUp">
         <h3 class="section-title">best seller</h3>
         <div class="row outer-top-xs">
+            @foreach (var item in Model)
+            {
+                <div class="col-md-4 col-sm-6">
+                    <div class="products">
 
-            <div class="col-md-4 col-sm-6">
-                <div class="products">
-
-                    <div class="product">
-                        <div class="product-micro">
-                            <div class="row product-micro-row">
-                                <div class="col col-xs-6">
-                                    <div class="product-image">
-                                        <div class="image">
-                                            <a href="assets/images/products/md1.jpg" data-lightbox="image-1" data-title="Nunc ullamcors">
-                                                <img data-echo="assets/images/products/md1.jpg" src="assets/images/blank.gif" alt="">
-                                                <div class="zoom-overlay"></div>
-                                            </a>
-                                        </div>
-                                        <!-- /.image -->
-
-                                    </div>
-                                    <!-- /.product-image -->
-                                </div>
-                                <!-- /.col -->
-                                <div class="col col-xs-6">
-                                    <div class="product-info">
-                                        <h3 class="name"><a href="#">Simple Product Demo</a></h3>
-                                        <div class="rating rateit-small"></div>
-                                        <div class="product-price">
-                                            <span class="price">
-                                                $650.99
-                                            </span>
-                                            <span class="price-before-discount">$800.00</span>
+                        <div class="product">
+                            <div class="product-micro">
+                                <div class="row product-micro-row">
+                                    <div class="col col-xs-6">
+                                        <div class="product-image">
+                                            <div class="image">
+                                                <a href="img2/simpsledemo.jpg" data-lightbox="image-1" data-title="iphone đời hịn">
+                                                    <img data-echo="img2/simpsledemo.jpg" src="assets/images/blank.gif" alt="">
+                                                    <div class="zoom-overlay"></div>
+                                                </a>
+                                            </div>
+                                            <!-- /.image -->
 
                                         </div>
-                                        <!-- /.product-price -->
-                                        <div class="action m-t-10"><a href="#" class="lnk btn btn-primary">Add To Cart</a></div>
+                                        <!-- /.product-image -->
                                     </div>
+                                    <!-- /.col -->
+                                    <div class="col col-xs-6">
+                                        <div class="product-info">
+                                            <h3 class="name"><a href="@Url.Action("Index","ShowDetailsProduct")">@item.NAME</a></h3>
+                                            <div class="rating rateit-small"></div>
+                                            <div class="product-price">
+                                                <div class="description">@item.brand.name</div>
+                                                <span class="price">
+                                                    $650.99
+                                                </span>
+                                                <span class="price-before-discount">$800.00</span>
+
+                                            </div>
+                                            <!-- /.product-price -->
+                                            <div class="action m-t-10"><a href="#" class="lnk btn btn-primary">Add To Cart</a></div>
+                                        </div>
+                                    </div>
+                                    <!-- /.col -->
                                 </div>
-                                <!-- /.col -->
+                                <!-- /.product-micro-row -->
                             </div>
-                            <!-- /.product-micro-row -->
+                            <!-- /.product-micro -->
                         </div>
-                        <!-- /.product-micro -->
+
                     </div>
-
                 </div>
-            </div>
+            }
+          
+           
 
-            <div class="col-md-4 col-sm-6">
-                <div class="products">
 
-                    <div class="product">
-                        <div class="product-micro">
-                            <div class="row product-micro-row">
-                                <div class="col col-xs-6">
-                                    <div class="product-image">
-                                        <div class="image">
-                                            <a href="assets/images/products/md2.jpg" data-lightbox="image-1" data-title="Nunc ullamcors">
-                                                <img data-echo="assets/images/products/md2.jpg" src="assets/images/blank.gif" alt="">
-                                                <div class="zoom-overlay"></div>
-                                            </a>
-                                        </div>
-                                        <!-- /.image -->
-
-                                    </div>
-                                    <!-- /.product-image -->
-                                </div>
-                                <!-- /.col -->
-                                <div class="col col-xs-6">
-                                    <div class="product-info">
-                                        <h3 class="name"><a href="#">Simple Product Demo</a></h3>
-                                        <div class="rating rateit-small"></div>
-                                        <div class="product-price">
-                                            <span class="price">
-                                                $650.99
-                                            </span>
-                                            <span class="price-before-discount">$800.00</span>
-
-                                        </div>
-                                        <!-- /.product-price -->
-                                        <div class="action m-t-10"><a href="#" class="lnk btn btn-primary">Add To Cart</a></div>
-                                    </div>
-                                </div>
-                                <!-- /.col -->
-                            </div>
-                            <!-- /.product-micro-row -->
-                        </div>
-                        <!-- /.product-micro -->
-                    </div>
-
-                </div>
-            </div>
-
-            <div class="col-md-4 col-sm-6">
-                <div class="products">
-
-                    <div class="product">
-                        <div class="product-micro">
-                            <div class="row product-micro-row">
-                                <div class="col col-xs-6">
-                                    <div class="product-image">
-                                        <div class="image">
-                                            <a href="assets/images/products/md3.jpg" data-lightbox="image-1" data-title="Nunc ullamcors">
-                                                <img data-echo="assets/images/products/md3.jpg" src="assets/images/blank.gif" alt="">
-                                                <div class="zoom-overlay"></div>
-                                            </a>
-                                        </div>
-                                        <!-- /.image -->
-
-                                    </div>
-                                    <!-- /.product-image -->
-                                </div>
-                                <!-- /.col -->
-                                <div class="col col-xs-6">
-                                    <div class="product-info">
-                                        <h3 class="name"><a href="#">Simple Product Demo</a></h3>
-                                        <div class="rating rateit-small"></div>
-                                        <div class="product-price">
-                                            <span class="price">
-                                                $650.99
-                                            </span>
-                                            <span class="price-before-discount">$800.00</span>
-
-                                        </div>
-                                        <!-- /.product-price -->
-                                        <div class="action m-t-10"><a href="#" class="lnk btn btn-primary">Add To Cart</a></div>
-                                    </div>
-                                </div>
-                                <!-- /.col -->
-                            </div>
-                            <!-- /.product-micro-row -->
-                        </div>
-                        <!-- /.product-micro -->
-                    </div>
-
-                </div>
-            </div>
-
-            <div class="col-md-4 col-sm-6">
-                <div class="products">
-
-                    <div class="product">
-                        <div class="product-micro">
-                            <div class="row product-micro-row">
-                                <div class="col col-xs-6">
-                                    <div class="product-image">
-                                        <div class="image">
-                                            <a href="assets/images/products/md1.jpg" data-lightbox="image-1" data-title="Nunc ullamcors">
-                                                <img data-echo="assets/images/products/md1.jpg" src="assets/images/blank.gif" alt="">
-                                                <div class="zoom-overlay"></div>
-                                            </a>
-                                        </div>
-                                        <!-- /.image -->
-
-                                    </div>
-                                    <!-- /.product-image -->
-                                </div>
-                                <!-- /.col -->
-                                <div class="col col-xs-6">
-                                    <div class="product-info">
-                                        <h3 class="name"><a href="#">Simple Product Demo</a></h3>
-                                        <div class="rating rateit-small"></div>
-                                        <div class="product-price">
-                                            <span class="price">
-                                                $650.99
-                                            </span>
-                                            <span class="price-before-discount">$800.00</span>
-
-                                        </div>
-                                        <!-- /.product-price -->
-                                        <div class="action m-t-10"><a href="#" class="lnk btn btn-primary">Add To Cart</a></div>
-                                    </div>
-                                </div>
-                                <!-- /.col -->
-                            </div>
-                            <!-- /.product-micro-row -->
-                        </div>
-                        <!-- /.product-micro -->
-                    </div>
-
-                </div>
-            </div>
-
-            <div class="col-md-4 col-sm-6">
-                <div class="products">
-
-                    <div class="product">
-                        <div class="product-micro">
-                            <div class="row product-micro-row">
-                                <div class="col col-xs-6">
-                                    <div class="product-image">
-                                        <div class="image">
-                                            <a href="assets/images/products/md2.jpg" data-lightbox="image-1" data-title="Nunc ullamcors">
-                                                <img data-echo="assets/images/products/md2.jpg" src="assets/images/blank.gif" alt="">
-                                                <div class="zoom-overlay"></div>
-                                            </a>
-                                        </div>
-                                        <!-- /.image -->
-
-                                    </div>
-                                    <!-- /.product-image -->
-                                </div>
-                                <!-- /.col -->
-                                <div class="col col-xs-6">
-                                    <div class="product-info">
-                                        <h3 class="name"><a href="#">Simple Product Demo</a></h3>
-                                        <div class="rating rateit-small"></div>
-                                        <div class="product-price">
-                                            <span class="price">
-                                                $650.99
-                                            </span>
-                                            <span class="price-before-discount">$800.00</span>
-
-                                        </div>
-                                        <!-- /.product-price -->
-                                        <div class="action m-t-10"><a href="#" class="lnk btn btn-primary">Add To Cart</a></div>
-                                    </div>
-                                </div>
-                                <!-- /.col -->
-                            </div>
-                            <!-- /.product-micro-row -->
-                        </div>
-                        <!-- /.product-micro -->
-                    </div>
-
-                </div>
-            </div>
-
-            <div class="col-md-4 col-sm-6">
-                <div class="products">
-
-                    <div class="product">
-                        <div class="product-micro">
-                            <div class="row product-micro-row">
-                                <div class="col col-xs-6">
-                                    <div class="product-image">
-                                        <div class="image">
-                                            <a href="assets/images/products/md3.jpg" data-lightbox="image-1" data-title="Nunc ullamcors">
-                                                <img data-echo="assets/images/products/md3.jpg" src="assets/images/blank.gif" alt="">
-                                                <div class="zoom-overlay"></div>
-                                            </a>
-                                        </div>
-                                        <!-- /.image -->
-
-                                    </div>
-                                    <!-- /.product-image -->
-                                </div>
-                                <!-- /.col -->
-                                <div class="col col-xs-6">
-                                    <div class="product-info">
-                                        <h3 class="name"><a href="#">Simple Product Demo</a></h3>
-                                        <div class="rating rateit-small"></div>
-                                        <div class="product-price">
-                                            <span class="price">
-                                                $650.99
-                                            </span>
-                                            <span class="price-before-discount">$800.00</span>
-
-                                        </div>
-                                        <!-- /.product-price -->
-                                        <div class="action m-t-10"><a href="#" class="lnk btn btn-primary">Add To Cart</a></div>
-                                    </div>
-                                </div>
-                                <!-- /.col -->
-                            </div>
-                            <!-- /.product-micro-row -->
-                        </div>
-                        <!-- /.product-micro -->
-                    </div>
-
-                </div>
-            </div>
+           
         </div>
 
     </section>
@@ -2923,7 +1118,7 @@
                     <div class="blog-post">
                         <div class="blog-post-image">
                             <div class="image">
-                                <a href="blog.html"><img data-echo="assets/images/blog-post/7.jpg" src="assets/images/blank.gif" width="370" height="165" alt=""></a>
+                                <a href="blog.html"><img data-echo="img2/watch370x165.jpg" src="assets/images/blank.gif" width="370" height="165" alt=""></a>
                             </div>
                         </div>
                         <!-- /.blog-post-image -->
@@ -2946,7 +1141,7 @@
                     <div class="blog-post">
                         <div class="blog-post-image">
                             <div class="image">
-                                <a href="blog.html"><img data-echo="assets/images/blog-post/8.jpg" src="assets/images/blank.gif" width="370" height="165" alt=""></a>
+                                <a href="blog.html"><img data-echo="img2/iphone370x165.jpg" src="assets/images/blank.gif" width="370" height="165" alt=""></a>
                             </div>
                         </div>
                         <!-- /.blog-post-image -->
@@ -2969,7 +1164,7 @@
                     <div class="blog-post">
                         <div class="blog-post-image">
                             <div class="image">
-                                <a href="blog.html"><img data-echo="assets/images/blog-post/9.jpg" src="assets/images/blank.gif" width="370" height="165" alt=""></a>
+                                <a href="blog.html"><img data-echo="img2/dell370x165.jpg" src="assets/images/blank.gif" width="370" height="165" alt=""></a>
                             </div>
                         </div>
                         <!-- /.blog-post-image -->
@@ -3066,86 +1261,7 @@
     <!-- /.section -->
     <!-- ============================================== BLOG SLIDER : END ============================================== -->
     <!-- ============================================== BRANDS CAROUSEL ============================================== -->
-    <div id="brands-carousel" class="logo-slider wow fadeInUp">
-
-        <h3 class="section-title">Our Brands</h3>
-        <div class="logo-slider-inner">
-            <div id="brand-slider" class="owl-carousel brand-slider custom-carousel owl-theme">
-                <div class="item m-t-15">
-                    <a href="#" class="image">
-                        <img data-echo="assets/images/brands/brand1.png" src="assets/images/blank.gif" alt="">
-                    </a>
-                </div>
-                <!--/.item-->
-
-                <div class="item m-t-10">
-                    <a href="#" class="image">
-                        <img data-echo="assets/images/brands/brand2.png" src="assets/images/blank.gif" alt="">
-                    </a>
-                </div>
-                <!--/.item-->
-
-                <div class="item">
-                    <a href="#" class="image">
-                        <img data-echo="assets/images/brands/brand3.png" src="assets/images/blank.gif" alt="">
-                    </a>
-                </div>
-                <!--/.item-->
-
-                <div class="item">
-                    <a href="#" class="image">
-                        <img data-echo="assets/images/brands/brand4.png" src="assets/images/blank.gif" alt="">
-                    </a>
-                </div>
-                <!--/.item-->
-
-                <div class="item">
-                    <a href="#" class="image">
-                        <img data-echo="assets/images/brands/brand5.png" src="assets/images/blank.gif" alt="">
-                    </a>
-                </div>
-                <!--/.item-->
-
-                <div class="item">
-                    <a href="#" class="image">
-                        <img data-echo="assets/images/brands/brand6.png" src="assets/images/blank.gif" alt="">
-                    </a>
-                </div>
-                <!--/.item-->
-
-                <div class="item">
-                    <a href="#" class="image">
-                        <img data-echo="assets/images/brands/brand2.png" src="assets/images/blank.gif" alt="">
-                    </a>
-                </div>
-                <!--/.item-->
-
-                <div class="item">
-                    <a href="#" class="image">
-                        <img data-echo="assets/images/brands/brand4.png" src="assets/images/blank.gif" alt="">
-                    </a>
-                </div>
-                <!--/.item-->
-
-                <div class="item">
-                    <a href="#" class="image">
-                        <img data-echo="assets/images/brands/brand1.png" src="assets/images/blank.gif" alt="">
-                    </a>
-                </div>
-                <!--/.item-->
-
-                <div class="item">
-                    <a href="#" class="image">
-                        <img data-echo="assets/images/brands/brand5.png" src="assets/images/blank.gif" alt="">
-                    </a>
-                </div>
-                <!--/.item-->
-            </div>
-            <!-- /.owl-carousel #logo-slider -->
-        </div>
-        <!-- /.logo-slider-inner -->
-
-    </div>
+    
     <!-- /.logo-slider -->
     <!-- ============================================== BRANDS CAROUSEL : END ============================================== -->
 
@@ -3153,4 +1269,7 @@
 </div>
 <!-- /.container -->    
 }
+
+
+
 

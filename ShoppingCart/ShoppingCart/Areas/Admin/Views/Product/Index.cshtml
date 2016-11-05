@@ -1,0 +1,117 @@
+﻿
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@section main {
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div id="ProductTableContainer"></div>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            //Prepare jtable plugin
+            $('#ProductTableContainer')
+                .jtable({
+                    title: 'List Product',
+                    actions: {
+                        listAction: '/Product/GetListProduct',
+                        createAction: '/Product/AddProduct',
+                        updateAction: '/Product/UpdateProduct',
+                        deleteAction: '/Product/DeleteProduct'
+                    },
+                    fields: {
+                        id: {
+                            key: true,
+                            create: false,
+                            edit: false,
+                            list: false
+                        },
+                        name: {
+                            title: 'Name',
+                            width: '10%'
+                        },
+                        quantity: {
+                            title: 'Quantity',
+                            width: '5%'
+                        },
+                        imageurl: {
+                            title: 'Image Url',
+                            width: '5%',
+                            list:false
+                        },
+                        description: {
+                            title: 'Description',
+                        },
+                        chip: {
+                            title: 'Chip',
+                            width: '10%',
+                            options: { 'Core i5': 'Core i5', 'Core i3 ': 'Core i3 ', 'Core i7 ': 'Core i7 ' },
+                            //list: false
+                        },
+                        ram: {
+                            title: 'Ram',
+                            options: { 'Ram 8gb': 'Ram 8gb', 'Ram 4gb': 'Ram 4gb', 'Ram 2gb': 'Ram 2gb' },
+
+                        },
+                        monitor: {
+                            title: 'Monitor',
+                            options: {
+                                'AOC 2250SWN': 'AOC 2250SWN', 'Samsung 3D LED S27A950D': 'Samsung 3D LED S27A950D',
+                                'Dell U2414 Ultrasharp': 'Dell U2414 Ultrasharp'
+                            },
+
+                        },
+                        harddrive: {
+                            title: 'Hard Drive',
+                            options: {
+                                'Seagate 2TB': 'Seagate 2TB', 'Seagate Surveillance 3TB': 'Seagate Surveillance 3TB', 'WD Black™ 500G': 'WD Black™ 500G'
+                            }
+                        },
+                        power: {
+                            title: 'Power',
+                            options:{
+                                'Power 500W 24P (12 cm) 2 Sata':'Power 500W 24P (12 cm) 2 Sata',
+                                'Fan 8cm, 2 Sata': 'Fan 8cm, 2 Sata',
+                                'Fan 12cm, 2 Sata': 'Fan 12cm, 2 Sata'
+                            }
+                        },
+                        mainboard: {
+                            title: 'Main Board',
+                            width: '10%',
+                            options:{
+                                'Mainboard Asus H81M-P': 'Mainboard Asus H81M-P',
+                                'Mainboard Asus A68HM-K': 'Mainboard Asus A68HM-K',
+                                'Mainboard Asus H81M-E': 'Mainboard Asus H81M-E'
+                            }
+                        },
+                        vga: {
+                            title: 'VGA',
+                            options:{
+                                'Gigabyte 1GB GT710-N710D3-1GL': 'Gigabyte 1GB GT710-N710D3-1GL',
+                                'Zotac 1GB GT710': 'Zotac 1GB GT710',
+                                'Asus 1GB GT730-FML-1GD5': 'Asus 1GB GT730-FML-1GD5',
+                            }
+                        },
+                        cpu: {
+                            title: 'CPU',
+                            width: '5%',
+                            options: {
+                                'CPU Pentium G4400 (3.3GHz)': 'CPU Pentium G4400 (3.3GHz)',
+                                'CPU Core I3-6098P (3.6GHz)': 'CPU Core I3-6098P (3.6GHz)',
+                                'CPU Core I5-6400 (2.7GHz)': 'CPU Core I5-6400 (2.7GHz)',
+                            }
+                        }
+
+                    }
+                })
+        
+
+            //Load student list from server
+            $('#ProductTableContainer').jtable('load');
+        });
+    </script>
+}

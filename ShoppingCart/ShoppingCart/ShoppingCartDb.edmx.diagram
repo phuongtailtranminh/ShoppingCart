@@ -4,32 +4,18 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="9d91ecb8300d4ad881ada1943d947a76" Name="Diagram1">
-        <EntityTypeShape EntityType="shoppingcartModel.chip" Width="1.5" PointX="0.75" PointY="7.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="shoppingcartModel.cpu" Width="1.5" PointX="0.75" PointY="14.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="shoppingcartModel.harddrive" Width="1.5" PointX="0.75" PointY="17.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="shoppingcartModel.mainboard" Width="1.5" PointX="0.75" PointY="21" IsExpanded="true" />
-        <EntityTypeShape EntityType="shoppingcartModel.monitor" Width="1.5" PointX="0.75" PointY="24.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="shoppingcartModel.order" Width="1.5" PointX="0.75" PointY="4.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="shoppingcartModel.power" Width="1.5" PointX="0.75" PointY="27.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="shoppingcartModel.product" Width="1.5" PointX="3" PointY="3.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="shoppingcartModel.ram" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="shoppingcartModel.role" Width="1.5" PointX="1.5" PointY="11.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="shoppingcartModel.user" Width="1.5" PointX="3.75" PointY="11.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="shoppingcartModel.userorder" Width="1.5" PointX="6" PointY="4.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="shoppingcartModel.vga" Width="1.5" PointX="5.25" PointY="7.875" IsExpanded="true" />
-        <AssociationConnector Association="shoppingcartModel.FK__userorder__order__2A4B4B5E" ManuallyRouted="false" />
+      <Diagram DiagramId="425c2fe19cd342edb4b57beb61537e9c" Name="Diagram1">
+        <EntityTypeShape EntityType="shoppingcartModel.brand" Width="1.5" PointX="2.75" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="shoppingcartModel.order" Width="1.5" PointX="6.75" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="shoppingcartModel.orderproduct" Width="1.5" PointX="6.875" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="shoppingcartModel.product" Width="1.5" PointX="4.875" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="shoppingcartModel.role" Width="1.5" PointX="2" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="shoppingcartModel.user" Width="1.5" PointX="4.625" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="shoppingcartModel.FK__product__brandid__2D27B809" ManuallyRouted="false" />
+        <AssociationConnector Association="shoppingcartModel.FK__order__userid__286302EC" ManuallyRouted="false" />
+        <AssociationConnector Association="shoppingcartModel.FK__orderprod__order__2F10007B" ManuallyRouted="false" />
+        <AssociationConnector Association="shoppingcartModel.FK__orderprod__produ__300424B4" ManuallyRouted="false" />
         <AssociationConnector Association="shoppingcartModel.FK__user__roleid__25869641" ManuallyRouted="false" />
-        <AssociationConnector Association="shoppingcartModel.FK__userorder__useri__29572725" ManuallyRouted="false" />
-        <AssociationConnector Association="shoppingcartModel.orderproduct" ManuallyRouted="false" />
-        <AssociationConnector Association="shoppingcartModel.productchip" ManuallyRouted="false" />
-        <AssociationConnector Association="shoppingcartModel.productcpu" ManuallyRouted="false" />
-        <AssociationConnector Association="shoppingcartModel.productharddrive" ManuallyRouted="false" />
-        <AssociationConnector Association="shoppingcartModel.productmainboard" ManuallyRouted="false" />
-        <AssociationConnector Association="shoppingcartModel.productmonitor" ManuallyRouted="false" />
-        <AssociationConnector Association="shoppingcartModel.productpower" ManuallyRouted="false" />
-        <AssociationConnector Association="shoppingcartModel.productram" ManuallyRouted="false" />
-        <AssociationConnector Association="shoppingcartModel.productvga" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -77,6 +77,10 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -142,9 +146,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -198,46 +199,58 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\BrandController.cs" />
     <Compile Include="Areas\Admin\Controllers\IndexController.cs" />
-    <Compile Include="chip.cs">
+    <Compile Include="Areas\Admin\Controllers\OrderController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ProductController.cs" />
+    <Compile Include="brand.cs">
       <DependentUpon>ShoppingCartDb.tt</DependentUpon>
     </Compile>
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AppleMacintoshController.cs" />
+    <Compile Include="Controllers\ASUSController.cs" />
+    <Compile Include="Controllers\CategoryController.cs" />
+    <Compile Include="Controllers\CheckOutController.cs" />
+    <Compile Include="Controllers\ErroController.cs" />
+    <Compile Include="Controllers\HeaderController.cs" />
+    <Compile Include="Controllers\RegisterFailController.cs" />
+    <Compile Include="Controllers\GatewayController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LenovoController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="cpu.cs">
-      <DependentUpon>ShoppingCartDb.tt</DependentUpon>
-    </Compile>
+    <Compile Include="Controllers\MyAccountController.cs" />
+    <Compile Include="Controllers\MyCartController.cs" />
+    <Compile Include="Controllers\RegisterSuccessController.cs" />
+    <Compile Include="Controllers\ResultController.cs" />
+    <Compile Include="Controllers\SamSungController.cs" />
+    <Compile Include="Controllers\ShowDetailsProductController.cs" />
+    <Compile Include="Controllers\ToshibaController.cs" />
     <Compile Include="Enums\JTableResponseCode.cs" />
+    <Compile Include="Enums\Role.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="harddrive.cs">
-      <DependentUpon>ShoppingCartDb.tt</DependentUpon>
-    </Compile>
+    <Compile Include="Interfaces\IBrandRepository.cs" />
+    <Compile Include="Interfaces\IOrderRepository.cs" />
+    <Compile Include="Interfaces\IProductRepository.cs" />
     <Compile Include="Interfaces\IUserRepository.cs" />
-    <Compile Include="mainboard.cs">
-      <DependentUpon>ShoppingCartDb.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="monitor.cs">
-      <DependentUpon>ShoppingCartDb.tt</DependentUpon>
-    </Compile>
     <Compile Include="order.cs">
       <DependentUpon>ShoppingCartDb.tt</DependentUpon>
     </Compile>
-    <Compile Include="power.cs">
+    <Compile Include="orderproduct.cs">
       <DependentUpon>ShoppingCartDb.tt</DependentUpon>
     </Compile>
     <Compile Include="product.cs">
       <DependentUpon>ShoppingCartDb.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ram.cs">
-      <DependentUpon>ShoppingCartDb.tt</DependentUpon>
-    </Compile>
+    <Compile Include="Repositories\BrandRepository.cs" />
+    <Compile Include="Repositories\OrderRepository.cs" />
+    <Compile Include="Repositories\ProductRepository.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
     <Compile Include="role.cs">
       <DependentUpon>ShoppingCartDb.tt</DependentUpon>
@@ -259,12 +272,6 @@
     </Compile>
     <Compile Include="Startup.cs" />
     <Compile Include="user.cs">
-      <DependentUpon>ShoppingCartDb.tt</DependentUpon>
-    </Compile>
-    <Compile Include="userorder.cs">
-      <DependentUpon>ShoppingCartDb.tt</DependentUpon>
-    </Compile>
-    <Compile Include="vga.cs">
       <DependentUpon>ShoppingCartDb.tt</DependentUpon>
     </Compile>
   </ItemGroup>
@@ -307,6 +314,27 @@
     <Content Include="assets\bootstrap-wysihtml5\wysihtml5-0.3.0.js" />
     <Content Include="assets\chart-master\Chart.js" />
     <Content Include="assets\ckeditor\ckeditor.js" />
+    <Content Include="assets\css\animate.min.css" />
+    <Content Include="assets\css\blue.css" />
+    <Content Include="assets\css\bootstrap-select.min.css" />
+    <Content Include="assets\css\bootstrap.css" />
+    <Content Include="assets\css\bootstrap.min.css" />
+    <Content Include="assets\css\config.css" />
+    <Content Include="assets\css\dark-green.css" />
+    <Content Include="assets\css\font-awesome.min.css" />
+    <Content Include="assets\css\green.css" />
+    <Content Include="assets\css\images\close.png" />
+    <Content Include="assets\css\images\loading.gif" />
+    <Content Include="assets\css\images\next.png" />
+    <Content Include="assets\css\images\prev.png" />
+    <Content Include="assets\css\images\star-small.png" />
+    <Content Include="assets\css\lightbox.css" />
+    <Content Include="assets\css\main.css" />
+    <Content Include="assets\css\orange.css" />
+    <Content Include="assets\css\owl.carousel.css" />
+    <Content Include="assets\css\owl.transitions.css" />
+    <Content Include="assets\css\rateit.css" />
+    <Content Include="assets\css\red.css" />
     <Content Include="assets\data-tables\DT_bootstrap.css" />
     <Content Include="assets\data-tables\DT_bootstrap.js" />
     <Content Include="assets\data-tables\images\sort_asc.png" />
@@ -358,6 +386,175 @@
     <Content Include="assets\gritter\images\gritter.png" />
     <Content Include="assets\gritter\images\ie-spacer.gif" />
     <Content Include="assets\gritter\js\jquery.gritter.js" />
+    <Content Include="assets\images\advertisement\1.jpg" />
+    <Content Include="assets\images\ajax.gif" />
+    <Content Include="assets\images\banners\1.jpg" />
+    <Content Include="assets\images\banners\10.jpg" />
+    <Content Include="assets\images\banners\11.jpg" />
+    <Content Include="assets\images\banners\2.jpg" />
+    <Content Include="assets\images\banners\3.jpg" />
+    <Content Include="assets\images\banners\4.jpg" />
+    <Content Include="assets\images\banners\5.jpg" />
+    <Content Include="assets\images\banners\6.jpg" />
+    <Content Include="assets\images\banners\7.jpg" />
+    <Content Include="assets\images\banners\8.jpg" />
+    <Content Include="assets\images\banners\9.jpg" />
+    <Content Include="assets\images\banners\banner-side.png" />
+    <Content Include="assets\images\banners\cat-banner-1.jpg" />
+    <Content Include="assets\images\banners\cat-banner-2.jpg" />
+    <Content Include="assets\images\banners\f1.jpg" />
+    <Content Include="assets\images\banners\f2.jpg" />
+    <Content Include="assets\images\banners\f3.jpg" />
+    <Content Include="assets\images\banners\f4.jpg" />
+    <Content Include="assets\images\banners\f5.jpg" />
+    <Content Include="assets\images\banners\fashion.jpg" />
+    <Content Include="assets\images\banners\fr1.jpg" />
+    <Content Include="assets\images\banners\fr2.jpg" />
+    <Content Include="assets\images\blank.gif" />
+    <Content Include="assets\images\blog-post\1.jpg" />
+    <Content Include="assets\images\blog-post\10.jpg" />
+    <Content Include="assets\images\blog-post\11.jpg" />
+    <Content Include="assets\images\blog-post\12.jpg" />
+    <Content Include="assets\images\blog-post\2.jpg" />
+    <Content Include="assets\images\blog-post\3.jpg" />
+    <Content Include="assets\images\blog-post\4.jpg" />
+    <Content Include="assets\images\blog-post\5.jpg" />
+    <Content Include="assets\images\blog-post\6.jpg" />
+    <Content Include="assets\images\blog-post\7.jpg" />
+    <Content Include="assets\images\blog-post\8.jpg" />
+    <Content Include="assets\images\blog-post\9.jpg" />
+    <Content Include="assets\images\blog-post\author.png" />
+    <Content Include="assets\images\blog-post\blog_big_01.jpg" />
+    <Content Include="assets\images\blog-post\blog_big_02.jpg" />
+    <Content Include="assets\images\blog-post\blog_big_03.jpg" />
+    <Content Include="assets\images\blog-post\c1.jpg" />
+    <Content Include="assets\images\blog-post\c2.jpg" />
+    <Content Include="assets\images\blog-post\c3.jpg" />
+    <Content Include="assets\images\blog-post\c4.jpg" />
+    <Content Include="assets\images\blog-post\c5.jpg" />
+    <Content Include="assets\images\blog-post\f1.jpg" />
+    <Content Include="assets\images\blog-post\f2.jpg" />
+    <Content Include="assets\images\blog-post\f3.jpg" />
+    <Content Include="assets\images\blog-post\f4.jpg" />
+    <Content Include="assets\images\blog-post\f5.jpg" />
+    <Content Include="assets\images\blog-post\f6.jpg" />
+    <Content Include="assets\images\blog-post\fr1.jpg" />
+    <Content Include="assets\images\blog-post\fr2.jpg" />
+    <Content Include="assets\images\blog-post\fr3.jpg" />
+    <Content Include="assets\images\blog-post\fr4.jpg" />
+    <Content Include="assets\images\blog-post\fr5.jpg" />
+    <Content Include="assets\images\blog-post\fr6.jpg" />
+    <Content Include="assets\images\blog-post\sm1.jpg" />
+    <Content Include="assets\images\blog-post\sm2.jpg" />
+    <Content Include="assets\images\brands\b1.png" />
+    <Content Include="assets\images\brands\b2.png" />
+    <Content Include="assets\images\brands\b3.png" />
+    <Content Include="assets\images\brands\b4.png" />
+    <Content Include="assets\images\brands\b5.png" />
+    <Content Include="assets\images\brands\b6.png" />
+    <Content Include="assets\images\brands\brand1.png" />
+    <Content Include="assets\images\brands\brand2.png" />
+    <Content Include="assets\images\brands\brand3.png" />
+    <Content Include="assets\images\brands\brand4.png" />
+    <Content Include="assets\images\brands\brand5.png" />
+    <Content Include="assets\images\brands\brand6.png" />
+    <Content Include="assets\images\cart.jpg" />
+    <Content Include="assets\images\close.png" />
+    <Content Include="assets\images\dot.png" />
+    <Content Include="assets\images\fashion-products\1.jpg" />
+    <Content Include="assets\images\fashion-products\2.jpg" />
+    <Content Include="assets\images\fashion-products\3.jpg" />
+    <Content Include="assets\images\fashion-products\4.jpg" />
+    <Content Include="assets\images\fashion-products\5.jpg" />
+    <Content Include="assets\images\fashion-products\6.jpg" />
+    <Content Include="assets\images\fashion-products\7.jpg" />
+    <Content Include="assets\images\fashion-products\8.jpg" />
+    <Content Include="assets\images\fashion-products\d1.jpg" />
+    <Content Include="assets\images\fashion-products\d2.jpg" />
+    <Content Include="assets\images\fashion-products\d3.jpg" />
+    <Content Include="assets\images\fashion-products\d4.jpg" />
+    <Content Include="assets\images\fashion-products\d5.jpg" />
+    <Content Include="assets\images\fashion-products\s1.jpg" />
+    <Content Include="assets\images\fashion-products\s2.jpg" />
+    <Content Include="assets\images\fashion-products\s3.jpg" />
+    <Content Include="assets\images\favicon.ico" />
+    <Content Include="assets\images\furniture-products\1.jpg" />
+    <Content Include="assets\images\furniture-products\2.jpg" />
+    <Content Include="assets\images\furniture-products\3.jpg" />
+    <Content Include="assets\images\furniture-products\4.jpg" />
+    <Content Include="assets\images\furniture-products\5.jpg" />
+    <Content Include="assets\images\furniture-products\6.jpg" />
+    <Content Include="assets\images\furniture-products\s1.jpg" />
+    <Content Include="assets\images\furniture-products\s2.jpg" />
+    <Content Include="assets\images\furniture-products\s3.jpg" />
+    <Content Include="assets\images\grabbing.png" />
+    <Content Include="assets\images\hot-deals\1.jpg" />
+    <Content Include="assets\images\hot-deals\2.jpg" />
+    <Content Include="assets\images\hot-deals\3.jpg" />
+    <Content Include="assets\images\label.png" />
+    <Content Include="assets\images\loading.gif" />
+    <Content Include="assets\images\logo.png" />
+    <Content Include="assets\images\next.png" />
+    <Content Include="assets\images\owl-carousel\AjaxLoader.gif" />
+    <Content Include="assets\images\owl-carousel\grabbing.png" />
+    <Content Include="assets\images\payments\1.png" />
+    <Content Include="assets\images\payments\2.png" />
+    <Content Include="assets\images\payments\3.png" />
+    <Content Include="assets\images\payments\4.png" />
+    <Content Include="assets\images\payments\5.png" />
+    <Content Include="assets\images\prev.png" />
+    <Content Include="assets\images\product-compare\01.jpg" />
+    <Content Include="assets\images\product-compare\02.jpg" />
+    <Content Include="assets\images\product-compare\03.jpg" />
+    <Content Include="assets\images\product-compare\04.jpg" />
+    <Content Include="assets\images\products\1.jpg" />
+    <Content Include="assets\images\products\2.jpg" />
+    <Content Include="assets\images\products\3.jpg" />
+    <Content Include="assets\images\products\4.jpg" />
+    <Content Include="assets\images\products\5.jpg" />
+    <Content Include="assets\images\products\6.jpg" />
+    <Content Include="assets\images\products\c1.jpg" />
+    <Content Include="assets\images\products\c2.jpg" />
+    <Content Include="assets\images\products\c3.jpg" />
+    <Content Include="assets\images\products\c4.jpg" />
+    <Content Include="assets\images\products\c5.jpg" />
+    <Content Include="assets\images\products\c6.jpg" />
+    <Content Include="assets\images\products\h2-1.jpg" />
+    <Content Include="assets\images\products\h2-2.jpg" />
+    <Content Include="assets\images\products\h2-3.jpg" />
+    <Content Include="assets\images\products\h2-4.jpg" />
+    <Content Include="assets\images\products\h2-5.jpg" />
+    <Content Include="assets\images\products\h2-6.jpg" />
+    <Content Include="assets\images\products\md1.jpg" />
+    <Content Include="assets\images\products\md2.jpg" />
+    <Content Include="assets\images\products\md3.jpg" />
+    <Content Include="assets\images\products\phone-1.png" />
+    <Content Include="assets\images\products\phone-2.png" />
+    <Content Include="assets\images\products\s1.jpg" />
+    <Content Include="assets\images\products\s2.jpg" />
+    <Content Include="assets\images\products\s3.jpg" />
+    <Content Include="assets\images\products\shopping_cart_01.jpg" />
+    <Content Include="assets\images\products\shopping_cart_02.jpg" />
+    <Content Include="assets\images\products\sm1.jpg" />
+    <Content Include="assets\images\products\sm2.jpg" />
+    <Content Include="assets\images\products\sm3.jpg" />
+    <Content Include="assets\images\products\sm4.jpg" />
+    <Content Include="assets\images\products\sm5.jpg" />
+    <Content Include="assets\images\products\sm6.jpg" />
+    <Content Include="assets\images\products\sm7.jpg" />
+    <Content Include="assets\images\single-product\1.jpg" />
+    <Content Include="assets\images\single-product\2.jpg" />
+    <Content Include="assets\images\single-product\3.jpg" />
+    <Content Include="assets\images\single-product\sm1.jpg" />
+    <Content Include="assets\images\single-product\sm2.jpg" />
+    <Content Include="assets\images\single-product\sm3.jpg" />
+    <Content Include="assets\images\sliders\01.jpg" />
+    <Content Include="assets\images\sliders\2.jpg" />
+    <Content Include="assets\images\sliders\f1.jpg" />
+    <Content Include="assets\images\sliders\fur1.jpg" />
+    <Content Include="assets\images\star-big-on.png" />
+    <Content Include="assets\images\star-off.png" />
+    <Content Include="assets\images\star-on.png" />
     <Content Include="assets\jcrop\css\Jcrop.gif" />
     <Content Include="assets\jcrop\css\jquery.Jcrop.min.css" />
     <Content Include="assets\jcrop\js\jquery.color.js" />
@@ -412,11 +609,22 @@
     <Content Include="Content\bootstrap-reset.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\checkout\checkout.css" />
+    <Content Include="Content\checkout\CheckOut.js" />
     <Content Include="Content\gallery.css" />
     <Content Include="Content\image-crop.css" />
     <Content Include="Content\invoice-print.css" />
     <Content Include="Content\jquery.steps.css" />
+    <Content Include="Content\login\login.css" />
+    <Content Include="Content\login\login.js" />
+    <Content Include="Content\myAccount\myaccount.css" />
+    <Content Include="Content\paymentInfor\paymentInfo.css" />
+    <Content Include="Content\paymentInfor\paymentInfo.js" />
+    <Content Include="Content\register\register.css" />
     <Content Include="Content\owl.carousel.css" />
+    <Content Include="Content\register\register.js" />
+    <Content Include="Content\showDetailsProduct\showDetailsProduct.css" />
+    <Content Include="Content\showDetailsProduct\showDetailsProduct2.css" />
     <Content Include="Content\slidebars.css" />
     <Content Include="Content\soon.css" />
     <Content Include="Content\style-responsive.css" />
@@ -522,11 +730,29 @@
     <Content Include="Content\themes\metro\red\jtable.css" />
     <Content Include="Content\themes\metro\red\jtable.min.css" />
     <Content Include="Content\themes\metro\red\loading.gif" />
+    <Content Include="Content\wishList.css" />
     <Content Include="Content\yamm.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="img2\ComisionContrabandoCIG-1170x185.jpg" />
+    <Content Include="img2\computer1920x464.jpg" />
+    <Content Include="img2\dell370x165.jpg" />
+    <Content Include="img2\download.jpg" />
+    <Content Include="img2\imac-606765_960_720-370x450.jpg" />
+    <Content Include="img2\instagram-ad-banner1-780x185.jpg" />
+    <Content Include="img2\iphone370x165.jpg" />
+    <Content Include="img2\iphone6.jpg" />
+    <Content Include="img2\macbook-air-11-13-inch-models-370x185.jpg" />
+    <Content Include="img2\macbook2.jpg" />
+    <Content Include="img2\macbook.jpg" />
+    <Content Include="img2\macbook23.jpg" />
+    <Content Include="img2\sale.jpg" />
+    <Content Include="img2\shopman.jpg" />
+    <Content Include="img2\simpsledemo.jpg" />
+    <Content Include="img2\slidermacbook.jpg" />
+    <Content Include="img2\watch370x165.jpg" />
     <Content Include="img\404_icon.png" />
     <Content Include="img\500_icon.png" />
     <Content Include="img\arrow-up.png" />
@@ -546,6 +772,8 @@
     <Content Include="img\checkbox\check-on.png" />
     <Content Include="img\checkbox\radio-off.png" />
     <Content Include="img\checkbox\radio-on.png" />
+    <Content Include="img\cpu-z.svg" />
+    <Content Include="img\cpu.jpg" />
     <Content Include="img\customSelect-arrow.gif" />
     <Content Include="img\dark-bg.jpg" />
     <Content Include="img\email-img\banner.jpg" />
@@ -590,6 +818,7 @@
     <Content Include="img\input-spinner.gif" />
     <Content Include="img\left-arrow.png" />
     <Content Include="img\lock-bg.jpg" />
+    <Content Include="img\macbook.jpg" />
     <Content Include="img\mail-avatar.jpg" />
     <Content Include="img\mask.png" />
     <Content Include="img\mega-menu\corner_image.jpg" />
@@ -664,6 +893,9 @@
     <Content Include="Content\themes\metro\pink\jtable.less" />
     <Content Include="Content\themes\metro\purple\jtable.less" />
     <Content Include="Content\themes\metro\red\jtable.less" />
+    <Content Include="Areas\Admin\Views\Product\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Order\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Brand\Index.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\common-scripts.js" />
     <Content Include="Scripts\count.js" />
@@ -821,9 +1053,11 @@
     <Content Include="Scripts\pulstate.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\showDeailsProduct.js" />
     <Content Include="Scripts\slidebars.min.js" />
     <Content Include="Scripts\sliders.js" />
     <Content Include="Scripts\sparkline-chart.js" />
+    <Content Include="Scripts\switchstylesheet.js" />
     <Content Include="Scripts\tasks.js" />
     <Content Include="Scripts\toucheffects.js" />
     <Content Include="Scripts\tree.js" />
@@ -838,6 +1072,7 @@
       <DependentUpon>ShoppingCartDb.edmx</DependentUpon>
       <LastGenOutput>ShoppingCartDb.cs</LastGenOutput>
     </Content>
+    <Content Include="switchstylesheet\switchstylesheet.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -875,14 +1110,32 @@
     <Content Include="ShoppingCartDb.edmx.diagram">
       <DependentUpon>ShoppingCartDb.edmx</DependentUpon>
     </Content>
+    <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Views\CheckOut\Index.cshtml" />
+    <Content Include="Views\ASUS\Index.cshtml" />
+    <Content Include="Views\SamSung\Index.cshtml" />
+    <Content Include="Views\Toshiba\Index.cshtml" />
+    <Content Include="Views\AppleMacintosh\Index.cshtml" />
+    <Content Include="Views\Gateway\Index.cshtml" />
+    <Content Include="Views\Lenovo\Index.cshtml" />
+    <Content Include="Views\MyCart\Index.cshtml" />
+    <Content Include="Views\ShowDetailsProduct\Index.cshtml" />
+    <Content Include="Views\MyAccount\Index.cshtml" />
+    <Content Include="Views\Category\Index.cshtml" />
+    <Content Include="Views\Result\Index.cshtml" />
+    <Content Include="Views\Erro\Index.cshtml" />
+    <Content Include="Views\RegisterSuccess\Index.cshtml" />
+    <Content Include="Views\RegisterFail\Index.cshtml" />
+    <Content Include="Views\Header\Index.cshtml" />
+    <Content Include="Views\ShowDetailsProduct\showDetail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\" />
-    <Folder Include="assets\css\" />
     <Folder Include="assets\fonts\" />
-    <Folder Include="assets\images\" />
     <Folder Include="assets\js\" />
+    <Folder Include="assets\less\" />
+    <Folder Include="Views\IProduct\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

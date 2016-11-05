@@ -1,0 +1,351 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section main {
+   
+
+     <div class="body-content outer-top-bd">
+    <div class="container">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+
+                    <th class="inforproduct">Numbers</th>
+                    <th class="inforproduct">Client</th>
+                    <th class="inforproduct">Image</th>
+                    <th class="inforproduct">Product Name</th>
+                    <th class="inforproduct">Quantity</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="inforproduct">1</td>
+                    <td class="inforproduct">Trần văn cao</td>
+                    <td class="inforproduct"><img src="~/img2/imac-606765_960_720-370x450.jpg" width="50" height="40"></td>
+                    <td class="inforproduct">Macbook Pro</td>
+                    <td class="inforproduct">3</td>
+                </tr>
+                <tr>
+                    <td class="inforproduct">1</td>
+                    <td class="inforproduct">Trần văn cao</td>
+                    <td class="inforproduct"><img src="~/img2/imac-606765_960_720-370x450.jpg" width="50" height="40"></td>
+                    <td class="inforproduct">Macbook Pro</td>
+                    <td class="inforproduct">3</td>
+                </tr>
+                <tr>
+                    <td class="inforproduct">1</td>
+                    <td class="inforproduct">Trần văn cao</td>
+                    <td class="inforproduct"><img src="~/img2/imac-606765_960_720-370x450.jpg" width="50" height="40"></td>
+                    <td class="inforproduct">Macbook Pro</td>
+                    <td class="inforproduct">3</td>
+                </tr>
+                <tr>
+                    <td class="inforproduct">1</td>
+                    <td class="inforproduct">Trần văn cao</td>
+                    <td class="inforproduct"><img src="~/img2/imac-606765_960_720-370x450.jpg" width="50" height="40"></td>
+                    <td class="inforproduct">Macbook Pro</td>
+                    <td class="inforproduct">3</td>
+                </tr>
+                <tr>
+                    <td class="inforproduct">1</td>
+                    <td class="inforproduct">Trần văn cao</td>
+                    <td class="inforproduct"><img src="~/img2/imac-606765_960_720-370x450.jpg" width="50" height="40"></td>
+                    <td class="inforproduct">Macbook Pro</td>
+                    <td class="inforproduct">3</td>
+                </tr>
+                    <tr>
+                        <td colspan="6">
+                            <a href="/Result" class="btn-upper btn btn-primary checkout-page-button checkout-continue " style="float:right">Confirm</a>
+                        </td>
+                    </tr>
+            </tbody>
+
+        </table>
+        <script>
+            $("td").click(function (event) {
+                event.stopPropagation();
+            });
+        </script>
+
+        <div class="checkout-box inner-bottom-sm">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="panel-group checkout-steps" id="accordion">
+                        <!-- checkout-step-01  -->
+                        <div class="panel panel-default checkout-step-01">
+                            <!-- panel-heading -->
+                            <div class="panel-heading">
+                                <h4 class="unicase-checkout-title">
+                                    <a data-toggle="collapse" class="" data-parent="#accordion" href="#collapseOne">
+                                        <span>1</span>Checkout Method
+                                    </a>
+                                </h4>
+                            </div>
+                            <!-- panel-heading -->
+                            <div id="collapseOne" class="panel-collapse collapse in">
+                                <!-- panel-body  -->
+                                <div class="panel-body">
+                                    <div class="row">
+                                        <!-- guest-login -->
+                                        <div class="col-md-6 col-sm-6 guest-login">
+                                            <h4 class="checkout-subtitle">Checkout as a Guest or Register Login</h4>
+                                            <p class="text title-tag-line">Register with us for future convenience:</p>
+                                            <!-- radio-form  -->
+                                            <form class="register-form" role="form">
+                                                <div class="radio radio-checkout-unicase">
+                                                    <input id="guest" type="radio" name="text" value="guest" checked>
+                                                    <label class="radio-button guest-check" for="guest">Checkout as Guest</label>
+                                                    <br>
+                                                    <input id="register" type="radio" name="text" value="register">
+                                                    <label class="radio-button" for="register">Register</label>
+                                                </div>
+                                            </form>
+                                            <!-- radio-form  -->
+                                            <h4 class="checkout-subtitle outer-top-vs">Register and save time</h4>
+                                            <p class="text title-tag-line ">Register with us for future convenience:</p>
+
+                                            <ul class="text instruction inner-bottom-30">
+                                                <li class="save-time-reg">- Fast and easy check out</li>
+                                                <li>- Easy access to your order history and status</li>
+                                            </ul>
+                                            <button type="submit" class="btn-upper btn btn-primary checkout-page-button checkout-continue ">Continue</button>
+                                        </div>
+                                        <!-- guest-login -->
+                                        <!-- already-registered-login -->
+                                        <div class="col-md-6 col-sm-6 already-registered-login">
+                                            <h4 class="checkout-subtitle">Already registered?</h4>
+                                            <p class="text title-tag-line">Please log in below:</p>
+                                            <form class="register-form" role="form">
+                                                <div class="form-group">
+                                                    <label class="info-title" for="exampleInputEmail1">Email Address <span>*</span></label>
+                                                    <input type="email" class="form-control unicase-form-control text-input" id="exampleInputEmail1" placeholder="admin@gadgets.com">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="info-title" for="exampleInputPassword1">Password <span>*</span></label>
+                                                    <input type="password" class="form-control unicase-form-control text-input" id="exampleInputPassword1" placeholder="Password">
+                                                    <a href="#" class="forgot-password">Forgot your Password?</a>
+                                                </div>
+                                                <button type="submit" class="btn-upper btn btn-primary checkout-page-button">Login</button>
+                                            </form>
+                                        </div>
+                                        <!-- already-registered-login -->
+                                    </div>
+                                </div>
+                                <!-- panel-body  -->
+                            </div><!-- row -->
+                        </div>
+                        <!-- checkout-step-01  -->
+                        <!-- checkout-step-02  -->
+                        <div class="panel panel-default checkout-step-02">
+                            <div class="panel-heading">
+                                <h4 class="unicase-checkout-title">
+                                    <a data-toggle="collapse" class="collapsed" data-parent="#accordion" href="#collapseTwo">
+                                        <span>2</span>Billing Information
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapseTwo" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                </div>
+                            </div>
+                        </div>
+                        <!-- checkout-step-02  -->
+                        <!-- checkout-step-03  -->
+                        <div class="panel panel-default checkout-step-03">
+                            <div class="panel-heading">
+                                <h4 class="unicase-checkout-title">
+                                    <a data-toggle="collapse" class="collapsed" data-parent="#accordion" href="#collapseThree">
+                                        <span>3</span>Shipping Information
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapseThree" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                </div>
+                            </div>
+                        </div>
+                        <!-- checkout-step-03  -->
+                        <!-- checkout-step-04  -->
+                        <div class="panel panel-default checkout-step-04">
+                            <div class="panel-heading">
+                                <h4 class="unicase-checkout-title">
+                                    <a data-toggle="collapse" class="collapsed" data-parent="#accordion" href="#collapseFour">
+                                        <span>4</span>Shipping Method
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapseFour" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                </div>
+                            </div>
+                        </div>
+                        <!-- checkout-step-04  -->
+                        <!-- checkout-step-05  -->
+                        <div class="panel panel-default checkout-step-05">
+                            <div class="panel-heading">
+                                <h4 class="unicase-checkout-title">
+                                    <a data-toggle="collapse" class="collapsed" data-parent="#accordion" href="#collapseFive">
+                                        <span>5</span>Payment Information
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapseFive" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <div class="container">
+                                        <div class="row">
+                                            <!-- You can make it whatever width you want. I'm making it full width
+                 on <= small devices and 4/12 page width on >= medium devices -->
+                                            <div class="col-xs-12 col-md-4">
+
+
+                                                <!-- CREDIT CARD FORM STARTS HERE -->
+                                                <div class="panel panel-default credit-card-box">
+                                                    <div class="panel-heading display-table">
+                                                        <div class="row display-tr">
+                                                            <h3 class="panel-title display-td">Payment Details</h3>
+                                                            <div class="display-td">
+                                                                <img class="img-responsive pull-right" src="http://i76.imgup.net/accepted_c22e0.png">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="panel-body">
+                                                        <form role="form" id="payment-form" method="POST" action="javascript:void(0);">
+                                                            <div class="row">
+                                                                <div class="col-xs-12">
+                                                                    <div class="form-group">
+                                                                        <label for="cardNumber">CARD NUMBER</label>
+                                                                        <div class="input-group">
+                                                                            <input type="tel"
+                                                                                   class="form-control"
+                                                                                   name="cardNumber"
+                                                                                   placeholder="Valid Card Number"
+                                                                                   autocomplete="cc-number"
+                                                                                   required autofocus />
+                                                                            <span class="input-group-addon"><i class="fa fa-credit-card"></i></span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-xs-7 col-md-7">
+                                                                    <div class="form-group">
+                                                                        <label for="cardExpiry"><span class="hidden-xs">EXPIRATION</span><span class="visible-xs-inline">EXP</span> DATE</label>
+                                                                        <input type="tel"
+                                                                               class="form-control"
+                                                                               name="cardExpiry"
+                                                                               placeholder="MM / YY"
+                                                                               autocomplete="cc-exp"
+                                                                               required />
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-xs-5 col-md-5 pull-right">
+                                                                    <div class="form-group">
+                                                                        <label for="cardCVC">CV CODE</label>
+                                                                        <input type="tel"
+                                                                               class="form-control"
+                                                                               name="cardCVC"
+                                                                               placeholder="CVC"
+                                                                               autocomplete="cc-csc"
+                                                                               required />
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-xs-12">
+                                                                    <div class="form-group">
+                                                                        <label for="couponCode">COUPON CODE</label>
+                                                                        <input type="text" class="form-control" name="couponCode" />
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-xs-12">
+                                                                    <button class="subscribe btn btn-success btn-lg btn-block" type="button">Start Subscription</button>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row" style="display:none;">
+                                                                <div class="col-xs-12">
+                                                                    <p class="payment-errors"></p>
+                                                                </div>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                                <!-- CREDIT CARD FORM ENDS HERE -->
+
+
+                                            </div>
+
+                                            <div class="col-xs-12 col-md-8" style="font-size: 12pt; line-height: 2em;">
+                                                <p>
+                                                    <h1>Features:</h1>
+                                                    <ul>
+                                                        <li>PayMent easily</li>
+                                                        <li>Form field validation</li>
+                                                        <li>Graceful error feedback </li>
+                                                        <li>AJAX form submission</li>
+                                                        <li>Creates a Stripe credit card token</li>
+                                                    </ul>
+                                                </p>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- checkout-step-05  -->
+                        <!-- checkout-step-06  -->
+                        <div class="panel panel-default checkout-step-06">
+                            <div class="panel-heading">
+                                <h4 class="unicase-checkout-title">
+                                    <a data-toggle="collapse" class="collapsed" data-parent="#accordion" href="#collapseSix">
+                                        <span>6</span>Order Review
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapseSix" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                </div>
+                            </div>
+                        </div>
+                        <!-- checkout-step-06  -->
+
+                    </div><!-- /.checkout-steps -->
+                </div>
+                <div class="col-md-4">
+                    <!-- checkout-progress-sidebar -->
+                    <div class="checkout-progress-sidebar ">
+                        <div class="panel-group">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4 class="unicase-checkout-title">Shopping Cart Address</h4>
+                                </div>
+                                <div class="panel-body">
+                                    <ul class="nav nav-checkout-progress list-unstyled">
+                                        <li><a href="#">Address : Shopping Cart , 139 Tân Minh, Thường Tín, Hà Nội</a></li>
+                                        <li><a href="#">Phone Number : 0985880639</a></li>
+                                        <li><a href="#">Hotline : 0985880639</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- checkout-progress-sidebar -->
+                </div>
+            </div><!-- /.row -->
+        </div><!-- /.checkout-box -->
+        <!-- ============================================== BRANDS CAROUSEL ============================================== -->
+        <!-- ============================================== BRANDS CAROUSEL : END ============================================== -->
+    </div><!-- /.container -->
+</div><!-- /.body-content -->
+    
+}

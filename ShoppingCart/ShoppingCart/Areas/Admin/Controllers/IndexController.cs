@@ -28,7 +28,19 @@ namespace ShoppingCart.Areas.Admin.Controllers
         public ActionResult GetListUser()
         {
             var users = UserRepository.GetUsers();
-            return Json(new {Result = JTableResponseCode.OK.ToString(), Records = users});
+            return Json(new { Result = JTableResponseCode.OK.ToString(), Records = users.Select(x => new {
+                id = x.id,
+                username = x.username,
+                name = x.NAME,
+                age = x.age,
+                user_address = x.user_address,
+                password = x.password,
+                phonenumber = x.phonenumber,
+                roleid = x.roleid,
+                roleName = x.role != null ? x.role.NAME : "NONE"
+            })
+                
+                });
         }
 
         // POST: Admin/Index/UpdateUser
