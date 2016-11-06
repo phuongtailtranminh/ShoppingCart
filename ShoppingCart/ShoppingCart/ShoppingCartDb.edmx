@@ -69,7 +69,7 @@
           <Property Name="phonenumber" Type="int" />
           <Property Name="roleid" Type="int" />
         </EntityType>
-        <Association Name="FK__order__userid__286302EC">
+        <Association Name="FK__order__userid__74AE54BC">
           <End Role="user" Type="Self.user" Multiplicity="0..1" />
           <End Role="order" Type="Self.order" Multiplicity="*" />
           <ReferentialConstraint>
@@ -81,7 +81,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__orderprod__order__2F10007B">
+        <Association Name="FK__orderprod__order__7B5B524B">
           <End Role="order" Type="Self.order" Multiplicity="1" />
           <End Role="orderproduct" Type="Self.orderproduct" Multiplicity="*" />
           <ReferentialConstraint>
@@ -93,7 +93,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__orderprod__produ__300424B4">
+        <Association Name="FK__orderprod__produ__7C4F7684">
           <End Role="product" Type="Self.product" Multiplicity="1" />
           <End Role="orderproduct" Type="Self.orderproduct" Multiplicity="*" />
           <ReferentialConstraint>
@@ -105,7 +105,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__product__brandid__2D27B809">
+        <Association Name="FK__product__brandid__797309D9">
           <End Role="brand" Type="Self.brand" Multiplicity="0..1" />
           <End Role="product" Type="Self.product" Multiplicity="*" />
           <ReferentialConstraint>
@@ -117,7 +117,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__user__roleid__25869641">
+        <Association Name="FK__user__roleid__71D1E811">
           <End Role="role" Type="Self.role" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
@@ -138,23 +138,23 @@
           <EntitySet Name="product" EntityType="Self.product" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="role" EntityType="Self.role" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="user" EntityType="Self.user" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__order__userid__286302EC" Association="Self.FK__order__userid__286302EC">
+          <AssociationSet Name="FK__order__userid__74AE54BC" Association="Self.FK__order__userid__74AE54BC">
             <End Role="user" EntitySet="user" />
             <End Role="order" EntitySet="order" />
           </AssociationSet>
-          <AssociationSet Name="FK__orderprod__order__2F10007B" Association="Self.FK__orderprod__order__2F10007B">
+          <AssociationSet Name="FK__orderprod__order__7B5B524B" Association="Self.FK__orderprod__order__7B5B524B">
             <End Role="order" EntitySet="order" />
             <End Role="orderproduct" EntitySet="orderproduct" />
           </AssociationSet>
-          <AssociationSet Name="FK__orderprod__produ__300424B4" Association="Self.FK__orderprod__produ__300424B4">
+          <AssociationSet Name="FK__orderprod__produ__7C4F7684" Association="Self.FK__orderprod__produ__7C4F7684">
             <End Role="product" EntitySet="product" />
             <End Role="orderproduct" EntitySet="orderproduct" />
           </AssociationSet>
-          <AssociationSet Name="FK__product__brandid__2D27B809" Association="Self.FK__product__brandid__2D27B809">
+          <AssociationSet Name="FK__product__brandid__797309D9" Association="Self.FK__product__brandid__797309D9">
             <End Role="brand" EntitySet="brand" />
             <End Role="product" EntitySet="product" />
           </AssociationSet>
-          <AssociationSet Name="FK__user__roleid__25869641" Association="Self.FK__user__roleid__25869641">
+          <AssociationSet Name="FK__user__roleid__71D1E811" Association="Self.FK__user__roleid__71D1E811">
             <End Role="role" EntitySet="role" />
             <End Role="user" EntitySet="user" />
           </AssociationSet>
@@ -170,7 +170,7 @@
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="products" Relationship="Self.FK__product__brandid__2D27B809" FromRole="brand" ToRole="product" />
+          <NavigationProperty Name="products" Relationship="Self.FK__product__brandid__797309D9" FromRole="brand" ToRole="product" />
         </EntityType>
         <EntityType Name="order">
           <Key>
@@ -179,8 +179,8 @@
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="status" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="userid" Type="Int32" />
-          <NavigationProperty Name="user" Relationship="Self.FK__order__userid__286302EC" FromRole="order" ToRole="user" />
-          <NavigationProperty Name="orderproducts" Relationship="Self.FK__orderprod__order__2F10007B" FromRole="order" ToRole="orderproduct" />
+          <NavigationProperty Name="user" Relationship="Self.FK__order__userid__74AE54BC" FromRole="order" ToRole="user" />
+          <NavigationProperty Name="orderproducts" Relationship="Self.FK__orderprod__order__7B5B524B" FromRole="order" ToRole="orderproduct" />
         </EntityType>
         <EntityType Name="orderproduct">
           <Key>
@@ -191,8 +191,8 @@
           <Property Name="productid" Type="Int32" Nullable="false" />
           <Property Name="createddate" Type="DateTime" Precision="3" />
           <Property Name="updateddate" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="order" Relationship="Self.FK__orderprod__order__2F10007B" FromRole="orderproduct" ToRole="order" />
-          <NavigationProperty Name="product" Relationship="Self.FK__orderprod__produ__300424B4" FromRole="orderproduct" ToRole="product" />
+          <NavigationProperty Name="order" Relationship="Self.FK__orderprod__order__7B5B524B" FromRole="orderproduct" ToRole="order" />
+          <NavigationProperty Name="product" Relationship="Self.FK__orderprod__produ__7C4F7684" FromRole="orderproduct" ToRole="product" />
         </EntityType>
         <EntityType Name="product">
           <Key>
@@ -212,8 +212,8 @@
           <Property Name="vga" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="cpu" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="brandid" Type="Int32" />
-          <NavigationProperty Name="brand" Relationship="Self.FK__product__brandid__2D27B809" FromRole="product" ToRole="brand" />
-          <NavigationProperty Name="orderproducts" Relationship="Self.FK__orderprod__produ__300424B4" FromRole="product" ToRole="orderproduct" />
+          <NavigationProperty Name="brand" Relationship="Self.FK__product__brandid__797309D9" FromRole="product" ToRole="brand" />
+          <NavigationProperty Name="orderproducts" Relationship="Self.FK__orderprod__produ__7C4F7684" FromRole="product" ToRole="orderproduct" />
         </EntityType>
         <EntityType Name="role">
           <Key>
@@ -221,7 +221,7 @@
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="NAME" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="users" Relationship="Self.FK__user__roleid__25869641" FromRole="role" ToRole="user" />
+          <NavigationProperty Name="users" Relationship="Self.FK__user__roleid__71D1E811" FromRole="role" ToRole="user" />
         </EntityType>
         <EntityType Name="user">
           <Key>
@@ -235,10 +235,10 @@
           <Property Name="password" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="phonenumber" Type="Int32" />
           <Property Name="roleid" Type="Int32" />
-          <NavigationProperty Name="orders" Relationship="Self.FK__order__userid__286302EC" FromRole="user" ToRole="order" />
-          <NavigationProperty Name="role" Relationship="Self.FK__user__roleid__25869641" FromRole="user" ToRole="role" />
+          <NavigationProperty Name="orders" Relationship="Self.FK__order__userid__74AE54BC" FromRole="user" ToRole="order" />
+          <NavigationProperty Name="role" Relationship="Self.FK__user__roleid__71D1E811" FromRole="user" ToRole="role" />
         </EntityType>
-        <Association Name="FK__product__brandid__2D27B809">
+        <Association Name="FK__product__brandid__797309D9">
           <End Role="brand" Type="Self.brand" Multiplicity="0..1" />
           <End Role="product" Type="Self.product" Multiplicity="*" />
           <ReferentialConstraint>
@@ -250,7 +250,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__order__userid__286302EC">
+        <Association Name="FK__order__userid__74AE54BC">
           <End Role="user" Type="Self.user" Multiplicity="0..1" />
           <End Role="order" Type="Self.order" Multiplicity="*" />
           <ReferentialConstraint>
@@ -262,7 +262,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__orderprod__order__2F10007B">
+        <Association Name="FK__orderprod__order__7B5B524B">
           <End Role="order" Type="Self.order" Multiplicity="1" />
           <End Role="orderproduct" Type="Self.orderproduct" Multiplicity="*" />
           <ReferentialConstraint>
@@ -274,7 +274,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__orderprod__produ__300424B4">
+        <Association Name="FK__orderprod__produ__7C4F7684">
           <End Role="product" Type="Self.product" Multiplicity="1" />
           <End Role="orderproduct" Type="Self.orderproduct" Multiplicity="*" />
           <ReferentialConstraint>
@@ -286,7 +286,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__user__roleid__25869641">
+        <Association Name="FK__user__roleid__71D1E811">
           <End Role="role" Type="Self.role" Multiplicity="0..1">
             <OnDelete Action="Cascade" />
           </End>
@@ -307,23 +307,23 @@
           <EntitySet Name="products" EntityType="Self.product" />
           <EntitySet Name="roles" EntityType="Self.role" />
           <EntitySet Name="users" EntityType="Self.user" />
-          <AssociationSet Name="FK__product__brandid__2D27B809" Association="Self.FK__product__brandid__2D27B809">
+          <AssociationSet Name="FK__product__brandid__797309D9" Association="Self.FK__product__brandid__797309D9">
             <End Role="brand" EntitySet="brands" />
             <End Role="product" EntitySet="products" />
           </AssociationSet>
-          <AssociationSet Name="FK__order__userid__286302EC" Association="Self.FK__order__userid__286302EC">
+          <AssociationSet Name="FK__order__userid__74AE54BC" Association="Self.FK__order__userid__74AE54BC">
             <End Role="user" EntitySet="users" />
             <End Role="order" EntitySet="orders" />
           </AssociationSet>
-          <AssociationSet Name="FK__orderprod__order__2F10007B" Association="Self.FK__orderprod__order__2F10007B">
+          <AssociationSet Name="FK__orderprod__order__7B5B524B" Association="Self.FK__orderprod__order__7B5B524B">
             <End Role="order" EntitySet="orders" />
             <End Role="orderproduct" EntitySet="orderproducts" />
           </AssociationSet>
-          <AssociationSet Name="FK__orderprod__produ__300424B4" Association="Self.FK__orderprod__produ__300424B4">
+          <AssociationSet Name="FK__orderprod__produ__7C4F7684" Association="Self.FK__orderprod__produ__7C4F7684">
             <End Role="product" EntitySet="products" />
             <End Role="orderproduct" EntitySet="orderproducts" />
           </AssociationSet>
-          <AssociationSet Name="FK__user__roleid__25869641" Association="Self.FK__user__roleid__25869641">
+          <AssociationSet Name="FK__user__roleid__71D1E811" Association="Self.FK__user__roleid__71D1E811">
             <End Role="role" EntitySet="roles" />
             <End Role="user" EntitySet="users" />
           </AssociationSet>

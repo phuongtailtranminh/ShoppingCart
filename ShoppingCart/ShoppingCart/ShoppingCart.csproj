@@ -1103,13 +1103,6 @@
     <Content Include="Scripts\jtable\themes\jtable_theme_base.less" />
     <Content Include="Scripts\jtable\themes\jqueryui\jtable_jqueryui.less" />
     <Content Include="Scripts\jtable\themes\basic\jtable_basic.less" />
-    <EntityDeploy Include="ShoppingCartDb.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ShoppingCartDb.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="ShoppingCartDb.edmx.diagram">
-      <DependentUpon>ShoppingCartDb.edmx</DependentUpon>
-    </Content>
     <Content Include="Views\Login\Index.cshtml" />
     <Content Include="Views\CheckOut\Index.cshtml" />
     <Content Include="Views\ASUS\Index.cshtml" />
@@ -1128,6 +1121,13 @@
     <Content Include="Views\RegisterFail\Index.cshtml" />
     <Content Include="Views\Header\Index.cshtml" />
     <Content Include="Views\ShowDetailsProduct\showDetail.cshtml" />
+    <EntityDeploy Include="ShoppingCartDb.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ShoppingCartDb.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="ShoppingCartDb.edmx.diagram">
+      <DependentUpon>ShoppingCartDb.edmx</DependentUpon>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
