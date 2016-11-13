@@ -162,3 +162,5 @@ C:\Users\tranc\Desktop\ShoppingCartProject\ShoppingCart\ShoppingCart\ShoppingCar
 C:\Users\tranc\Desktop\ShoppingCartProject\ShoppingCart\ShoppingCart\ShoppingCart\obj\Debug\ShoppingCart.csprojResolveAssemblyReference.cache
 C:\Users\tranc\Desktop\ShoppingCartProject\ShoppingCart\ShoppingCart\ShoppingCart\obj\Debug\ShoppingCart.dll
 C:\Users\tranc\Desktop\ShoppingCartProject\ShoppingCart\ShoppingCart\ShoppingCart\obj\Debug\ShoppingCart.pdb
+D:\Github_project\ShoppingCart\ShoppingCart\ShoppingCart\bin\PayPal.dll
+D:\Github_project\ShoppingCart\ShoppingCart\ShoppingCart\bin\PayPal.xml

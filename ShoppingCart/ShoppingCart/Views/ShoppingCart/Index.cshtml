@@ -1,0 +1,230 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section main {
+
+<div class="body-content outer-top-xs">
+    <div class="container">
+        <div class="row inner-bottom-sm">
+            <div class="shopping-cart">
+                <div class="col-md-12 col-sm-12 shopping-cart-table ">
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th class="cart-romove item">Remove</th>
+                                    <th class="cart-product-name item">Product Name</th>
+                                    <th class="cart-qty item">Quantity</th>
+                                    <th class="cart-sub-total item">Subtotal</th>
+                                    <th class="cart-total last-item">Grandtotal</th>
+                                </tr>
+                            </thead>
+                            <!-- /thead -->
+                            <tfoot>
+                                <tr>
+                                    <td colspan="7">
+                                        <div class="shopping-cart-btn">
+                                            <span class="">
+                                                <a href="@Url.Action("Index", "CheckOut")" class="btn btn-upper btn-primary pull-right outer-right-xs">PROCCED TO CHEKOUT</a>
+                                            </span>
+                                        </div>
+                                        <!-- /.shopping-cart-btn -->
+                                    </td>
+                                </tr>
+                            </tfoot>
+                            <tbody id="shopping-cart-container">
+                                                                
+                            </tbody>
+                            <!-- /tbody -->
+                        </table>
+                        <!-- /table -->
+                    </div>
+                </div>
+                <!-- /.shopping-cart-table -->
+                <div class="col-md-4 col-sm-12 estimate-ship-tax">
+                    
+                </div>
+                <!-- /.estimate-ship-tax -->
+
+                <div class="col-md-4 col-sm-12 estimate-ship-tax">
+                    
+                    <!-- /table -->
+                </div>
+                <!-- /.estimate-ship-tax -->
+                <!-- /.cart-shopping-total -->
+            </div>
+            <!-- /.shopping-cart -->
+        </div>
+        <!-- /.row -->
+        <!-- ============================================== BRANDS CAROUSEL ============================================== -->
+        <div id="brands-carousel" class="logo-slider wow fadeInUp">
+
+            <h3 class="section-title">Our Brands</h3>
+            <div class="logo-slider-inner">
+                <div id="brand-slider" class="owl-carousel brand-slider custom-carousel owl-theme">
+                    <div class="item m-t-15">
+                        <a href="#" class="image">
+                            <img data-echo="/assets/images/brands/brand1.png" src="/assets/images/blank.gif" alt="">
+                        </a>
+                    </div>
+                    <!--/.item-->
+
+                    <div class="item m-t-10">
+                        <a href="#" class="image">
+                            <img data-echo="/assets/images/brands/brand2.png" src="/assets/images/blank.gif" alt="">
+                        </a>
+                    </div>
+                    <!--/.item-->
+
+                    <div class="item">
+                        <a href="#" class="image">
+                            <img data-echo="/assets/images/brands/brand3.png" src="/assets/images/blank.gif" alt="">
+                        </a>
+                    </div>
+                    <!--/.item-->
+
+                    <div class="item">
+                        <a href="#" class="image">
+                            <img data-echo="/assets/images/brands/brand4.png" src="/assets/images/blank.gif" alt="">
+                        </a>
+                    </div>
+                    <!--/.item-->
+
+                    <div class="item">
+                        <a href="#" class="image">
+                            <img data-echo="/assets/images/brands/brand5.png" src="/assets/images/blank.gif" alt="">
+                        </a>
+                    </div>
+                    <!--/.item-->
+
+                    <div class="item">
+                        <a href="#" class="image">
+                            <img data-echo="/assets/images/brands/brand6.png" src="/assets/images/blank.gif" alt="">
+                        </a>
+                    </div>
+                    <!--/.item-->
+
+                    <div class="item">
+                        <a href="#" class="image">
+                            <img data-echo="/assets/images/brands/brand2.png" src="/assets/images/blank.gif" alt="">
+                        </a>
+                    </div>
+                    <!--/.item-->
+
+                    <div class="item">
+                        <a href="#" class="image">
+                            <img data-echo="/assets/images/brands/brand4.png" src="/assets/images/blank.gif" alt="">
+                        </a>
+                    </div>
+                    <!--/.item-->
+
+                    <div class="item">
+                        <a href="#" class="image">
+                            <img data-echo="/assets/images/brands/brand1.png" src="/assets/images/blank.gif" alt="">
+                        </a>
+                    </div>
+                    <!--/.item-->
+
+                    <div class="item">
+                        <a href="#" class="image">
+                            <img data-echo="/assets/images/brands/brand5.png" src="/assets/images/blank.gif" alt="">
+                        </a>
+                    </div>
+                    <!--/.item-->
+                </div>
+                <!-- /.owl-carousel #logo-slider -->
+            </div>
+            <!-- /.logo-slider-inner -->
+
+        </div>
+        <!-- /.logo-slider -->
+        <!-- ============================================== BRANDS CAROUSEL : END ============================================== -->
+    </div>
+    <!-- /.container -->
+</div>
+
+<script id="shoppingItem" type="text/template7">
+    {{#each Data}}
+    <tr>
+        <td class="romove-item"><a href="#" title="cancel" class="icon" data-id="{{id}}" onclick="deleteProduct(this);"><i class="fa fa-trash-o"></i></a></td>
+        <td class="cart-product-name-info">
+            <h4 class='cart-product-description'><a href="detail.html">{{name}}</a></h4>
+        </td>
+        <td class="cart-product-quantity">
+            <div class="quant-input">
+                <div class="arrows">
+                    <div class="arrow plus gradient"><span class="ir"><i class="icon fa fa-sort-asc"></i></span></div>
+                    <div class="arrow minus gradient"><span class="ir"><i class="icon fa fa-sort-desc"></i></span></div>
+                </div>
+                <input type="number" value="{{quantity}}" onchange="updateShoppingCart(this);" data-id="{{id}}">
+            </div>
+        </td>
+        <td class="cart-product-sub-total"><span class="cart-sub-total-price">{{js "accounting.formatNumber(this.price, 0, '.',',')"}} VND</span></td>
+        <td class="cart-product-grand-total"><span class="cart-grand-total-price">{{js "accounting.formatNumber(this.price * this.quantity, 0, '.',',')"}} VND</span></td>
+    </tr>
+    {{/each}}
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td class="cart-product-grand-total">
+            <span class="cart-grand-total-price">{{js "accounting.formatNumber(this.grandPrice, 0, '.',',')"}} VND</span>
+        </td>
+    </tr>
+</script>
+
+<script type="text/javascript">
+    function renderShoppingCart() {
+        var listProduct = getListProduct();
+
+        var template = $('#shoppingItem').html();
+        var compiledTemplate = Template7.compile(template);
+
+        var grandPrice = 0;
+        for (var i = 0; i < listProduct.length; i++) {
+            var currentProduct = listProduct[i];
+            var currentGrandPrice = currentProduct.quantity * currentProduct.price;
+            grandPrice += currentGrandPrice;
+        }
+
+        var context = {
+            Data: listProduct,
+            grandPrice: grandPrice
+        };
+        var html = compiledTemplate(context);
+        $("#shopping-cart-container").html(html);
+    }
+
+    function updateShoppingCart(element) {
+        var selector = $(element);
+        var productId = selector.data("id");
+        var updatedQuantity = parseInt(selector.val());
+        var product = {
+            id: productId,
+            quantity: updatedQuantity
+        }
+        console.log(product);
+        updateProductQuantity(product);
+        renderShoppingCart();
+    }
+
+    function deleteProduct(element) {
+        var isConfirmed = confirm("Are you sure to delete this product?");
+        if (isConfirmed) {
+            var selector = $(element);
+            var productId = selector.data("id");
+            removeProduct(productId);
+            renderShoppingCart();
+        }
+    }
+
+    renderShoppingCart();
+
+</script>
+
+}
+

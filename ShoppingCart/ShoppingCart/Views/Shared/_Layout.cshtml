@@ -88,15 +88,96 @@
             <script src="/assets/js/respond.min.js"></script>
         <![endif]-->
     <script src="/assets/js/jquery-1.11.1.min.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('#productName').autocomplete({
-                source: '@Url.Action("Index", "Home")'
-                });
-        });
-    </script>
-   
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/accounting.js/0.4.1/accounting.min.js"></script>
+    <script src="/assets/js/template7.min.js"></script>
 
+    <script>
+
+            const SHOPPING_CART = "SHOPPING_CART";
+
+            function saveListProduct(listProduct) {
+                window.localStorage.setItem(SHOPPING_CART, JSON.stringify(listProduct));
+            }
+
+            function getListProduct() {
+                var listProduct = window.localStorage.getItem(SHOPPING_CART);
+                return JSON.parse(listProduct);
+            }
+
+            function isNullOrUndefined(obj) {
+                return (obj == null || obj == undefined);
+            }
+
+            function addProduct(product) {
+                var listProduct = getListProduct();
+
+                if (isNullOrUndefined(listProduct)) {
+                    listProduct = [];
+                }
+
+                var isDuplicated = false;
+                for (var i = 0; i < listProduct.length; i++) {
+                    var currentProduct = listProduct[i];
+                    if (currentProduct.id == product.id) {
+                        currentQuantity = parseInt(currentProduct.quantity);
+                        currentProduct.quantity = currentQuantity + parseInt(product.quantity);
+                        isDuplicated = true;
+                        break;
+                    }
+                }
+
+                if (!isDuplicated) {
+                    listProduct.push(product);
+                }
+
+                saveListProduct(listProduct);
+            }
+
+            function updateProductQuantity(product) {
+                var listProduct = getListProduct();
+
+                if (isNullOrUndefined(listProduct)) {
+                    listProduct = [];
+                }
+
+                var isDuplicated = false;
+                for (var i = 0; i < listProduct.length; i++) {
+                    var currentProduct = listProduct[i];
+                    if (currentProduct.id == product.id) {
+                        currentProduct.quantity = parseInt(product.quantity);
+                        break;
+                    }
+                }
+
+                saveListProduct(listProduct);
+            }
+
+            function removeProduct(id) {
+                var listProduct = getListProduct();
+
+                if (isNullOrUndefined(listProduct)) {
+                    return;
+                }
+
+                var index = getIndexOfItemByID(listProduct, id);
+
+                if (index != -1) {
+                    listProduct.splice(index, 1);
+                    saveListProduct(listProduct);
+                }
+
+            }
+
+            function getIndexOfItemByID(lstItemInCart, id) {
+                for (var i = 0; i < lstItemInCart.length; i++) {
+                    if (lstItemInCart[i].id == id) {
+                        return i;
+                    }
+                }
+                return -1;
+            }
+
+    </script>
 </head>
 <body>
     <!-- ============================================== HEADER ============================================== -->
@@ -433,7 +514,7 @@
                                             </span>
                                         </div>
                                         <div class="media-body">
-                                            <p>Tân Minh - Thường Tín - Hà Nội</p>
+                                            <p>Hà Nội</p>
                                         </div>
                                     </li>
 
@@ -613,7 +694,6 @@
         <script src="/assets/js/bootstrap-select.min.js"></script>
         <script src="/assets/js/wow.min.js"></script>
         <script src="/assets/js/scripts.js"></script>
-        <script src="/Content/checkout/CheckOut.js"></script>
-
+        <script src="/Content/checkout/CheckOut.js"></script>        
 </body>
 </html>

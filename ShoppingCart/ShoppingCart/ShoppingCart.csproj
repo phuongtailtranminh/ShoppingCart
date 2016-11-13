@@ -81,6 +81,10 @@
       <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="PayPal, Version=1.8.0.0, Culture=neutral, PublicKeyToken=5b4afc1ccaef40fb, processorArchitecture=MSIL">
+      <HintPath>..\packages\PayPal.1.8.0\lib\net451\PayPal.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -213,6 +217,7 @@
     <Compile Include="Controllers\CheckOutController.cs" />
     <Compile Include="Controllers\ErroController.cs" />
     <Compile Include="Controllers\HeaderController.cs" />
+    <Compile Include="Controllers\PaymentController.cs" />
     <Compile Include="Controllers\ProductXController.cs" />
     <Compile Include="Controllers\RegisterFailController.cs" />
     <Compile Include="Controllers\GatewayController.cs" />
@@ -225,6 +230,7 @@
     <Compile Include="Controllers\RegisterSuccessController.cs" />
     <Compile Include="Controllers\ResultController.cs" />
     <Compile Include="Controllers\SamSungController.cs" />
+    <Compile Include="Controllers\ShoppingCartController.cs" />
     <Compile Include="Controllers\ShowDetailsProductController.cs" />
     <Compile Include="Controllers\ToshibaController.cs" />
     <Compile Include="Enums\JTableResponseCode.cs" />
@@ -239,6 +245,7 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Payment.cs" />
     <Compile Include="order.cs">
       <DependentUpon>ShoppingCartDb.tt</DependentUpon>
     </Compile>
@@ -607,6 +614,7 @@
     <Content Include="assets\js\lightbox.min.js" />
     <Content Include="assets\js\owl.carousel.min.js" />
     <Content Include="assets\js\scripts.js" />
+    <Content Include="assets\js\template7.min.js" />
     <Content Include="assets\js\wow.min.js" />
     <Content Include="assets\morris.js-0.4.3\morris.css" />
     <Content Include="assets\morris.js-0.4.3\morris.min.js" />
@@ -1144,6 +1152,9 @@
       <DependentUpon>ShoppingCartDb.edmx</DependentUpon>
     </Content>
     <Content Include="Views\ProductX\Index.cshtml" />
+    <Content Include="Views\ShoppingCart\Index.cshtml" />
+    <Content Include="Views\Payment\Index.cshtml" />
+    <Content Include="Views\Error.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
