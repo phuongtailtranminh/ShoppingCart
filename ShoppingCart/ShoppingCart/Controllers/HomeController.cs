@@ -1,4 +1,5 @@
 ﻿using ShoppingCart;
+using ShoppingCart.Interfaces;
 using ShoppingCart.Repositories;
 using System;
 using System.Collections.Generic;
@@ -13,10 +14,12 @@ namespace ShoppingCart.Controllers
     public class HomeController : Controller
     {
         private IProductRepository ProductRepository;
+        private IBrandRepository BrandRepository;
         ShoppingCartDb shoppingCartDb = new ShoppingCartDb();
         public HomeController()
         {
             this.ProductRepository = new ProductRepository(shoppingCartDb);
+            this.BrandRepository = new BrandRepository(shoppingCartDb);
         }
 
         public ActionResult Index()
@@ -35,12 +38,17 @@ namespace ShoppingCart.Controllers
 
             return View();
         }
-        public ActionResult Search(String productName)
+        public ActionResult Search(string productName)
         {
             return Json(ProductRepository.SearchProduct(productName),JsonRequestBehavior.AllowGet);
         }
-      
 
+        [ChildActionOnly]
+        public ActionResult _HeaderNavBar()
+        {
+            var listBrands = BrandRepository.GetBrands().ToList();
+            return PartialView(listBrands);
+        }
 
     }
 }

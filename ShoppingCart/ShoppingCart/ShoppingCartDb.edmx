@@ -47,6 +47,7 @@
           <Property Name="mainboard" Type="nvarchar" MaxLength="255" />
           <Property Name="vga" Type="nvarchar" MaxLength="255" />
           <Property Name="cpu" Type="nvarchar" MaxLength="255" />
+          <Property Name="price" Type="decimal" Precision="18" Scale="0" />
           <Property Name="brandid" Type="int" />
         </EntityType>
         <EntityType Name="role">
@@ -211,6 +212,7 @@
           <Property Name="mainboard" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="vga" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="cpu" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="price" Type="Decimal" Precision="18" Scale="0" />
           <Property Name="brandid" Type="Int32" />
           <NavigationProperty Name="brand" Relationship="Self.FK__product__brandid__797309D9" FromRole="product" ToRole="brand" />
           <NavigationProperty Name="orderproducts" Relationship="Self.FK__orderprod__produ__7C4F7684" FromRole="product" ToRole="orderproduct" />
@@ -377,6 +379,7 @@
                 <ScalarProperty Name="mainboard" ColumnName="mainboard" />
                 <ScalarProperty Name="vga" ColumnName="vga" />
                 <ScalarProperty Name="cpu" ColumnName="cpu" />
+                <ScalarProperty Name="price" ColumnName="price" />
                 <ScalarProperty Name="brandid" ColumnName="brandid" />
               </MappingFragment>
             </EntityTypeMapping>

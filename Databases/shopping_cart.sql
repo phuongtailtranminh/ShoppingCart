@@ -46,6 +46,8 @@ CREATE TABLE [brand]
 	name     NVARCHAR(255)
 )
 
+go
+
 CREATE TABLE [product]
   (
      id          INT NOT NULL PRIMARY KEY IDENTITY,
@@ -61,6 +63,7 @@ CREATE TABLE [product]
      mainboard   NVARCHAR(255),
      vga         NVARCHAR(255),
      cpu         NVARCHAR(255),
+	 price	     Decimal,
      brandid     INT,
      FOREIGN KEY (brandid) REFERENCES brand(id)
   );
@@ -92,22 +95,22 @@ go
 INSERT INTO brand(name) VALUES ('APPLE');
 go
 
-INSERT INTO Product(name, quantity, imageurl, description, chip, ram, monitor, harddrive, power, mainboard, vga, cpu, brandid) 
+INSERT INTO Product(name, quantity, imageurl, description, chip, ram, monitor, harddrive, power, mainboard, vga, cpu, price, brandid) 
 values ('Dell Inspiron 5559 Laptop', 10, '#', 'Dell Inspiron 5559 Laptop Description', 'Intel Core i3 (6th Gen)', '4 GB DDR3 RAM', '15.6 inches, 1366 x 768 pixels Screen
-', '1 TB Hard Disk', '450W', 'Intel', 'Intel HD Graphics 520', 'Intel Core i3 (6th Gen)', 1);
+', '1 TB Hard Disk', '450W', 'Intel', 'Intel HD Graphics 520', 'Intel Core i3 (6th Gen)', 11000000, 1);
 go
-INSERT INTO Product(name, quantity, imageurl, description, chip, ram, monitor, harddrive, power, mainboard, vga, cpu, brandid) 
+INSERT INTO Product(name, quantity, imageurl, description, chip, ram, monitor, harddrive, power, mainboard, vga, cpu, price, brandid) 
 values ('Dell Inspiron 3558 Notebook', 10, '#', 'Dell Inspiron 3558 Notebook Description', 'Intel Core i3 (5th Gen)', '4 GB DDR3 RAM', '15.6 inches, 1366 x 768 pixels Screen
-', '1 TB Hard Disk', '450W', 'Intel', 'Intel HD Graphics 5500', 'Intel Core i3 (5th Gen)', 1);
+', '1 TB Hard Disk', '450W', 'Intel', 'Intel HD Graphics 5500', 'Intel Core i3 (5th Gen)', 12000000, 1);
 go
-INSERT INTO Product(name, quantity, imageurl, description, chip, ram, monitor, harddrive, power, mainboard, vga, cpu, brandid) 
+INSERT INTO Product(name, quantity, imageurl, description, chip, ram, monitor, harddrive, power, mainboard, vga, cpu, price, brandid) 
 values ('Dell Inspiron 3162', 10, '#', 'Dell Inspiron 3162 Description', 'Intel Celeron Dual Core', '2 GB DDR3 RAM', '11.6 inches, 1366 x 768 pixels Screen
-', '500GB Hard Disk', '450W', 'Intel', 'Intel HD Graphics 5500', 'Intel Celeron Dual Core', 1);
+', '500GB Hard Disk', '450W', 'Intel', 'Intel HD Graphics 5500', 'Intel Celeron Dual Core', 11000000, 1);
 go
-INSERT INTO Product(name, quantity, imageurl, description, chip, ram, monitor, harddrive, power, mainboard, vga, cpu, brandid) 
+INSERT INTO Product(name, quantity, imageurl, description, chip, ram, monitor, harddrive, power, mainboard, vga, cpu, price, brandid) 
 values ('Dell Inspiron 3542 Laptop', 10, '#', 'Dell Inspiron 3542 Laptop Description', 'Intel Celeron Dual Core (4th Gen)', '4 GB DDR3 RAM', '15.6 inches, 1366 x 768 pixels, Touch Screen
-', '500GB Hard Disk', '450W', 'Intel', 'Intel HD Graphics', 'Intel Celeron Dual Core (4th Gen)', 1);
+', '500GB Hard Disk', '450W', 'Intel', 'Intel HD Graphics', 'Intel Celeron Dual Core (4th Gen)', 9000000, 1);
 go
-INSERT INTO Product(name, quantity, imageurl, description, chip, ram, monitor, harddrive, power, mainboard, vga, cpu, brandid) 
+INSERT INTO Product(name, quantity, imageurl, description, chip, ram, monitor, harddrive, power, mainboard, vga, cpu, price, brandid) 
 values ('Dell Inspiron 5000 5558 Notebook', 10, '#', 'Dell Inspiron 5000 5558 Notebook Description', 'Intel Core i5', '8 GB DDR3 RAM', '15.6 inches, 1920 x 1080 pixels Screen
-', '1 TB Hard Disk', '450W', 'Intel', '4 GB NVIDIA Graphics Card', 'Intel Core i5', 1);
+', '1 TB Hard Disk', '450W', 'Intel', '4 GB NVIDIA Graphics Card', 'Intel Core i5', 8000000, 1);

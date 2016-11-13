@@ -4,11 +4,11 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="5aa1595bd46f4a5ea9a96ff5156f16ee" Name="Diagram1">
-        <EntityTypeShape EntityType="shoppingcartModel.brand" Width="1.5" PointX="3" PointY="8.5" IsExpanded="true" />
+      <Diagram DiagramId="0520ef325f4d49cb93f29a8438dd944a" Name="Diagram1">
+        <EntityTypeShape EntityType="shoppingcartModel.brand" Width="1.5" PointX="3" PointY="8.875" IsExpanded="true" />
         <EntityTypeShape EntityType="shoppingcartModel.order" Width="1.5" PointX="5.25" PointY="1.5" IsExpanded="true" />
         <EntityTypeShape EntityType="shoppingcartModel.orderproduct" Width="1.5" PointX="7.5" PointY="1.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="shoppingcartModel.product" Width="1.5" PointX="5.25" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="shoppingcartModel.product" Width="1.5" PointX="5.25" PointY="7.5" IsExpanded="true" />
         <EntityTypeShape EntityType="shoppingcartModel.role" Width="1.5" PointX="0.75" PointY="1.625" IsExpanded="true" />
         <EntityTypeShape EntityType="shoppingcartModel.user" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
         <AssociationConnector Association="shoppingcartModel.FK__product__brandid__797309D9" ManuallyRouted="false" />

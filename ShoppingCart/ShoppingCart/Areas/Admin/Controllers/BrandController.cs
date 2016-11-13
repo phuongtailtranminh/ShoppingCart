@@ -11,16 +11,17 @@ namespace ShoppingCart.Areas.Admin.Controllers
 {
     public class BrandController : Controller
     {
-        // GET: Admin/Brand
-        public ActionResult Index()
-        {
-            return View();
-        }
         private IBrandRepository BrandRepository;
 
         public BrandController()
         {
             this.BrandRepository = new BrandRepository(new ShoppingCartDb());
+        }
+
+        // GET: Admin/Brand
+        public ActionResult Index()
+        {
+            return View();
         }
 
         // GET: Admin/Chip/GetListChip

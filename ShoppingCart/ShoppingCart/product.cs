@@ -11,7 +11,8 @@ namespace ShoppingCart
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class product
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -33,6 +34,8 @@ namespace ShoppingCart
         public string mainboard { get; set; }
         public string vga { get; set; }
         public string cpu { get; set; }
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:c}")]
+        public Nullable<decimal> price { get; set; }
         public Nullable<int> brandid { get; set; }
     
         public virtual brand brand { get; set; }
