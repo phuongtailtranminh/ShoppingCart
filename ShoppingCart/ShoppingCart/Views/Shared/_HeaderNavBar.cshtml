@@ -1,0 +1,18 @@
+﻿<div class="nav-bg-class">
+    <div class="navbar-collapse collapse" id="mc-horizontal-menu-collapse">
+        <div class="nav-outer">
+            <ul class="nav navbar-nav">
+                @foreach (var item in Model)
+                {
+                    <li class="dropdown yamm">
+                        <a href="@Url.Action("Index","SamSung")">@item.name</a>
+                    </li>
+                }
+            </ul>
+            <!-- /.navbar-nav -->
+            <div class="clearfix"></div>
+        </div>
+        <!-- /.nav-outer -->
+    </div>
+    <!-- /.navbar-collapse -->
+</div>
