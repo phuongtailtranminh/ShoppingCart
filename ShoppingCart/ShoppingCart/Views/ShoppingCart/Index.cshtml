@@ -184,12 +184,7 @@
         var template = $('#shoppingItem').html();
         var compiledTemplate = Template7.compile(template);
 
-        var grandPrice = 0;
-        for (var i = 0; i < listProduct.length; i++) {
-            var currentProduct = listProduct[i];
-            var currentGrandPrice = currentProduct.quantity * currentProduct.price;
-            grandPrice += currentGrandPrice;
-        }
+        var grandPrice = getTotalPrice(listProduct);
 
         var context = {
             Data: listProduct,
@@ -209,6 +204,7 @@
         }
         console.log(product);
         updateProductQuantity(product);
+        updateListProductBadge();
         renderShoppingCart();
     }
 
@@ -218,6 +214,7 @@
             var selector = $(element);
             var productId = selector.data("id");
             removeProduct(productId);
+            updateListProductBadge();
             renderShoppingCart();
         }
     }
