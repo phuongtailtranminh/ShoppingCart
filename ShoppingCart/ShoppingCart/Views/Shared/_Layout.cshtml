@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNet.Identity
+<!DOCTYPE html>
 <html>
 <head>
     <!-- Meta -->
@@ -205,10 +206,22 @@
                 <div class="header-top-inner">
                     <div class="cnt-account">
                         <ul class="list-unstyled">
-                            <li><a href="@Url.Action("Index","MyAccount")"><i class="icon fa fa-user"></i>My Account</a></li>
-                            <li><a href="@Url.Action("Index","MyCart")"><i class="icon fa fa-shopping-cart"></i>My Cart</a></li>
+                            <li><a href="@Url.Action("Register","Account")"><i class="icon fa fa-user"></i>Register</a></li>
+                            <li><a href="@Url.Action("Index","ShoppingCart")"><i class="icon fa fa-shopping-cart"></i>My Cart</a></li>
                             <li><a href="@Url.Action("Index","CheckOut")"><i class="icon fa fa-key"></i>Checkout</a></li>
-                            <li><a href="@Url.Action("Index","Login")"><i class="icon fa fa-sign-in"></i>Login</a></li>
+                            <li>
+                            @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" }))
+                            {
+                                @Html.AntiForgeryToken()
+                                if (!Request.IsAuthenticated)
+                                {
+                                    <a href="@Url.Action("Login", "Account")"><i class="icon fa fa-sign-in"></i>Login</a>
+                                }
+                                else {
+                                    @User.Identity.GetUserName() <a href="javascript:document.getElementById('logoutForm').submit()">[Log off]</a>
+                                }
+                            }
+                            </li>
                         </ul>
                     </div>
                     <!-- /.cnt-account -->
@@ -286,7 +299,7 @@
                         <!-- ============================================================= SHOPPING CART DROPDOWN ============================================================= -->
 
                         <div class="dropdown dropdown-cart">
-                            <a href="#" class="dropdown-toggle lnk-cart" data-toggle="dropdown">
+                            <a href="@Url.Action("Index","ShoppingCart")" class="lnk-cart">
                                 <div class="items-cart-inner">
                                     <div class="total-price-basket">
                                         <span class="lbl">cart -</span>
@@ -302,44 +315,6 @@
 
                                 </div>
                             </a>
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <div class="cart-item product-summary">
-                                        <div class="row">
-                                            <div class="col-xs-4">
-                                                <div class="image">
-                                                    <a href="detail.html"><img src="/assets/images/cart.jpg" alt=""></a>
-                                                </div>
-                                            </div>
-                                            <div class="col-xs-7">
-
-                                                <h3 class="name"><a href="index.php?page-detail">Simple Product</a></h3>
-                                                <div class="price">$600.00</div>
-                                            </div>
-                                            <div class="col-xs-1 action">
-                                                <a href="#"><i class="fa fa-trash"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- /.cart-item -->
-                                    <div class="clearfix"></div>
-                                    <hr>
-
-                                    <div class="clearfix cart-total">
-                                        <div class="pull-right">
-
-                                            <span class="text">Sub Total :</span><span class='price'>$600.00</span>
-
-                                        </div>
-                                        <div class="clearfix"></div>
-
-                                        <a href="@Url.Action("Index","CheckOut")" class="btn btn-upper btn-primary btn-block m-t-20">Checkout</a>
-                                    </div>
-                                    <!-- /.cart-total-->
-
-
-                                </li>
-                            </ul>
                             <!-- /.dropdown-menu-->
                         </div>
                         <!-- /.dropdown-cart -->

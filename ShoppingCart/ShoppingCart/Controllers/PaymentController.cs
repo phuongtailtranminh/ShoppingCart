@@ -13,6 +13,16 @@ namespace ShoppingCart.Controllers
         // GET: Payment
         public ActionResult Index()
         {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult ProcessPayment(Payment payment) {
+            //Payment createdPayment = processPayment();
+            return Json("OK");
+        }
+
+        private Payment processPayment() {
             // Authenticate with PayPal
             var config = ConfigManager.Instance.GetProperties();
             var accessToken = new OAuthTokenCredential(config).GetAccessToken();
@@ -58,21 +68,12 @@ namespace ShoppingCart.Controllers
             try
             {
                 var createdPayment = pymnt.Create(apiContext);
-                ViewBag.PaymentId = createdPayment.id;
+                return createdPayment;
             }
             catch (Exception ex)
             {
-                ViewBag.Msg = "Error when processing your request";
-                return View("~/Views/Error.cshtml");
+                return null;
             }
-
-
-            return View();
-        }
-
-        [HttpPost]
-        public ActionResult ProcessPayment() {
-            return Json("Success");
         }
     }
 }

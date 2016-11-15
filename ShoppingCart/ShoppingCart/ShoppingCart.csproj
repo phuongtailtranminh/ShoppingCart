@@ -223,7 +223,6 @@
     <Compile Include="Controllers\GatewayController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LenovoController.cs" />
-    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MyAccountController.cs" />
     <Compile Include="Controllers\MyCartController.cs" />
@@ -1125,7 +1124,6 @@
     <Content Include="Scripts\jtable\themes\jtable_theme_base.less" />
     <Content Include="Scripts\jtable\themes\jqueryui\jtable_jqueryui.less" />
     <Content Include="Scripts\jtable\themes\basic\jtable_basic.less" />
-    <Content Include="Views\Login\Index.cshtml" />
     <Content Include="Views\CheckOut\Index.cshtml" />
     <Content Include="Views\ASUS\Index.cshtml" />
     <Content Include="Views\SamSung\Index.cshtml" />
@@ -1135,7 +1133,6 @@
     <Content Include="Views\Lenovo\Index.cshtml" />
     <Content Include="Views\MyCart\Index.cshtml" />
     <Content Include="Views\ShowDetailsProduct\Index.cshtml" />
-    <Content Include="Views\MyAccount\Index.cshtml" />
     <Content Include="Views\Category\Index.cshtml" />
     <Content Include="Views\Result\Index.cshtml" />
     <Content Include="Views\Erro\Index.cshtml" />
@@ -1155,6 +1152,8 @@
     <Content Include="Views\ShoppingCart\Index.cshtml" />
     <Content Include="Views\Payment\Index.cshtml" />
     <Content Include="Views\Error.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

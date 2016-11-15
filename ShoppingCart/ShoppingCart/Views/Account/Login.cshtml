@@ -1,0 +1,53 @@
+﻿
+@model ShoppingCart.Models.LoginViewModel
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section main {
+
+    <div class="body-content outer-top-bd">
+        <div class="container">
+            <div class="sign-in-page inner-bottom-sm">
+                <div class="row">
+                    <!-- Sign-in -->
+                    <div class="col-md-12 col-sm-12 sign-in">
+                        <h4 class="">sign in</h4>
+                        <p class="">Hello, Welcome to your account.</p>
+                        <div class="social-sign-in outer-top-xs">
+                            <a href="#" class="facebook-sign-in"><i class="fa fa-facebook"></i> Sign In with Facebook</a>
+                            <a href="#" class="twitter-sign-in"><i class="fa fa-twitter"></i> Sign In with Twitter</a>
+                        </div>
+                        @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "register-form outer-top-xs", role = "form" }))
+                        {
+                            @Html.AntiForgeryToken()
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.Email, new { @class = "info-title" })
+                                @Html.TextBoxFor(m => m.Email, new { @class = "form-control unicase-form-control text-input" })
+                                @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(m => m.Password, new { @class = "info-title" })
+                                @Html.PasswordFor(m => m.Password, new { @class = "form-control unicase-form-control text-input" })
+                                @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="radio outer-xs">
+                                    @Html.CheckBoxFor(m => m.RememberMe)
+                                    @Html.LabelFor(m => m.RememberMe)
+                                <a href="#" class="forgot-password pull-right">Forgot your Password?</a>
+                            </div>
+                            <button type="submit" class="btn-upper btn btn-primary checkout-page-button">Login</button>
+                        }
+                    </div>
+                    <!-- Sign-in -->
+                </div><!-- /.row -->
+            </div><!-- /.sigin-in-->
+            <!-- ============================================== BRANDS CAROUSEL ============================================== -->
+            <!-- /.logo-slider -->
+            <!-- ============================================== BRANDS CAROUSEL : END ============================================== -->
+        </div><!-- /.container -->
+    </div><!-- /.body-content -->
+}
+

@@ -8,8 +8,6 @@ namespace ShoppingCart.Models
 {
     public class Payment
     {
-        Amount amount;
-        ItemList itemList;
-
+        private CreditCard creditCard { set; get; }
     }
 }
