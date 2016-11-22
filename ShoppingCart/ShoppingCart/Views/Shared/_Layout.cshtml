@@ -89,6 +89,7 @@
             <script src="/assets/js/respond.min.js"></script>
         <![endif]-->
     <script src="/assets/js/jquery-1.11.1.min.js"></script>
+    <script src="/assets/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/accounting.js/0.4.1/accounting.min.js"></script>
     <script src="/assets/js/template7.min.js"></script>
 
@@ -107,6 +108,10 @@
 
             function isNullOrUndefined(obj) {
                 return (obj == null || obj == undefined);
+            }
+
+            function clearListProduct() {
+                saveListProduct([]);
             }
 
             function addProduct(product) {
@@ -206,7 +211,16 @@
                 <div class="header-top-inner">
                     <div class="cnt-account">
                         <ul class="list-unstyled">
-                            <li><a href="@Url.Action("Register","Account")"><i class="icon fa fa-user"></i>Register</a></li>
+                            <li>
+                                @if (!Request.IsAuthenticated)
+                                {
+                                    <a href="@Url.Action("Register","Account")"><i class="icon fa fa-user"></i>Register</a>
+                                }
+                                else
+                                {
+                                    <a href="@Url.Action("Index","MyOrder")"><i class="icon fa fa-user"></i>My Order</a>
+                                }
+                            </li>
                             <li><a href="@Url.Action("Index","ShoppingCart")"><i class="icon fa fa-shopping-cart"></i>My Cart</a></li>
                             <li><a href="@Url.Action("Index","CheckOut")"><i class="icon fa fa-key"></i>Checkout</a></li>
                             <li>
@@ -264,8 +278,8 @@
                         <!-- /.contact-row -->
                         <!-- ============================================================= SEARCH AREA ============================================================= -->
                         <div class="search-area">
-                            <form>
-                                <div class="control-group">
+                            <div id="searchForm" action="#">
+                                <form class="control-group" onsubmit="doSearch($('#txtSearchQuery').val());">
 
                                     <ul class="categories-filter animate-dropdown">
                                         <li class="dropdown">
@@ -283,13 +297,20 @@
                                         </li>
                                     </ul>
 
-                                    <input class="search-field" type="text" placeholder="Search here..." id="productName" />
+                                    <input class="search-field" type="text" placeholder="Search by product name" id="txtSearchQuery"/>
+                                    
+                                    <a class="search-button" href="#" onclick="doSearch($('#txtSearchQuery').val());"></a>
 
-                                    <a class="search-button" href="#"></a>
-
-                                </div>
-                            </form>
+                                </form>
+                            </div>
                         </div>
+
+                        <script type="text/javascript">
+                            function doSearch(query) {
+                                event.preventDefault();
+                                window.location = "/Search/Index/" + query;
+                            }
+                        </script>
                         <!-- /.search-area -->
                         <!-- ============================================================= SEARCH AREA : END ============================================================= -->
                     </div>
@@ -305,7 +326,7 @@
                                         <span class="lbl">cart -</span>
                                         <span class="total-price">
                                             <span id="navTotalPrice" class="value">0.0</span>
-                                            <span class="sign">VND</span>
+                                            <span class="sign">USD</span>
                                         </span>
                                     </div>
                                     <div class="basket">
@@ -657,9 +678,6 @@
     </footer>
 
     <!-- ============================================================= FOOTER : END============================================================= -->
-
-        <script src="/assets/js/bootstrap.min.js"></script>
-
         <script src="/assets/js/bootstrap-hover-dropdown.min.js"></script>
         @*<script src="/assets/js/owl.carousel.min.js"></script>*@
         <script src="/assets/js/echo.min.js"></script>
@@ -671,7 +689,7 @@
         <script src="/assets/js/wow.min.js"></script>
         <script src="/assets/js/scripts.js"></script>
         <script src="/Scripts/showDeailsProduct.js"></script>
-        <script src="/assets/js/jquery-1.11.1.min.js"></script>
+        @*<script src="/assets/js/jquery-1.11.1.min.js"></script>*@
         <script src="/assets/js/bootstrap-hover-dropdown.min.js"></script>
         <script src="/assets/js/owl.carousel.min.js"></script>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.13.1/jquery.validate.min.js"></script>

@@ -162,8 +162,8 @@
                 <input type="number" value="{{quantity}}" onchange="updateShoppingCart(this);" data-id="{{id}}">
             </div>
         </td>
-        <td class="cart-product-sub-total"><span class="cart-sub-total-price">{{js "accounting.formatNumber(this.price, 0, '.',',')"}} VND</span></td>
-        <td class="cart-product-grand-total"><span class="cart-grand-total-price">{{js "accounting.formatNumber(this.price * this.quantity, 0, '.',',')"}} VND</span></td>
+        <td class="cart-product-sub-total"><span class="cart-sub-total-price">{{js "accounting.formatNumber(this.price, 0, '.',',')"}} USD</span></td>
+        <td class="cart-product-grand-total"><span class="cart-grand-total-price">{{js "accounting.formatNumber(this.price * this.quantity, 0, '.',',')"}} USD</span></td>
     </tr>
     {{/each}}
     <tr>
@@ -172,7 +172,7 @@
         <td></td>
         <td></td>
         <td class="cart-product-grand-total">
-            <span class="cart-grand-total-price">{{js "accounting.formatNumber(this.grandPrice, 0, '.',',')"}} VND</span>
+            <span class="cart-grand-total-price">{{js "accounting.formatNumber(this.grandPrice, 0, '.',',')"}} USD</span>
         </td>
     </tr>
 </script>

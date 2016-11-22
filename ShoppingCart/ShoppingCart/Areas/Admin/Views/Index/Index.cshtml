@@ -25,44 +25,21 @@
                             deleteAction: '/Index/DeleteUser'
                         },
                         fields: {
-                            id: {
+                            Id: {
                                 key: true,
                                 create: false,
                                 edit: false,
-                                list: false
+                                list: false,
+                                title: "Username"
                             },
-                            username: {
+                            UserName: {
+                                edit: false,
                                 title: 'Username',
                                 width: '5%'
                             },
-                            name: {
-                                title: 'Name',
-                            },
-                            password:{
+                            Password:{
                                 title: 'Password',
                                 type: 'password',
-                                list: false
-                
-                            },
-                            user_address: {
-                                title: 'Address',
-                            },
-                            age: {
-                                title: 'Age',
-                            },
-                            phonenumber: {
-                                title: 'Phone Number',
-                            },
-                            roleName: {
-                                title: 'Role Name',
-                                edit: false
-                            },
-                            roleid: {
-                                title: "Role Name",
-                                options: {
-                                    '2': 'Admin',
-                                    '1': 'User',
-                                },
                                 list: false
                             }
                         }

@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section main {
+    <div class="body-content outer-top-bd">
+        <div class="container">
+            <div class="col-lg-12">
+                <h3>Thank for your order. Please take a note your order id: @ViewBag.OrderId</h3>
+                <h3><a href="@Url.Action("Index", "CheckStatus")">You can check your order status here by using your order id</a></h3>
+            </div>
+        </div>
+    </div>
+}
+

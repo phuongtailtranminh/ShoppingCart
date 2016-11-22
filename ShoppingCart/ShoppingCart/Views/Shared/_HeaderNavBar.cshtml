@@ -5,7 +5,7 @@
                 @foreach (var item in Model)
                 {
                     <li class="dropdown yamm">
-                        <a href="@Url.Action("Index","SamSung")">@item.name</a>
+                        <a href="@Url.Action("Index","Category", new { id = @item.id })">@item.name</a>
                     </li>
                 }
             </ul>

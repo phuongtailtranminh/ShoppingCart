@@ -27,9 +27,6 @@ namespace ShoppingCart
     
         public virtual DbSet<brand> brands { get; set; }
         public virtual DbSet<order> orders { get; set; }
-        public virtual DbSet<orderproduct> orderproducts { get; set; }
         public virtual DbSet<product> products { get; set; }
-        public virtual DbSet<role> roles { get; set; }
-        public virtual DbSet<user> users { get; set; }
     }
 }

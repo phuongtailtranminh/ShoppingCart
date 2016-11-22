@@ -4,7 +4,16 @@
 }
 
 @section main {
-
+    <div class="row" style="margin-bottom: 10px;">
+        <div class="col-lg-10">
+            <div class="col-lg-6">
+                <input id="txtOrderId" type="text" class="form-control" placeholder="Enter Order ID">
+            </div>
+            <div class="col-lg-4">
+                <button id="btnSearch" type="submit" class="btn">Search</button>
+            </div>
+        </div>
+    </div>
     <div class="row">
         <div class="col-lg-12">
             <div id="OrderTableContainer"></div>
@@ -19,9 +28,9 @@
                     title: 'List Order',
                     actions: {
                         listAction: '/Order/GetListOrder',
-                        createAction: '/Order/AddOrder',
+                        //createAction: '/Order/AddOrder',
                         updateAction: '/Order/UpdateOrder',
-                        deleteAction: '/Order/DeleteOrder'
+                        //deleteAction: '/Order/DeleteOrder'
                     },
                     fields: {
                         id: {
@@ -30,26 +39,35 @@
                             create: false,
                             edit: false,
                         },
+                        userid: {
+                            key: true,
+                            create: false,
+                            edit: false,
+                            list: false
+                        },
                         status: {
                             title: 'Status',
                             width: '5%',
                             options:{
                                 'PENDING': 'PENDING',
+                                'APPROVED': 'APPROVED',
+                                'DELIVERING': 'DELIVERING',
+                                'RECEIVED': 'RECEIVED',
                                 'DONE': 'DONE',
-                                'NONE': 'NONE',
                             }
-                        },
-                        products: {
-                            title: 'product',
-                            edit: false
                         }
-                       
-
                     }
                 });
 
-            //Load student list from server
-            $('#OrderTableContainer').jtable('load');
+                $('#btnSearch').click(function (e) {
+                    e.preventDefault();
+                    $('#OrderTableContainer').jtable('load', {
+                        orderId: $('#txtOrderId').val(),
+                    });
+                });
+
+                $('#btnSearch').click();
+
             });
     </script>
 }

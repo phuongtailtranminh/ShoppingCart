@@ -34,7 +34,7 @@
                                             <h4 class="checkout-subtitle">Checkout as a Guest or Register Login</h4>
                                             <p class="text title-tag-line">Register with us for future convenience:</p>
                                             <!-- radio-form  -->
-                                            <form class="register-form" role="form">
+                                            @*<form class="register-form" role="form">
                                                 <div class="radio radio-checkout-unicase">
                                                     <input id="guest" type="radio" name="text" value="guest" checked>
                                                     <label class="radio-button guest-check" for="guest">Checkout as Guest</label>
@@ -42,7 +42,7 @@
                                                     <input id="user" type="radio" name="text" value="user">
                                                     <label class="radio-button" for="user">Checkout as user</label>
                                                 </div>
-                                            </form>
+                                            </form>*@
                                             <!-- radio-form  -->
                                             
                                         </div>
@@ -70,6 +70,13 @@
                                                 }
 
                                         </div>
+                                        <div class="form-group">
+                                            <div class="col-sm-offset-2 col-sm-10">
+                                                <div class="pull-right">
+                                                    <button type="submit" class="btn btn-primary btn-next " data-next-div-id="#collapseTwo">Next</button>
+                                                </div>
+                                            </div>
+                                        </div>
                                         <!-- already-registered-login -->
                                     </div>
                                 </div>
@@ -88,7 +95,61 @@
                             </div>
                             <div id="collapseTwo" class="panel-collapse collapse">
                                 <div class="panel-body">
-                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                    
+                                    <div class="form-horizontal" role="form">
+                                        <fieldset>
+                                            <!-- Text input-->
+                                            <div class="form-group">
+                                                <label class="col-sm-2 control-label" for="textinput">Line 1</label>
+                                                <div class="col-sm-10">
+                                                    <input id="txtBillingLine1" type="text" placeholder="Address Line 1" class="form-control">
+                                                </div>
+                                            </div>
+                                            <!-- Text input-->
+                                            <div class="form-group">
+                                                <label class="col-sm-2 control-label" for="textinput">Line 2</label>
+                                                <div class="col-sm-10">
+                                                    <input id="txtBillingLine2" type="text" placeholder="Address Line 2" class="form-control">
+                                                </div>
+                                            </div>
+                                            <!-- Text input-->
+                                            <div class="form-group">
+                                                <label class="col-sm-2 control-label" for="textinput">City</label>
+                                                <div class="col-sm-10">
+                                                    <input id="txtBillingCity" type="text" placeholder="City" class="form-control">
+                                                </div>
+                                            </div>
+                                            <!-- Text input-->
+                                            <div class="form-group">
+                                                <label class="col-sm-2 control-label" for="textinput">State</label>
+                                                <div class="col-sm-4">
+                                                    <input id="txtBillingState" type="text" placeholder="State" class="form-control">
+                                                </div>
+                                                <label class="col-sm-2 control-label" for="textinput">Postcode</label>
+                                                <div class="col-sm-4">
+                                                    <input id="txtBillingPostcode" type="number" placeholder="Post Code" class="form-control">
+                                                </div>
+                                            </div>
+
+                                            <!-- Text input-->
+                                            <div class="form-group">
+                                                <label class="col-sm-2 control-label" for="textinput">Country</label>
+                                                <div class="col-sm-10">
+                                                    <select id="txtBillingCountry" class="form-control">
+                                                        <option value='US'>United State</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="col-sm-offset-2 col-sm-10">
+                                                    <div class="pull-right">
+                                                        <button type="submit" class="btn btn-primary btn-next " data-next-div-id="#collapseThree">Next</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </fieldset>
+                                    </div>
+
                                 </div>
                             </div>
                         </div>
@@ -104,13 +165,73 @@
                             </div>
                             <div id="collapseThree" class="panel-collapse collapse">
                                 <div class="panel-body">
-                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                    
+                                    <div class="form-horizontal" role="form">
+                                        <fieldset>
+                                            <div class="form-group">
+                                                <label class="col-sm-2 control-label" for="textinput">Option</label>
+                                                <div class="col-sm-10">
+                                                    <input id="cbSameAsBillingAddress" type="checkbox"> Same as billing address
+                                                </div>
+                                            </div>
+                                            <!-- Text input-->
+                                            <div class="form-group">
+                                                <label class="col-sm-2 control-label" for="textinput">Line 1</label>
+                                                <div class="col-sm-10">
+                                                    <input id="txtShippingLine1" type="text" placeholder="Address Line 1" class="form-control">
+                                                </div>
+                                            </div>
+                                            <!-- Text input-->
+                                            <div class="form-group">
+                                                <label class="col-sm-2 control-label" for="textinput">Line 2</label>
+                                                <div class="col-sm-10">
+                                                    <input id="txtShippingLine2" type="text" placeholder="Address Line 2" class="form-control">
+                                                </div>
+                                            </div>
+                                            <!-- Text input-->
+                                            <div class="form-group">
+                                                <label class="col-sm-2 control-label" for="textinput">City</label>
+                                                <div class="col-sm-10">
+                                                    <input id="txtShippingCity" type="text" placeholder="City" class="form-control">
+                                                </div>
+                                            </div>
+                                            <!-- Text input-->
+                                            <div class="form-group">
+                                                <label class="col-sm-2 control-label" for="textinput">State</label>
+                                                <div class="col-sm-4">
+                                                    <input id="txtShippingState" type="text" placeholder="State" class="form-control">
+                                                </div>
+                                                <label class="col-sm-2 control-label" for="textinput">Postcode</label>
+                                                <div class="col-sm-4">
+                                                    <input id="txtShippingPostcode" type="number" placeholder="Post Code" class="form-control">
+                                                </div>
+                                            </div>
+
+                                            <!-- Text input-->
+                                            <div class="form-group">
+                                                <label class="col-sm-2 control-label" for="textinput">Country</label>
+                                                <div class="col-sm-10">
+                                                    <select id="txtShippingCountry" class="form-control">
+                                                        <option value='US'>United State</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="col-sm-offset-2 col-sm-10">
+                                                    <div class="pull-right">
+                                                        <button type="submit" class="btn btn-primary btn-next " data-next-div-id="#collapseFour">Next</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </fieldset>
+                                    </div>
+
                                 </div>
                             </div>
                         </div>
                         <!-- checkout-step-03  -->
                         <!-- checkout-step-04  -->
-                        <div class="panel panel-default checkout-step-04">
+                        @*<div class="panel panel-default checkout-step-04">
                             <div class="panel-heading">
                                 <h4 class="unicase-checkout-title">
                                     <a data-toggle="collapse" class="collapsed" data-parent="#accordion" href="#collapseFour">
@@ -123,24 +244,24 @@
                                     Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
                                 </div>
                             </div>
-                        </div>
+                        </div>*@
                         <!-- checkout-step-04  -->
                         <!-- checkout-step-05  -->
                         <div class="panel panel-default checkout-step-05">
                             <div class="panel-heading">
                                 <h4 class="unicase-checkout-title">
-                                    <a data-toggle="collapse" class="collapsed" data-parent="#accordion" href="#collapseFive">
-                                        <span>5</span>Payment Information
+                                    <a data-toggle="collapse" class="collapsed" data-parent="#accordion" href="#collapseFour">
+                                        <span>4</span>Payment Information
                                     </a>
                                 </h4>
                             </div>
-                            <div id="collapseFive" class="panel-collapse collapse">
+                            <div id="collapseFour" class="panel-collapse collapse">
                                 <div class="panel-body">
                                     <div class="container">
                                         <div class="row">
                                             <!-- You can make it whatever width you want. I'm making it full width
                  on <= small devices and 4/12 page width on >= medium devices -->
-                                            <div class="col-xs-12 col-md-4">
+                                            <div class="col-xs-12 col-md-6">
 
 
                                                 <!-- CREDIT CARD FORM STARTS HERE -->
@@ -154,39 +275,84 @@
                                                         </div>
                                                     </div>
                                                     <div class="panel-body">
-                                                        <form role="form" id="payment-form" method="POST" action="javascript:void(0);">
+                                                        <form role="form" id="payment-form" method="POST" action="#">
+                                                            <div class="row">
+                                                                <div class="col-xs-6 col-md-6">
+                                                                    <div class="form-group">
+                                                                        <label for="firstName">First Name</label>
+                                                                        <input id="txtFirstName"
+                                                                               type="tel"
+                                                                               class="form-control"
+                                                                               name="firstName"
+                                                                               placeholder="First Name"
+                                                                               required autofocus/>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-xs-6 col-md-6 pull-right">
+                                                                    <div class="form-group">
+                                                                        <label for="lastName">Last Name</label>
+                                                                        <input id="txtLastName"
+                                                                               type="tel"
+                                                                               class="form-control"
+                                                                               name="lastName"
+                                                                               placeholder="Last Name"
+                                                                               required />
+                                                                    </div>
+                                                                </div>
+                                                            </div>
                                                             <div class="row">
                                                                 <div class="col-xs-12">
                                                                     <div class="form-group">
                                                                         <label for="cardNumber">CARD NUMBER</label>
                                                                         <div class="input-group">
-                                                                            <input type="tel"
+                                                                            <input id="txtCardNumber"
+                                                                                   type="number"
                                                                                    class="form-control"
                                                                                    name="cardNumber"
-                                                                                   placeholder="Valid Card Number"
-                                                                                   autocomplete="cc-number"
-                                                                                   required autofocus />
+                                                                                   placeholder="Credit Card Number"
+                                                                                   required />
                                                                             <span class="input-group-addon"><i class="fa fa-credit-card"></i></span>
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                             <div class="row">
-                                                                <div class="col-xs-7 col-md-7">
+                                                                <div class="col-xs-3 col-md-3">
                                                                     <div class="form-group">
-                                                                        <label for="cardExpiry"><span class="hidden-xs">EXPIRATION</span><span class="visible-xs-inline">EXP</span> DATE</label>
-                                                                        <input type="tel"
-                                                                               class="form-control"
-                                                                               name="cardExpiry"
-                                                                               placeholder="MM / YY"
-                                                                               autocomplete="cc-exp"
-                                                                               required />
+                                                                        <label for="cardExpiryMonth">Expire Month</label>
+                                                                        <select id="txtExpireMonth" class="form-control" name='expireMM' id='expireMM'>
+                                                                            <option value='01'>January</option>
+                                                                            <option value='02'>February</option>
+                                                                            <option value='03'>March</option>
+                                                                            <option value='04'>April</option>
+                                                                            <option value='05'>May</option>
+                                                                            <option value='06'>June</option>
+                                                                            <option value='07'>July</option>
+                                                                            <option value='08'>August</option>
+                                                                            <option value='09'>September</option>
+                                                                            <option value='10'>October</option>
+                                                                            <option value='11'>November</option>
+                                                                            <option value='12'>December</option>
+                                                                        </select>
                                                                     </div>
                                                                 </div>
-                                                                <div class="col-xs-5 col-md-5 pull-right">
+                                                                <div class="col-xs-3 col-md-3">
+                                                                    <div class="form-group">
+                                                                        <label for="cardExpiryYear">Expire Year</label>
+                                                                        <select id="txtExpireYear" class="form-control" name='expireYY' id='expireYY'>
+                                                                            <option value='2016'>2016</option>
+                                                                            <option value='2017'>2017</option>
+                                                                            <option value='2018'>2018</option>
+                                                                            <option value='2019'>2019</option>
+                                                                            <option value='2020'>2020</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-xs-6 col-md-6 pull-right">
                                                                     <div class="form-group">
                                                                         <label for="cardCVC">CV CODE</label>
-                                                                        <input type="tel"
+                                                                        <input id="txtCardC2V"
+                                                                               type="number"
                                                                                class="form-control"
                                                                                name="cardCVC"
                                                                                placeholder="CVC"
@@ -197,24 +363,304 @@
                                                             </div>
                                                             <div class="row">
                                                                 <div class="col-xs-12">
-                                                                    <div class="form-group">
-                                                                        <label for="couponCode">COUPON CODE</label>
-                                                                        <input type="text" class="form-control" name="couponCode" />
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="row">
-                                                                <div class="col-xs-12">
-                                                                    <button class="subscribe btn btn-success btn-lg btn-block" type="button" onclick="processPayment();">Process</button>
+                                                                    <input id="btnProcess" class="subscribe btn btn-success btn-lg btn-block" type="submit" value="Process" onclick="processPayment(event);"/>
                                                                     <script type="text/javascript">
-                                                                        function processPayment() {
+
+                                                                        $(".btn-next").click(function () {
+                                                                            var nextDivId = $(this).data("next-div-id");
+                                                                            console.log(nextDivId);
+                                                                            $(nextDivId).collapse("show");
+                                                                        });
+
+                                                                        $("#cbSameAsBillingAddress").change(function () {
+                                                                            if ($(this).is(":checked")) {
+                                                                                $("#txtShippingLine1").val($("#txtBillingLine1").val());
+                                                                                $("#txtShippingLine2").val($("#txtBillingLine2").val());
+                                                                                $("#txtShippingCity").val($("#txtBillingCity").val());
+                                                                                $("#txtShippingState").val($("#txtBillingState").val());
+                                                                                $("#txtShippingPostcode").val($("#txtBillingPostcode").val());
+                                                                                $("#txtShippingCountry").val($("#txtBillingCountry").val());
+                                                                            } else {
+                                                                                $("#txtShippingLine1").val("");
+                                                                                $("#txtShippingLine2").val("");
+                                                                                $("#txtShippingCity").val("");
+                                                                                $("#txtShippingState").val("");
+                                                                                $("#txtShippingPostcode").val("");
+                                                                            }
+                                                                        });
+
+                                                                        function getCardType(cardNumber) {
+                                                                            if (isNullOrUndefined(cardNumber)) {
+                                                                                return;
+                                                                            }
+                                                                            if (cardNumber.length < 1) {
+                                                                                return;
+                                                                            }
+                                                                            if (cardNumber[0] == 3) {
+                                                                                return "amex";
+                                                                            }
+                                                                            if (cardNumber[0] == 4) {
+                                                                                return "visa";
+                                                                            }
+                                                                            if (cardNumber[0] == 5) {
+                                                                                return "master";
+                                                                            }
+                                                                            if (cardNumber[0] == 6) {
+                                                                                return "disco";
+                                                                            }
+                                                                        }
+
+                                                                        function getCurrency() {
+                                                                            return "USD";
+                                                                        }
+
+                                                                        function validate() {
+                                                                            // Billing Information
+                                                                            var txtBillingLine1 = $("#txtBillingLine1").val();
+                                                                            if (txtBillingLine1 == "") {
+                                                                                alert("Billing line 1 is missing!");
+                                                                                $("#txtBillingLine1").focus();
+                                                                                return false;
+                                                                            }
+                                                                            var txtBillingLine2 = $("#txtBillingLine2").val();
+                                                                            if (txtBillingLine2 == "") {
+                                                                                alert("Billing line 2 is missing!");
+                                                                                $("#txtBillingLine2").focus();
+                                                                                return false;
+                                                                            }
+                                                                            var txtBillingCity = $("#txtBillingCity").val();
+                                                                            if (txtBillingCity == "") {
+                                                                                alert("Billing city is missing!");
+                                                                                $("#txtBillingCity").focus();
+                                                                                return false;
+                                                                            }
+                                                                            var txtBillingState = $("#txtBillingState").val();
+                                                                            if (txtBillingState == "") {
+                                                                                alert("Billing state is missing!");
+                                                                                $("#txtBillingState").focus();
+                                                                                return false;
+                                                                            }
+                                                                            var txtBillingPostcode = $("#txtBillingPostcode").val();
+                                                                            if (txtBillingPostcode == "") {
+                                                                                alert("Billing postcode is missing!");
+                                                                                $("#txtBillingPostcode").focus();
+                                                                                return false;
+                                                                            }
+                                                                            var txtBillingCountry = $("#txtBillingCountry").val();
+                                                                            if (txtBillingCountry == "") {
+                                                                                alert("Billing country is missing!");
+                                                                                $("#txtBillingCountry").focus();
+                                                                                return false;
+                                                                            }
+                                                                            // Shipping Address
+                                                                            var txtShippingLine1 = $("#txtShippingLine1").val();
+                                                                            if (txtShippingLine1 == "") {
+                                                                                alert("Shipping line 1 is missing!");
+                                                                                $("#txtShippingLine1").focus();
+                                                                                return false;
+                                                                            }
+                                                                            var txtShippingLine2 = $("#txtShippingLine2").val();
+                                                                            if (txtShippingLine2 == "") {
+                                                                                alert("Shipping line 2 is missing!");
+                                                                                $("#txtShippingLine2").focus();
+                                                                                return false;
+                                                                            }
+                                                                            var txtShippingCity = $("#txtShippingCity").val();
+                                                                            if (txtShippingCity == "") {
+                                                                                alert("Shipping city is missing!");
+                                                                                $("#txtShippingCity").focus();
+                                                                                return false;
+                                                                            }
+                                                                            var txtShippingState = $("#txtShippingState").val();
+                                                                            if (txtShippingState == "") {
+                                                                                alert("Shipping state is missing!");
+                                                                                $("#txtShippingState").focus();
+                                                                                return false;
+                                                                            }
+                                                                            var txtShippingPostcode = $("#txtShippingPostcode").val();
+                                                                            if (txtShippingPostcode == "") {
+                                                                                alert("Shipping post code is missing!");
+                                                                                $("#txtShippingPostcode").focus();
+                                                                                return false;
+                                                                            }
+                                                                            var txtShippingCountry = $("#txtShippingCountry").val();
+                                                                            if (txtShippingCountry == "") {
+                                                                                alert("Shipping country is missing!");
+                                                                                $("#txtShippingCountry").focus();
+                                                                                return false;
+                                                                            }
+                                                                            // Credit card information
+                                                                            var txtFirstName = $("#txtFirstName").val();
+                                                                            if (txtFirstName == "") {
+                                                                                alert("First name is missing!");
+                                                                                $("#txtFirstName").focus();
+                                                                                return false;
+                                                                            }
+                                                                            var txtLastName = $("#txtLastName").val();
+                                                                            if (txtLastName == "") {
+                                                                                alert("Last name is missing!");
+                                                                                $("#txtLastName").focus();
+                                                                                return false;
+                                                                            }
+                                                                            var txtCardNumber = $("#txtCardNumber").val();
+                                                                            if (txtCardNumber == "") {
+                                                                                alert("Card number is missing!");
+                                                                                $("#txtCardNumber").focus();
+                                                                                return false;
+                                                                            }
+                                                                            var txtExpireMonth = $("#txtExpireMonth").val();
+                                                                            if (txtExpireMonth == "") {
+                                                                                alert("Expire month is missing!");
+                                                                                $("#txtExpireMonth").focus();
+                                                                                return false;
+                                                                            }
+                                                                            var txtExpireYear = $("#txtExpireYear").val();
+                                                                            if (txtExpireYear == "") {
+                                                                                alert("Expire year is missing!");
+                                                                                $("#txtExpireYear").focus();
+                                                                                return false;
+                                                                            }
+                                                                            var txtCardC2V = $("#txtCardC2V").val();
+                                                                            if (txtCardC2V == "") {
+                                                                                alert("Secure code is missing!");
+                                                                                $("#txtCardC2V").focus();
+                                                                                return false;
+                                                                            }
+                                                                            return true;
+                                                                        }
+
+                                                                        function getPaymentInfo() {
+                                                                            // Credit card information
+                                                                            var txtFirstName = $("#txtFirstName").val();
+                                                                            var txtLastName = $("#txtLastName").val();
+                                                                            var txtCardNumber = $("#txtCardNumber").val();
+                                                                            var txtExpireMonth = $("#txtExpireMonth").val();
+                                                                            var txtExpireYear = $("#txtExpireYear").val();
+                                                                            var txtCardC2V = $("#txtCardC2V").val();
+                                                                            var cardType = getCardType(txtCardNumber);
+                                                                            // Billing Information
+                                                                            var txtBillingLine1 = $("#txtBillingLine1").val();
+                                                                            var txtBillingLine2 = $("#txtBillingLine2").val();
+                                                                            var txtBillingCity = $("#txtBillingCity").val();
+                                                                            var txtBillingState = $("#txtBillingState").val();
+                                                                            var txtBillingPostcode = $("#txtBillingPostcode").val();
+                                                                            var txtBillingCountry = $("#txtBillingCountry").val();
+                                                                            // Shipping Address
+                                                                            var txtShippingLine1 = $("#txtShippingLine1").val();
+                                                                            var txtShippingLine2 = $("#txtShippingLine2").val();
+                                                                            var txtShippingCity = $("#txtShippingCity").val();
+                                                                            var txtShippingState = $("#txtShippingState").val();
+                                                                            var txtShippingPostcode = $("#txtShippingPostcode").val();
+                                                                            var txtShippingCountry = $("#txtShippingCountry").val();
+                                                                            // List product
+                                                                            var listProduct = getListProduct();
+                                                                            // Items
+                                                                            var items = getItemsFromLocalStorage(listProduct);
+                                                                            // Total
+                                                                            var total = getTotalPrice(listProduct);
+                                                                            console.log(total);
+                                                                            // Currency
+                                                                            var currency = getCurrency();
+                                                                            return {
+                                                                                "intent": "sale",
+                                                                                "payer":
+                                                                                {
+                                                                                    "payment_method": "credit_card",
+                                                                                    "funding_instruments": [
+                                                                                    {
+                                                                                        "credit_card":
+                                                                                        {
+                                                                                            "number": txtCardNumber,
+                                                                                            "type": cardType,
+                                                                                            "expire_month": txtExpireMonth,
+                                                                                            "expire_year": txtExpireYear,
+                                                                                            "cvv2": txtCardC2V,
+                                                                                            "first_name": txtFirstName,
+                                                                                            "last_name": txtLastName,
+                                                                                            "billing_address":
+                                                                                            {
+                                                                                                "line1": txtBillingLine1,
+                                                                                                "line2": txtBillingLine2,
+                                                                                                "city": txtBillingCity,
+                                                                                                "state": txtBillingState,
+                                                                                                "postal_code": txtBillingPostcode,
+                                                                                                "country_code": txtBillingCountry
+                                                                                            }
+                                                                                        }
+                                                                                    }]
+                                                                                },
+                                                                                "transactions": [
+                                                                                {
+                                                                                    "amount":
+                                                                                    {
+                                                                                        "total": total,
+                                                                                        "currency": currency,
+                                                                                    },
+                                                                                    "item_list": {
+                                                                                        "items": items,
+                                                                                        "shipping_address": {
+                                                                                            "city": txtShippingCity,
+                                                                                            "country_code": txtShippingCountry,
+                                                                                            "line1": txtShippingLine1,
+                                                                                            "line2": txtShippingLine2,
+                                                                                            "postal_code": txtShippingPostcode,
+                                                                                            "state": txtShippingState,
+                                                                                            "recipient_name": txtFirstName + txtLastName
+                                                                                        }
+                                                                                    }
+                                                                                }]
+                                                                            }
+                                                                        }
+
+                                                                        function getItemsFromLocalStorage(listProducts) {
+                                                                            var items = [];
+                                                                            var currency = getCurrency();
+                                                                            for (var i = 0; i < listProducts.length; i++) {
+                                                                                var currentProduct = listProducts[i];
+                                                                                items.push({
+                                                                                    "name": currentProduct.name,
+                                                                                    "currency": currency,
+                                                                                    "price": currentProduct.price,
+                                                                                    "quantity": currentProduct.quantity,
+                                                                                    "sku": "sku"
+                                                                                });
+                                                                            }
+                                                                            return items;
+                                                                        }
+
+                                                                        function processPayment(event) {
+                                                                            event.preventDefault();
+                                                                            if (!validate()) {
+                                                                                return;
+                                                                            }
+                                                                            var userInfo = getPaymentInfo();
+                                                                            console.log(userInfo);
+                                                                            $("#btnProcess").prop("disabled", true);
+                                                                            $("#btnProcess").val("Processing...", true);
                                                                             $.ajax({
                                                                                 type: "POST",
                                                                                 url: "/Payment/ProcessPayment",
                                                                                 contentType: "application/json; charset=utf-8",
                                                                                 dataType: "json",
-                                                                                data: JSON.stringify(userCrdential),
+                                                                                data: JSON.stringify(userInfo),
+                                                                                success: function (data) {
+                                                                                    console.log(data);
+                                                                                    $("#btnProcess").prop("disabled", false);
+                                                                                    $("#btnProcess").val("Process", true);
+                                                                                    if (data.id == undefined) {
+                                                                                        alert("There is an error when process your order. Please try again later");
+                                                                                    } else {
+                                                                                        window.location = "/SuccessOrder/Index/" + data.id;
+                                                                                        clearListProduct();
+                                                                                    }
+                                                                                },
+                                                                                error: function (data) {
+                                                                                    console.error(data);
+                                                                                    $("#btnProcess").prop("disabled", false);
+                                                                                    $("#btnProcess").val("Process", true);
+                                                                                }
                                                                             });
+                                                                            return false;
                                                                         }
                                                                     </script>
                                                                 </div>
@@ -232,18 +678,7 @@
 
                                             </div>
 
-                                            <div class="col-xs-12 col-md-8" style="font-size: 12pt; line-height: 2em;">
-                                                <p>
-                                                    <h1>Features:</h1>
-                                                    <ul>
-                                                        <li>PayMent easily</li>
-                                                        <li>Form field validation</li>
-                                                        <li>Graceful error feedback </li>
-                                                        <li>AJAX form submission</li>
-                                                        <li>Creates a Stripe credit card token</li>
-                                                    </ul>
-                                                </p>
-                                            </div>
+
 
                                         </div>
                                     </div>
@@ -253,7 +688,7 @@
                         </div>
                         <!-- checkout-step-05  -->
                         <!-- checkout-step-06  -->
-                        <div class="panel panel-default checkout-step-06">
+                        @*<div class="panel panel-default checkout-step-06">
                             <div class="panel-heading">
                                 <h4 class="unicase-checkout-title">
                                     <a data-toggle="collapse" class="collapsed" data-parent="#accordion" href="#collapseSix">
@@ -266,7 +701,7 @@
                                     Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
                                 </div>
                             </div>
-                        </div>
+                        </div>*@
                         <!-- checkout-step-06  -->
 
                     </div><!-- /.checkout-steps -->

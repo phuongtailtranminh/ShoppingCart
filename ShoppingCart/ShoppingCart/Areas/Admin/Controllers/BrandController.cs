@@ -19,15 +19,16 @@ namespace ShoppingCart.Areas.Admin.Controllers
         }
 
         // GET: Admin/Brand
+        [Authorize]
         public ActionResult Index()
         {
             return View();
         }
 
         // GET: Admin/Chip/GetListChip
-        public ActionResult GetListBrand()
+        public ActionResult GetListBrand(string brandName)
         {
-            var brands = BrandRepository.GetBrands();
+            var brands = BrandRepository.GetBrands().Where(x => x.name.ToUpper().Contains(brandName.ToUpper()));
             return Json(new { Result = JTableResponseCode.OK.ToString(), Records = brands.Select(x => new {
                 id = x.id,
                 name = x.name,
@@ -37,7 +38,20 @@ namespace ShoppingCart.Areas.Admin.Controllers
                 })
 
             })
-        });
+            });
+        }
+
+        public ActionResult GetListBrandOptions()
+        {
+            var brands = BrandRepository.GetBrands();
+            return Json(new
+            {
+                Result = JTableResponseCode.OK.ToString(),
+                Options = brands.Select(x => new {
+                    Value = x.id,
+                    DisplayText = x.name
+                })
+            });
         }
 
         // POST: Admin/Chip/UpdateChip

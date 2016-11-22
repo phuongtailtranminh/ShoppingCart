@@ -4,7 +4,16 @@
 }
 
 @section main {
-
+    <div class="row" style="margin-bottom: 10px;">
+        <div class="col-lg-10">
+            <div class="col-lg-6">
+                <input id="txtProductName" type="text" class="form-control" placeholder="Enter Product Name">
+            </div>
+            <div class="col-lg-4">
+                <button id="btnSearch" type="submit" class="btn">Search</button>
+            </div>
+        </div>
+    </div>
     <div class="row">
         <div class="col-lg-12">
             <div id="ProductTableContainer"></div>
@@ -41,21 +50,21 @@
                         imageurl: {
                             title: 'Image Url',
                             width: '5%',
-                            list:false
+                            list: false
                         },
                         description: {
                             title: 'Description',
                         },
                         chip: {
                             title: 'Chip',
-                            width: '10%',
+                            width: '5%',
                             options: { 'Core i5': 'Core i5', 'Core i3 ': 'Core i3 ', 'Core i7 ': 'Core i7 ' },
-                            //list: false
+                            list: false
                         },
                         ram: {
                             title: 'Ram',
                             options: { 'Ram 8gb': 'Ram 8gb', 'Ram 4gb': 'Ram 4gb', 'Ram 2gb': 'Ram 2gb' },
-
+                            list: false
                         },
                         monitor: {
                             title: 'Monitor',
@@ -63,13 +72,14 @@
                                 'AOC 2250SWN': 'AOC 2250SWN', 'Samsung 3D LED S27A950D': 'Samsung 3D LED S27A950D',
                                 'Dell U2414 Ultrasharp': 'Dell U2414 Ultrasharp'
                             },
-
+                            list: false
                         },
                         harddrive: {
                             title: 'Hard Drive',
                             options: {
                                 'Seagate 2TB': 'Seagate 2TB', 'Seagate Surveillance 3TB': 'Seagate Surveillance 3TB', 'WD Black™ 500G': 'WD Black™ 500G'
-                            }
+                            },
+                            list: false
                         },
                         power: {
                             title: 'Power',
@@ -77,16 +87,18 @@
                                 'Power 500W 24P (12 cm) 2 Sata':'Power 500W 24P (12 cm) 2 Sata',
                                 'Fan 8cm, 2 Sata': 'Fan 8cm, 2 Sata',
                                 'Fan 12cm, 2 Sata': 'Fan 12cm, 2 Sata'
-                            }
+                            },
+                            list: false
                         },
                         mainboard: {
                             title: 'Main Board',
-                            width: '10%',
+                            width: '5%',
                             options:{
                                 'Mainboard Asus H81M-P': 'Mainboard Asus H81M-P',
                                 'Mainboard Asus A68HM-K': 'Mainboard Asus A68HM-K',
                                 'Mainboard Asus H81M-E': 'Mainboard Asus H81M-E'
-                            }
+                            },
+                            list: false
                         },
                         vga: {
                             title: 'VGA',
@@ -94,7 +106,8 @@
                                 'Gigabyte 1GB GT710-N710D3-1GL': 'Gigabyte 1GB GT710-N710D3-1GL',
                                 'Zotac 1GB GT710': 'Zotac 1GB GT710',
                                 'Asus 1GB GT730-FML-1GD5': 'Asus 1GB GT730-FML-1GD5',
-                            }
+                            },
+                            list: false
                         },
                         cpu: {
                             title: 'CPU',
@@ -103,15 +116,32 @@
                                 'CPU Pentium G4400 (3.3GHz)': 'CPU Pentium G4400 (3.3GHz)',
                                 'CPU Core I3-6098P (3.6GHz)': 'CPU Core I3-6098P (3.6GHz)',
                                 'CPU Core I5-6400 (2.7GHz)': 'CPU Core I5-6400 (2.7GHz)',
-                            }
+                            },
+                            list: false
+                        },
+                        price: {
+                            title: 'Price',
+                            width: '5%'
+                        },
+                        brandId: {
+                            title: 'Brand',
+                            //key: true,
+                            list: true,
+                            create: true,
+                            edit: true,
+                            options: '@Url.Action("GetListBrandOptions", "Brand")'
                         }
-
                     }
                 })
-        
 
-            //Load student list from server
-            $('#ProductTableContainer').jtable('load');
+            $('#btnSearch').click(function (e) {
+                e.preventDefault();
+                $('#ProductTableContainer').jtable('load', {
+                    productName: $('#txtProductName').val(),
+                });
+            });
+
+            $('#btnSearch').click();
         });
     </script>
 }

@@ -4,7 +4,16 @@
 }
 
 @section main {
-
+    <div class="row" style="margin-bottom: 10px;">
+        <div class="col-lg-10">
+            <div class="col-lg-6">
+                <input id="txtBrandName" type="text" class="form-control" placeholder="Enter Brand Name">
+            </div>
+            <div class="col-lg-4">
+                <button id="btnSearch" type="submit" class="btn">Search</button>
+            </div>
+        </div>
+    </div>
     <div class="row">
         <div class="col-lg-12">
             <div id="BrandTableContainer"></div>
@@ -32,21 +41,18 @@
                             },
                             name: {
                                 title: 'Name',
-
-                            },
-                            nameproduct: {
-                                title: 'Product',
-                                width: '5%',
-                                //display: function(data){
-                                //    return data.record.products.nameproduct;
-                                //},
-                                edit: false
                             }
                         }
                     });
 
-                //Load student list from server
-                $('#BrandTableContainer').jtable('load');
+                $('#btnSearch').click(function (e) {
+                    e.preventDefault();
+                    $('#BrandTableContainer').jtable('load', {
+                        brandName: $('#txtBrandName').val(),
+                    });
+                });
+
+                $('#btnSearch').click();
             });
     </script>
 

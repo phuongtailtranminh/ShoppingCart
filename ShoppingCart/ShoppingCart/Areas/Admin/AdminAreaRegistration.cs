@@ -17,7 +17,7 @@ namespace ShoppingCart.Areas.Admin
             context.MapRoute(
                 "Admin_default",
                 "Admin/{controller}/{action}/{id}",
-                new { controller = "Index", action = "Index", id = UrlParameter.Optional }
+                new { controller = "Order", action = "Index", id = UrlParameter.Optional }
             );
         }
     }

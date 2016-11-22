@@ -17,16 +17,19 @@ namespace ShoppingCart.Areas.Admin.Controllers
             this.ProductRepository = new ProductRepository(new ShoppingCartDb());
         }
         // GET: Admin/Product/Index
+        [Authorize]
         public ActionResult Index()
         {
             return View();
         }
 
         // GET: Admin/Product/GetListProduct
-        public ActionResult GetListProduct()
+        public ActionResult GetListProduct(string productName)
         {
-            var products = ProductRepository.GetProducts();
-            return Json(new { Result = JTableResponseCode.OK.ToString(), Records = products.Select(x => new {
+            var products = ProductRepository.GetProducts().Where(x => x.NAME.ToUpper().Contains(productName.ToUpper()));
+            return Json(new {
+                Result = JTableResponseCode.OK.ToString(),
+                Records = products.Select(x => new {
                  id = x.id,
                  name = x.NAME,
                  quantity = x.quantity,
@@ -40,10 +43,10 @@ namespace ShoppingCart.Areas.Admin.Controllers
                  mainboard = x.mainboard,
                  vga = x.vga,
                  cpu = x.cpu,
-
-
-
-            }) });
+                 price = x.price,
+                 brandId = x.brandid
+                }).ToList()
+            });
         }
 
         // POST: Admin/Product/UpdateProduct

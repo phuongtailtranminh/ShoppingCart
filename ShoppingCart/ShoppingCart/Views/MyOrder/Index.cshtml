@@ -1,0 +1,64 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section main {
+    <div class="body-content outer-top-bd">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <!--work progress start-->
+                    <section class="panel">
+                        <div class="panel-body progress-panel">
+                            <div class="task-progress">
+                                <h1 id="txtLabel">Order Tracking</h1>
+                            </div>
+                        </div>
+                        <span id="listOrders">
+
+                        </span>
+                    </section>
+                    <!--work progress end-->
+                </div>
+            </div>            
+        </div>
+    </div>
+    <script type="text/javascript">
+        
+        $.get("@Url.Action("GetListOrder", "MyOrder")", function (data, status) {
+            if (data.length == 0) {
+                $("#txtLabel").text("No record found");
+            } else {
+                var template = $('#shoppingItem').html();
+                var compiledTemplate = Template7.compile(template);
+                var context = {
+                    Data: data,
+                };
+                var html = compiledTemplate(context);
+                $("#listOrders").html(html);
+            }
+        });
+    </script>
+    <script id="shoppingItem" type="text/template7">
+        <table class="table table-hover personal-task">
+            <tbody>
+                {{#each Data}}
+                    <tr>
+                        <td>
+                            {{id}}
+                        </td>
+                        <td>
+                            <span class="badge bg-important">{{status}}</span>
+                        </td>
+                        <td>
+                            <a href="@Url.Action("OrderDetail", "MyOrder")">Detail</a>
+                        </td>
+                    </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </script>
+}
+

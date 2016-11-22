@@ -6,18 +6,23 @@ using System.Web.Mvc;
 using ShoppingCart.Enums;
 using ShoppingCart.Interfaces;
 using ShoppingCart.Repositories;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
+using ShoppingCart.Models;
 
 namespace ShoppingCart.Areas.Admin.Controllers
 {
     public class IndexController : Controller
     {
 
-        private IUserRepository UserRepository;
+        //private IUserRepository UserRepository;
 
         public IndexController()
         {
-            this.UserRepository = new UserRepository(new ShoppingCartDb());
+            //this.UserRepository = new UserRepository(new ShoppingCartDb());
         }
+
+        [Authorize]
         // GET: Admin/Index/Index
         public ActionResult Index()
         {
@@ -27,48 +32,41 @@ namespace ShoppingCart.Areas.Admin.Controllers
         // GET: Admin/Index/GetListUser
         public ActionResult GetListUser()
         {
-            var users = UserRepository.GetUsers();
-            return Json(new { Result = JTableResponseCode.OK.ToString(), Records = users.Select(x => new {
-                id = x.id,
-                username = x.username,
-                name = x.NAME,
-                age = x.age,
-                user_address = x.user_address,
-                password = x.password,
-                phonenumber = x.phonenumber,
-                roleid = x.roleid,
-                roleName = x.role != null ? x.role.NAME : "NONE"
-            })
-                
-                });
+            var userManager = new ApplicationDbContext();
+            var users = userManager.Users.ToList();
+            return Json(new
+            {
+                Result = JTableResponseCode.OK.ToString(),
+                Records = users
+            });
         }
 
         // POST: Admin/Index/UpdateUser
-        [HttpPost]
-        public ActionResult UpdateUser(user user)
-        {
-            UserRepository.UpdateUser(user);
-            UserRepository.Save();
-            return Json(new { Result = JTableResponseCode.OK.ToString() });
-        }
+        //[HttpPost]
+        //public ActionResult UpdateUser(user user)
+        //{
+        //    UserRepository.UpdateUser(user);
+        //    UserRepository.Save();
+        //    return Json(new { Result = JTableResponseCode.OK.ToString() });
+        //}
 
         // POST: Admin/Index/DeleteUser
-        [HttpPost]
-        public ActionResult DeleteUser(int id)
-        {
-            UserRepository.DeleteUserById(id);
-            UserRepository.Save();
-            return Json(new { Result = JTableResponseCode.OK.ToString() });
-        }
+        //[HttpPost]
+        //public ActionResult DeleteUser(int id)
+        //{
+        //    var userManager = new ApplicationDbContext();
+        //    userManager.Users.Remove()
+        //    return Json(new { Result = JTableResponseCode.OK.ToString() });
+        //}
 
-        // POST: Admin/Index/AddUser
-        [HttpPost]
-        public ActionResult AddUser(user user)
-        {
-            UserRepository.InsertUser(user);
-            UserRepository.Save();
-            return Json(new { Result = JTableResponseCode.OK.ToString(), Record = user });
-        }
+        //// POST: Admin/Index/AddUser
+        //[HttpPost]
+        //public ActionResult AddUser(user user)
+        //{
+        //    UserRepository.InsertUser(user);
+        //    UserRepository.Save();
+        //    return Json(new { Result = JTableResponseCode.OK.ToString(), Record = user });
+        //}
 
     }
 }

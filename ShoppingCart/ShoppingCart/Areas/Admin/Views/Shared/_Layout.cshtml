@@ -1,7 +1,7 @@
 ﻿@{
     Layout = null;
 }
-
+@using Microsoft.AspNet.Identity
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -57,12 +57,27 @@
             <div class="top-nav ">
                 <!--search & user info start-->
                 <ul class="nav pull-right top-menu">
-                    <li>
-                        <input type="text" class="form-control search" placeholder="Search">
-                    </li>
-                    <!-- user login dropdown start-->
-                    <li class="sb-toggle-right">
-                        <i class=""> Search</i>
+                    <li class="dropdown">
+                        @using (Html.BeginForm("LogOff", "Account", new { area = "" }, FormMethod.Post, new { id = "logoutForm" , area = ""}))
+                        {
+                            @Html.AntiForgeryToken()
+                            if (!Request.IsAuthenticated)
+                            {
+                                <a href="@Url.Action("Login", "Account")"><i class="icon fa fa-sign-in"></i>Login</a>
+                            }
+                            else
+                            {
+                                <a data-toggle="dropdown" class="dropdown-toggle" href="index.html#">
+                                    <span class="username">@User.Identity.GetUserName()</span>
+                                    <b class="caret"></b>
+                                </a>
+                                <ul class="dropdown-menu extended logout">
+                                    <li><a href="javascript:document.getElementById('logoutForm').submit()"><i class="fa fa-key"></i> Log Out</a></li>
+                                </ul>
+                            }
+                        }
+                        
+                        
                     </li>
                     <!-- user login dropdown end -->
                 </ul>
@@ -75,12 +90,12 @@
             <div id="sidebar" class="nav-collapse ">
                 <!-- sidebar menu start-->
                 <ul class="sidebar-menu" id="nav-accordion">
-                    <li>
+                    @*<li>
                         <a class="active" href="@Url.Action("Index", "Index")">
                             <i class="fa fa-user" aria-hidden="true"></i>
                             <span>User Manager</span>
                         </a>
-                    </li>
+                    </li>*@
                     <li>
                         @* view  - controller*@
                         <a href="@Url.Action("Index", "Product")">

@@ -1,0 +1,96 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section main {
+    <div class="container">
+
+        <!-- ============================================== WIDE PRODUCTS ============================================== -->
+        <!-- /.wide-banners -->
+        <!-- ============================================== WIDE PRODUCTS : END ============================================== -->
+        <!-- ============================================== SCROLL TABS ============================================== -->
+        <div id="product-tabs-slider" class="scroll-tabs outer-top-vs wow fadeInUp">
+            <div class="more-info-tab clearfix ">
+                <h3 class="new-product-title pull-left">Product By Brand Name</h3>
+                <!-- /.nav-tabs -->
+            </div>
+
+            <div class="tab-content outer-top-xs">
+                <div class="tab-pane in active" id="all">
+                    <div class="product-slider">
+                        <div class="owl-carousel home-owl-carousel custom-carousel owl-theme" data-item="5">
+
+                            @foreach (var item in Model)
+                            {
+                                <div class="item item-carousel">
+                                    <div class="products">
+
+                                        <div class="product">
+                                            <div class="product-image">
+                                                <div class="image">
+                                                    <a href="/ProductX/Index/@item.id"><img src="/img2/macbook2.jpg" data-echo="/img2/macbook2.jpg" alt=""></a>
+                                                </div>
+                                                <!-- /.image -->
+
+                                                <div class="tag new"><span>new</span></div>
+                                            </div>
+                                            <!-- /.product-image -->
+
+
+                                            <div class="product-info text-left">
+                                                <h3 class="name"><a href="/ProductX/Index/@item.id">@item.NAME</a></h3>
+                                                <div class="rating rateit-small"></div>
+                                                <div class="description">@item.brand.name</div>
+
+                                                <div class="product-price">
+                                                    <span class="price">
+                                                        @item.price USD
+                                                    </span>
+
+                                                </div>
+                                                <!-- /.product-price -->
+
+                                            </div>
+                                            <!-- /.product-info -->
+                                            <div class="cart clearfix animate-effect">
+                                                <div class="action">
+                                                    <ul class="list-unstyled"></ul>
+                                                </div>
+                                                <!-- /.action -->
+                                            </div>
+                                            <!-- /.cart -->
+                                        </div>
+                                        <!-- /.product -->
+
+                                    </div>
+                                    <!-- /.products -->
+                                </div>
+                            }
+
+                        </div>
+                        <!-- /.home-owl-carousel -->
+                    </div>
+                    <!-- /.product-slider -->
+                </div>
+            </div>
+            <!-- /.tab-content -->
+        </div>
+        <!-- /.scroll-tabs -->
+        <!-- ============================================== SCROLL TABS : END ============================================== -->
+        <!-- ============================================== WIDE PRODUCTS ============================================== -->
+        <!-- /.wide-banners -->
+        <!-- ============================================== WIDE PRODUCTS : END ============================================== -->
+        <!-- ============================================== FEATURED PRODUCTS ============================================== -->
+        <!-- /.section -->
+        <!-- ============================================== FEATURED PRODUCTS : END ============================================== -->
+        <!-- ============================================== WIDE PRODUCTS ============================================== -->
+        <!-- /.wide-banners -->
+        <!-- ============================================== WIDE PRODUCTS : END ============================================== -->
+        <!-- ============================================== BEST SELLER ============================================== -->
+        <!-- ============================================== BEST SELLER : END ============================================== -->
+        <!-- ============================================== BLOG SLIDER ============================================== -->
+}
+
+

@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using ShoppingCart.Enums;
 using ShoppingCart.Interfaces;
+using ShoppingCart.Models;
 using ShoppingCart.Repositories;
 using System;
 using System.Collections.Generic;
@@ -13,6 +14,7 @@ namespace ShoppingCart.Areas.Admin.Controllers
     public class OrderController : Controller
     {
         // GET: Admin/Order
+        [Authorize]
         public ActionResult Index()
         {
             return View();
@@ -24,22 +26,16 @@ namespace ShoppingCart.Areas.Admin.Controllers
             this.OrderRepository = new OrderRepository(new ShoppingCartDb());
         }
         // GET: Admin/Order/GetListOrder
-        public ActionResult GetListOrder()
+        public ActionResult GetListOrder(string orderId)
         {
-            var orders = OrderRepository.GetOrders();
-            return Json(new { Result = JTableResponseCode.OK.ToString(), Records = orders.Select(x => new {
-                id = x.id,
-                status = x.status,
-                products = x.orderproducts.Select(y => new {
-                    name = y.product.NAME
-                }),
-                 
-                //user = x.userorders.Select(z => new
-                //{
-                //    name = z.user.NAME
-                //})
-            })
-        });
+            var orders = OrderRepository.GetOrders().Where(a => a.id.ToUpper().Contains(orderId.ToUpper()));
+            var userManager = new ApplicationDbContext();
+            var lstUsers = userManager.Users.ToList();
+            return Json(new
+            {
+                Result = JTableResponseCode.OK.ToString(),
+                Records = orders
+            });
         }
 
         // POST: Admin/Order/UpdateOrder
@@ -53,13 +49,13 @@ namespace ShoppingCart.Areas.Admin.Controllers
         }
 
         // POST: Admin/Order/DeleteOrder
-        [HttpPost]
-        public ActionResult DeleteOrder(int id)
-        {
-            OrderRepository.DeleteOrderById(id);
-            OrderRepository.Save();
-            return Json(new { Result = JTableResponseCode.OK.ToString() });
-        }
+        //[HttpPost]
+        //public ActionResult DeleteOrder(int id)
+        //{
+        //    OrderRepository.DeleteOrderById(id);
+        //    OrderRepository.Save();
+        //    return Json(new { Result = JTableResponseCode.OK.ToString() });
+        //}
 
         // POST: Admin/Order/AddOrder
         [HttpPost]

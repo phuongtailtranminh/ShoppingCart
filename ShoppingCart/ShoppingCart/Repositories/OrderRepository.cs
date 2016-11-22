@@ -15,7 +15,7 @@ namespace ShoppingCart.Repositories
             this.context = context;
         }
 
-        public void DeleteOrderById(int orderId)
+        public void DeleteOrderById(string orderId)
         {
             order order = context.orders.Find(orderId);
             context.orders.Remove(order);
@@ -41,7 +41,7 @@ namespace ShoppingCart.Repositories
             GC.SuppressFinalize(this);
         }
 
-        public order GetOrderById(int OrderId)
+        public order GetOrderById(string OrderId)
         {
             return context.orders.Find(OrderId);
         }
@@ -49,6 +49,11 @@ namespace ShoppingCart.Repositories
         public IEnumerable<order> GetOrders()
         {
             return context.orders;
+        }
+
+        public IEnumerable<order> GetOrdersByUserId(string userId)
+        {
+            return context.orders.Where(a => a.userid == userId);
         }
 
         public void InsertOrder(order order)

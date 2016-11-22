@@ -1,79 +1,68 @@
 ﻿using PayPal.Api;
+using ShoppingCart.Enums;
+using ShoppingCart.Interfaces;
+using ShoppingCart.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.AspNet.Identity;
 
 namespace ShoppingCart.Controllers
 {
     public class PaymentController : Controller
     {
-
+        private IOrderRepository OrderRepository;
+        public PaymentController()
+        {
+            this.OrderRepository = new OrderRepository(new ShoppingCartDb());
+        }
         // GET: Payment
         public ActionResult Index()
         {
             return View();
         }
 
-        [HttpPost]
-        public ActionResult ProcessPayment(Payment payment) {
-            //Payment createdPayment = processPayment();
-            return Json("OK");
-        }
-
-        private Payment processPayment() {
+        public APIContext GetAPIContext() {
             // Authenticate with PayPal
             var config = ConfigManager.Instance.GetProperties();
             var accessToken = new OAuthTokenCredential(config).GetAccessToken();
-            var apiContext = new APIContext(accessToken);
-            // A transaction defines the contract of a payment - what is the payment for and who is fulfilling it. 
+            return new APIContext(accessToken);
+        }
 
-            CreditCard credtCard = new CreditCard();
-            credtCard.type = "visa";
-            credtCard.number = "4446283280247004";
-            credtCard.expire_month = 11;
-            credtCard.expire_year = 2018;
-            credtCard.first_name = "Joe";
-            credtCard.last_name = "Shopper";
-
-            FundingInstrument fundInstrument = new FundingInstrument();
-            fundInstrument.credit_card = credtCard;
-
-            List<FundingInstrument> fundingInstrumentList = new List<FundingInstrument>();
-            fundingInstrumentList.Add(fundInstrument);
-
-            Payer payr = new Payer();
-            payr.funding_instruments = fundingInstrumentList;
-            payr.payment_method = "credit_card";
-
-            Amount amnt = new Amount();
-            amnt.currency = "USD";
-            amnt.total = "12";
-
-            Transaction tran = new Transaction();
-            tran.description = "creating a direct payment with credit card";
-            tran.amount = amnt;
-
-            List<Transaction> transactions = new List<Transaction>();
-            transactions.Add(tran);
-
-            Payment pymnt = new Payment();
-            pymnt.intent = "sale";
-            pymnt.payer = payr;
-            pymnt.transactions = transactions;
-
-            // Create a payment using a valid APIContext
-            var paymentId = "";
+        [HttpPost]
+        public ActionResult ProcessPayment(Payment payment) {
+            var apiContext = GetAPIContext();
+            //Payment.Get(apiContext, createdPayment.id);
             try
             {
-                var createdPayment = pymnt.Create(apiContext);
-                return createdPayment;
+                var createdPayment = payment.Create(apiContext);
+                var order = new order();
+                order.id = createdPayment.id;
+                order.status = OrderStatus.PENDING.ToString();
+                string currentUserId = User.Identity.GetUserId();
+                order.userid = currentUserId;
+                OrderRepository.InsertOrder(order);
+                OrderRepository.Save();
+                return Json(createdPayment);
             }
             catch (Exception ex)
             {
-                return null;
+                return Json(ex.Message);
             }
         }
+
+        [HttpPost]
+        public ActionResult GetPaymentStatus(string paymentId)
+        {
+            var order = OrderRepository.GetOrderById(paymentId);
+            var status = "Not Found";
+            if (order != null) {
+                status = order.status;
+            }
+            return Json(status);
+        }
+
     }
 }

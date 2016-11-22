@@ -9,9 +9,10 @@ namespace ShoppingCart.Interfaces
     interface IOrderRepository : IDisposable
     {
         IEnumerable<order> GetOrders();
-        order GetOrderById(int orderId);
+        order GetOrderById(string orderId);
+        IEnumerable<order> GetOrdersByUserId(string userId);
         void InsertOrder(order order);
-        void DeleteOrderById(int orderId);
+        void DeleteOrderById(string orderId);
         void UpdateOrder(order order);
         void Save();
     }

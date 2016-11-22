@@ -215,8 +215,10 @@
     <Compile Include="Controllers\ASUSController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\CheckOutController.cs" />
+    <Compile Include="Controllers\CheckStatusController.cs" />
     <Compile Include="Controllers\ErroController.cs" />
     <Compile Include="Controllers\HeaderController.cs" />
+    <Compile Include="Controllers\MyOrderController.cs" />
     <Compile Include="Controllers\PaymentController.cs" />
     <Compile Include="Controllers\ProductXController.cs" />
     <Compile Include="Controllers\RegisterFailController.cs" />
@@ -229,26 +231,26 @@
     <Compile Include="Controllers\RegisterSuccessController.cs" />
     <Compile Include="Controllers\ResultController.cs" />
     <Compile Include="Controllers\SamSungController.cs" />
+    <Compile Include="Controllers\SearchController.cs" />
     <Compile Include="Controllers\ShoppingCartController.cs" />
     <Compile Include="Controllers\ShowDetailsProductController.cs" />
+    <Compile Include="Controllers\SuccessOrderController.cs" />
     <Compile Include="Controllers\ToshibaController.cs" />
     <Compile Include="Enums\JTableResponseCode.cs" />
+    <Compile Include="Enums\OrderStatus.cs" />
     <Compile Include="Enums\Role.cs" />
+    <Compile Include="Filters\JsonExceptionFilterAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Interfaces\IBrandRepository.cs" />
     <Compile Include="Interfaces\IOrderRepository.cs" />
     <Compile Include="Interfaces\IProductRepository.cs" />
-    <Compile Include="Interfaces\IUserRepository.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Payment.cs" />
     <Compile Include="order.cs">
-      <DependentUpon>ShoppingCartDb.tt</DependentUpon>
-    </Compile>
-    <Compile Include="orderproduct.cs">
       <DependentUpon>ShoppingCartDb.tt</DependentUpon>
     </Compile>
     <Compile Include="product.cs">
@@ -258,10 +260,6 @@
     <Compile Include="Repositories\BrandRepository.cs" />
     <Compile Include="Repositories\OrderRepository.cs" />
     <Compile Include="Repositories\ProductRepository.cs" />
-    <Compile Include="Repositories\UserRepository.cs" />
-    <Compile Include="role.cs">
-      <DependentUpon>ShoppingCartDb.tt</DependentUpon>
-    </Compile>
     <Compile Include="ShoppingCartDb.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -278,9 +276,6 @@
       <DependentUpon>ShoppingCartDb.edmx</DependentUpon>
     </Compile>
     <Compile Include="Startup.cs" />
-    <Compile Include="user.cs">
-      <DependentUpon>ShoppingCartDb.tt</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="assets\advanced-datatable\media\css\demo_page.css" />
@@ -1141,6 +1136,14 @@
     <Content Include="Views\Header\Index.cshtml" />
     <Content Include="Views\ShowDetailsProduct\showDetail.cshtml" />
     <Content Include="Views\Shared\_HeaderNavBar.cshtml" />
+    <Content Include="Views\ProductX\Index.cshtml" />
+    <Content Include="Views\ShoppingCart\Index.cshtml" />
+    <Content Include="Views\Payment\Index.cshtml" />
+    <Content Include="Views\Error.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\SuccessOrder\Index.cshtml" />
+    <Content Include="Views\CheckStatus\Index.cshtml" />
     <EntityDeploy Include="ShoppingCartDb.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>ShoppingCartDb.Designer.cs</LastGenOutput>
@@ -1148,12 +1151,8 @@
     <Content Include="ShoppingCartDb.edmx.diagram">
       <DependentUpon>ShoppingCartDb.edmx</DependentUpon>
     </Content>
-    <Content Include="Views\ProductX\Index.cshtml" />
-    <Content Include="Views\ShoppingCart\Index.cshtml" />
-    <Content Include="Views\Payment\Index.cshtml" />
-    <Content Include="Views\Error.cshtml" />
-    <Content Include="Views\Account\Register.cshtml" />
-    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\MyOrder\Index.cshtml" />
+    <Content Include="Views\Search\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
